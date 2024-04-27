@@ -4,7 +4,7 @@ import java.util.*;
 public class Admin extends User{
 
 	private List<User> Users;
-	private List<Stock> Stocks;
+	private List<Stock> Stocks; 
 
 	
 	Admin(String username , String password, int id, double accountbalance,boolean isAdmin)
