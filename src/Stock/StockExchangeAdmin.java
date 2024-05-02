@@ -2,9 +2,9 @@ package Stock;
 
 import java.util.*;
 
-public class StockExchangeAdmin extends User {
+public class StockExchangeAdmin extends Person {
 
-	private List<User> Users;
+	private List<Person> Users;
 	private List<Stock> Stocks;
 
 	StockExchangeAdmin(String username, String password, int id, double accountbalance, String gender,
@@ -20,7 +20,7 @@ public class StockExchangeAdmin extends User {
 
 	// create a user
 	// when the user want to create an account, The admin does that for him
-	public void createUser(User user) {
+	public void createUser(Person user) {
 		if (user != null) {
 			if (!Users.contains(user)) { // check thats its not already added before
 				Users.add(user);
@@ -49,8 +49,8 @@ public class StockExchangeAdmin extends User {
 	}
 
 	// retrieving user is to access a specific User
-	public User accessUser(int ID) {
-		for (User user : Users) {
+	public Person accessUser(int ID) {
+		for (Person user : Users) {
 			if (user.getID() == ID) {
 				return user; // return a new User object
 			}
@@ -60,9 +60,9 @@ public class StockExchangeAdmin extends User {
 	}
 
 	// Updating user data
-	public void updateUser(User updatedUser) { // updated user with new data to be updated
+	public void updateUser(Person updatedUser) { // updated user with new data to be updated
 		boolean userFound = false;
-		for (User user : Users) {
+		for (Person user : Users) {
 			if (user.getID() == updatedUser.getID()) // this guarantees that user will not be updated if it has an
 														// invalid ID
 			{

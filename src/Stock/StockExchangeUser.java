@@ -1,6 +1,6 @@
 package Stock;
 
-public class StockExchangeUser extends User {
+public class StockExchangeUser extends Person {
 
     private boolean isAdminApproved;
 
@@ -16,6 +16,8 @@ public class StockExchangeUser extends User {
     public void setAdminApproved(boolean isAdminApproved) {
         this.isAdminApproved = isAdminApproved;
     }
+
+//3- Deposit and Withdrawal
 
     public void depositFunds(double amount) {
         // Add logic to deposit funds

@@ -1,6 +1,6 @@
 package Stock;
 
-public class User {
+public class Person {
 
 	private String username;
 	private String password;
@@ -9,10 +9,10 @@ public class User {
 	private String gender;
 	// private boolean isAdmin;
 
-	public User() {
+	public Person() {
 	}
 
-	public User(String username, String password, int ID, double accountbalance, String gender) {
+	public Person(String username, String password, int ID, double accountbalance, String gender) {
 		this.username = username;
 		this.password = password;
 		this.accountbalance = accountbalance;
