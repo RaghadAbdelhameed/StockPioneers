@@ -2,12 +2,13 @@ package Stock;
 
 import java.util.*;
 
-public class Admin extends User {
+public class StockExchangeAdmin extends User {
 
 	private List<User> Users;
 	private List<Stock> Stocks;
 
-	Admin(String username, String password, int id, double accountbalance, String gender, boolean isAdmin) {
+	StockExchangeAdmin(String username, String password, int id, double accountbalance, String gender,
+			boolean isAdmin) {
 		super(username, password, id, accountbalance, gender);
 		this.Users = new ArrayList<>();
 		this.Stocks = new ArrayList<>();
