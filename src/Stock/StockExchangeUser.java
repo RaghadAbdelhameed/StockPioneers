@@ -6,7 +6,7 @@ public class StockExchangeUser extends Person {
 
     public StockExchangeUser(String username, String password, int ID, double accountbalance, String gender) {
         super(username, password, ID, accountbalance, gender);
-        this.isAdminApproved = false; // User is not approved by default
+        this.isAdminApproved = false; // Admin doesnot approved by default
     }
 
     public boolean isAdminApproved() {
@@ -17,7 +17,18 @@ public class StockExchangeUser extends Person {
         this.isAdminApproved = isAdminApproved;
     }
 
-//3- Deposit and Withdrawal
+    // 1- User Creation
+
+    public void printUserInfo() {
+        System.out.println("User Information:");
+        System.out.println("Username: " + getUserName());
+        System.out.println("Password: " + getPassword());
+        System.out.println("ID: " + getID());
+        System.out.println("Account Balance: " + getAccountBalance());
+        System.out.println("Gender: " + getGender());
+    }
+
+    // 3- Deposit and Withdrawal
 
     public void depositFunds(double amount) {
         // Add logic to deposit funds
