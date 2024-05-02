@@ -9,8 +9,8 @@ public class Stock {
     private int availableStocks;
     private double profitPercentage;
 
-
-    public Stock(String label, String company, double initialPrice, double tradingPrice, double dividends, int availableStocks , double profitPercentage) {
+    public Stock(String label, String company, double initialPrice, double tradingPrice, double dividends,
+            int availableStocks, double profitPercentage) {
         this.label = label;
         this.company = company;
         this.initialPrice = initialPrice;
@@ -52,7 +52,7 @@ public class Stock {
     public void setDividends(double dividends) {
         this.dividends = dividends;
     }
-    
+
     public double getTradingPrice() {
         return tradingPrice;
     }
@@ -68,7 +68,7 @@ public class Stock {
     public void setAvailableStocks(int availableStocks) {
         this.availableStocks = availableStocks;
     }
-    
+
     public double getProfitPercentage() {
         return profitPercentage;
     }
@@ -76,5 +76,5 @@ public class Stock {
     public void setProfitPercentage(double profitPercentage) {
         this.profitPercentage = profitPercentage;
     }
-    
+
 }

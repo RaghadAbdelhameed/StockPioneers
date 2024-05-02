@@ -12,7 +12,7 @@ public class User {
 	public User() {
 	}
 
-	public User(String username, String password, int ID, double accountbalance,String gender) {
+	public User(String username, String password, int ID, double accountbalance, String gender) {
 		this.username = username;
 		this.password = password;
 		this.accountbalance = accountbalance;

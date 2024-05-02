@@ -1,16 +1,19 @@
 package Stock;
+
 import java.time.LocalDateTime; // for transaction date
 
-enum Operation{sell , buy}; // transaction type
+enum Operation {
+    sell, buy
+}; // transaction type
 
 public class Transactions {
-	private int userID;
-	private String stockLabel;
-	private Operation opType;
-	private int quantity;
-	private double price;
-	private LocalDateTime time; // record transaction time
-	
+    private int userID;
+    private String stockLabel;
+    private Operation opType;
+    private int quantity;
+    private double price;
+    private LocalDateTime time; // record transaction time
+
     public Transactions(int userID, String stockLabel, Operation opType, int quantity, double price) {
         this.userID = userID;
         this.stockLabel = stockLabel;
@@ -19,8 +22,7 @@ public class Transactions {
         this.price = price;
         this.time = LocalDateTime.now(); // Set current timing
     }
-	
-	
+
     public int getUserId() {
         return userID;
     }
@@ -68,6 +70,5 @@ public class Transactions {
     public void setTime(LocalDateTime time) {
         this.time = time;
     }
-    
-    
+
 }
