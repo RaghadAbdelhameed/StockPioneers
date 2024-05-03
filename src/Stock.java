@@ -1,4 +1,3 @@
-package Stock;
 
 public class Stock {
     private String label;
