@@ -1,5 +1,7 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
@@ -10,6 +12,14 @@
         "d:\\openjfx-22.0.1_windows-x64_bin-sdk\\javafx-sdk-22.0.1\\lib\\javafx.media.jar",
         "d:\\openjfx-22.0.1_windows-x64_bin-sdk\\javafx-sdk-22.0.1\\lib\\javafx.swing.jar",
         "d:\\openjfx-22.0.1_windows-x64_bin-sdk\\javafx-sdk-22.0.1\\lib\\javafx.web.jar",
-        "d:\\openjfx-22.0.1_windows-x64_bin-sdk\\javafx-sdk-22.0.1\\lib\\javafx-swt.jar"
+        "d:\\openjfx-22.0.1_windows-x64_bin-sdk\\javafx-sdk-22.0.1\\lib\\javafx-swt.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx.base.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx.controls.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx.fxml.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx.graphics.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx.media.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx.swing.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx.web.jar",
+        "src/data/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib/javafx-swt.jar"
     ]
 }
