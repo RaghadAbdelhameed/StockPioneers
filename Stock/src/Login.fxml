@@ -35,7 +35,7 @@
          </font></Label>
       <ImageView fitHeight="457.0" fitWidth="362.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@image.jpeg" />
+            <Image url="@LoginImage.jpeg" />
          </image>
       </ImageView>
       <Label layoutX="60.0" layoutY="345.0" text="Welcome to StockPoineers!!" textFill="#fafafa">

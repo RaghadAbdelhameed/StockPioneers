@@ -65,7 +65,7 @@ public class Admin extends User {
 				user.setUserName(updatedUser.getUserName());
 				user.setPassword(updatedUser.getPassword());
 				user.setAccountBalance(updatedUser.getAccountBalance());
-				System.out.println(" Stock updated successfully ");
+				System.out.println(" User updated successfully ");
 				userFound = true;
 				break;
 			}
