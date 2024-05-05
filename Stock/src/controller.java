@@ -33,6 +33,7 @@ public class controller {
 
     @FXML
     void backButtonClicked() {
+        System.out.println("Going Back to Login Form...");
         loadLoginUI();
     }
 
