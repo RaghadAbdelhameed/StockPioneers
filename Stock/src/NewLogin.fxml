@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="444.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
    <children>
       <ImageView fitHeight="650.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
@@ -15,7 +14,7 @@
             <Image url="@LoginTemplet.png" />
          </image>
       </ImageView>
-      <Label layoutX="168.0" layoutY="323.0" text="Login As:" textFill="#09090b">
+      <Label layoutX="155.0" layoutY="323.0" text="Who are you?" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI Bold" size="16.0" />
          </font>
