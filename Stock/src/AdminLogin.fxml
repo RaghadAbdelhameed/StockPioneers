@@ -21,7 +21,7 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="110.0" text="Welcome back!!" textFill="#09090b">
+      <Label layoutX="173.0" layoutY="145.0" text="Welcome back!!" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="26.0" />
          </font>
@@ -31,19 +31,19 @@
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="174.0" layoutY="163.0" text="Username" textFill="#09090b">
+      <Label layoutX="174.0" layoutY="191.0" text="Username" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameField" layoutX="174.0" layoutY="193.0" onAction="#handleUsernamInput" prefHeight="32.0" prefWidth="206.0" promptText="username" />
-      <Label layoutX="175.0" layoutY="240.0" text="Password" textFill="#09090b">
+      <TextField fx:id="usernameField" layoutX="174.0" layoutY="221.0" onAction="#handleUsernamInput" prefHeight="32.0" prefWidth="206.0" promptText="username" />
+      <Label layoutX="175.0" layoutY="267.0" text="Password" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="175.0" layoutY="267.0" onAction="#handlePasswordInput" prefHeight="32.0" prefWidth="206.0" promptText="password" />
-      <Button fx:id="loginButton" layoutX="235.0" layoutY="318.0" mnemonicParsing="false" onAction="#loginButtonClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
+      <PasswordField fx:id="passwordField" layoutX="175.0" layoutY="295.0" onAction="#handlePasswordInput" prefHeight="32.0" prefWidth="206.0" promptText="password" />
+      <Button fx:id="loginButton" layoutX="235.0" layoutY="343.0" mnemonicParsing="false" onAction="#loginButtonClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>

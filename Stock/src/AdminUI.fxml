@@ -19,37 +19,37 @@
                 <Font name="Microsoft YaHei UI Bold" size="24.0" />
             </font>
         </Label>
-        <Label layoutX="159.0" layoutY="80.0" text="What do you want to do?" textFill="#09090b">
+        <Label layoutX="159.0" layoutY="104.0" text="What do you want to do?" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="20.0" />
             </font>
         </Label>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="213.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Order" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="231.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Order" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="168.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Mangement" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="186.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Mangement" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="258.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Approval System" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Approval System" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="303.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="323.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="172.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Trading Session Control" textFill="#09090b">
+        <Button layoutX="172.0" layoutY="369.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Trading Session Control" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="123.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="User Mangement " textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="141.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="User Mangement " textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
