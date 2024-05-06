@@ -16,6 +16,7 @@ public class Main extends Application {
         primaryStage.setTitle("Login Page");
         primaryStage.setScene(new Scene(root, 850, 444));
         primaryStage.setFullScreen(false);
+        primaryStage.setResizable(false); // Set resizable to false
         primaryStage.setOnCloseRequest(event -> {
             event.consume(); // Consume the event to prevent the window from closing directly
 

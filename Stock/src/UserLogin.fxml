@@ -54,7 +54,7 @@
             <Font name="Microsoft YaHei UI" size="12.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="signupLink" layoutX="630.0" layoutY="348.0" text="Signup">
+      <Hyperlink fx:id="signupLink" layoutX="630.0" layoutY="348.0" onAction="#handleSignupClicked" text="Signup">
          <font>
             <Font name="Microsoft YaHei UI" size="12.0" />
          </font>
