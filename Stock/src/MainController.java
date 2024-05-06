@@ -53,6 +53,12 @@ public class MainController {
     private DatePicker birthPicker;
 
     @FXML
+    private Button loginUserButton;
+
+    @FXML
+    private Button logoutUserButton;
+
+    @FXML
     private ComboBox<String> genderCombobox;
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -140,6 +146,34 @@ public class MainController {
     @FXML
     void handleSignupClicked(ActionEvent event) {
         loadFXML("UserSignup.fxml", signupLink, "User Signup");
+
+    }
+
+    @FXML
+    void loginUserClicked(ActionEvent event) {
+        loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
+    }
+
+    @FXML
+    void logoutUserClicked(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure that you want to Logout?");
+
+        // Customize the buttons
+        ButtonType yesButton = new ButtonType("Yes");
+        ButtonType noButton = new ButtonType("No");
+
+        alert.getButtonTypes().setAll(yesButton, noButton);
+
+        // Show the alert and wait for user response
+        Optional<ButtonType> result = alert.showAndWait();
+
+        // Check which button the user clicked
+        if (result.isPresent() && result.get() == yesButton) {
+            loadFXML("UserLogin.fxml", logoutUserButton, "User Login");
+        }
     }
 
     private void loadFXML(String fxmlFileName, Hyperlink link, String title) {

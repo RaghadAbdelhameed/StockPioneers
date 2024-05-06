@@ -45,7 +45,7 @@
          </font>
       </Label>
       <PasswordField fx:id="passwordField" layoutX="473.0" layoutY="250.0" onAction="#handlePasswordInput" prefHeight="26.0" prefWidth="238.0" promptText="password" />
-      <Button fx:id="loginUserButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
+      <Button fx:id="loginUserButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" onAction="#loginUserClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>

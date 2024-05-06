@@ -7,12 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0"
-    prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21"
-    xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
     <children>
-        <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0"
-            pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@AdminTemplet.png" />
             </image>
@@ -27,50 +24,37 @@
                 <Font name="Microsoft YaHei UI" size="20.0" />
             </font>
         </Label>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="231.0" mnemonicParsing="false"
-            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
-            text="Stock Order" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="231.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Order" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="186.0" mnemonicParsing="false"
-            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
-            text="Stock Mangement" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="186.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Mangement" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="277.0" mnemonicParsing="false"
-            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
-            text="Approval System" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Approval System" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="323.0" mnemonicParsing="false"
-            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
-            text="Price History" textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="323.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="172.0" layoutY="369.0" mnemonicParsing="false" prefHeight="38.0"
-            prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Trading Session Control"
-            textFill="#09090b">
+        <Button layoutX="172.0" layoutY="369.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Trading Session Control" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="141.0" mnemonicParsing="false"
-            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
-            text="User Mangement " textFill="#09090b">
+        <Button alignment="CENTER" layoutX="172.0" layoutY="141.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="User Mangement " textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button fx:id="logoutButton" layoutX="772.0" layoutY="8.0" mnemonicParsing="false"
-            onAction="#logoutButtonClicked" prefHeight="27.0" prefWidth="75.0" text="Logout">
+        <Button fx:id="logoutButton" layoutX="756.0" layoutY="21.0" mnemonicParsing="false" onAction="#logoutButtonClicked" prefHeight="32.0" prefWidth="80.0" text="Logout">
             <font>
                 <Font name="Microsoft YaHei UI" size="14.0" />
             </font>
