@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
 
-public class controller {
+public class MainController {
 
     @FXML
     private Button adminButton;
@@ -29,6 +29,12 @@ public class controller {
 
     @FXML
     private Button logoutButton;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private TextField usernameField;
 
     @FXML
     void logoutButtonClicked(ActionEvent event) {
@@ -49,22 +55,14 @@ public class controller {
 
         // Check which button the user clicked
         if (result.isPresent() && result.get() == yesButton) {
-
-            returnAdminLogin();
-
+            loadFXML("AdminLogin.fxml", logoutButton, "Admin Login");
         }
     }
 
     @FXML
-    private PasswordField passwordField;
-
-    @FXML
-    private TextField usernameField;
-
-    @FXML
     void handlePasswordInput(ActionEvent event) {
         String password = passwordField.getText();
-        System.out.println("Username entered: " + password);
+        System.out.println("Password entered: " + password);
     }
 
     @FXML
@@ -75,83 +73,35 @@ public class controller {
 
     @FXML
     void loginButtonClicked(ActionEvent event) {
-        loadAdminUI();
+        loadFXML("AdminUI.fxml", loginButton, "Admin Dashboard");
     }
 
     @FXML
     void adminButtonClicked() {
         // Handle admin button click
         System.out.println("Logging in as Admin.... ");
-        loadAdminLogin();
+        loadFXML("AdminLogin.fxml", adminButton, "Admin Login");
     }
 
     @FXML
     void userButtonClicked() {
         // Handle user button click
         System.out.println("Logging in as User.... ");
-        loadUserLogin();
+        loadFXML("UserLogin.fxml", userButton, "User Login");
     }
 
     @FXML
     void backButtonClicked() {
         System.out.println("Going Back to Login Page...");
-        loadLogin();
+        loadFXML("NewLogin.fxml", backButton, "Login Page");
     }
 
-    private void loadAdminLogin() {
+    private void loadFXML(String fxmlFileName, Button button, String title) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
-            Stage stage = (Stage) adminButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlFileName));
+            Stage stage = (Stage) button.getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Admin Login");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadUserLogin() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("UserLogin.fxml"));
-            Stage stage = (Stage) userButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("User Login");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void returnAdminLogin() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
-            Stage stage = (Stage) logoutButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Admin Login");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadAdminUI() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("AdminUI.fxml"));
-            Stage stage = (Stage) loginButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Admin Dashboard");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadLogin() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("NewLogin.fxml"));
-            Stage stage = (Stage) backButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Login Page");
+            stage.setTitle(title);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

@@ -2,30 +2,78 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminUIController">
-   <children>
-      <Label layoutX="248.0" layoutY="44.0" text="Admin Dashboard" textFill="#3498db">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <Button layoutX="41.0" layoutY="116.0" mnemonicParsing="false" onAction="#createUserClicked"
-         text="Create User" />
-      <Button layoutX="41.0" layoutY="165.0" mnemonicParsing="false" onAction="#deleteUserClicked"
-         text="Delete User" />
-      <Button layoutX="41.0" layoutY="214.0" mnemonicParsing="false" onAction="#createStockClicked"
-         text="Create Stock" />
-      <Button layoutX="41.0" layoutY="263.0" mnemonicParsing="false" onAction="#deleteStockClicked"
-         text="Delete Stock" />
-      <Button layoutX="41.0" layoutY="312.0" mnemonicParsing="false"
-         onAction="#approveDepositClicked" text="Approve Deposit" />
-      <Button layoutX="41.0" layoutY="361.0" mnemonicParsing="false"
-         onAction="#approveWithdrawalClicked" text="Approve Withdrawal" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0"
+    prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+    <children>
+        <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0"
+            pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@AdminTemplet.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="315.0" layoutY="21.0" text="Admin Dashboard" textFill="#0a64b8">
+            <font>
+                <Font name="Microsoft YaHei UI Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="159.0" layoutY="104.0" text="What do you want to do?" textFill="#09090b">
+            <font>
+                <Font name="Microsoft YaHei UI" size="20.0" />
+            </font>
+        </Label>
+        <Button alignment="CENTER" layoutX="172.0" layoutY="231.0" mnemonicParsing="false"
+            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
+            text="Stock Order" textFill="#09090b">
+            <font>
+                <Font name="Microsoft YaHei UI" size="16.0" />
+            </font>
+        </Button>
+        <Button alignment="CENTER" layoutX="172.0" layoutY="186.0" mnemonicParsing="false"
+            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
+            text="Stock Mangement" textFill="#09090b">
+            <font>
+                <Font name="Microsoft YaHei UI" size="16.0" />
+            </font>
+        </Button>
+        <Button alignment="CENTER" layoutX="172.0" layoutY="277.0" mnemonicParsing="false"
+            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
+            text="Approval System" textFill="#09090b">
+            <font>
+                <Font name="Microsoft YaHei UI" size="16.0" />
+            </font>
+        </Button>
+        <Button alignment="CENTER" layoutX="172.0" layoutY="323.0" mnemonicParsing="false"
+            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
+            text="Price History" textFill="#09090b">
+            <font>
+                <Font name="Microsoft YaHei UI" size="16.0" />
+            </font>
+        </Button>
+        <Button layoutX="172.0" layoutY="369.0" mnemonicParsing="false" prefHeight="38.0"
+            prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Trading Session Control"
+            textFill="#09090b">
+            <font>
+                <Font name="Microsoft YaHei UI" size="16.0" />
+            </font>
+        </Button>
+        <Button alignment="CENTER" layoutX="172.0" layoutY="141.0" mnemonicParsing="false"
+            prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;"
+            text="User Mangement " textFill="#09090b">
+            <font>
+                <Font name="Microsoft YaHei UI" size="16.0" />
+            </font>
+        </Button>
+        <Button fx:id="logoutButton" layoutX="772.0" layoutY="8.0" mnemonicParsing="false"
+            onAction="#logoutButtonClicked" prefHeight="27.0" prefWidth="75.0" text="Logout">
+            <font>
+                <Font name="Microsoft YaHei UI" size="14.0" />
+            </font>
+        </Button>
+    </children>
 </AnchorPane>
