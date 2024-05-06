@@ -55,7 +55,7 @@ public class controller {
         // Check which button the user clicked
         if (result.isPresent() && result.get() == yesButton) {
 
-            loadAdminLogin();
+            returnAdminLogin();
 
         }
     }
@@ -106,6 +106,18 @@ public class controller {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
             Stage stage = (Stage) adminButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Admin Login");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void returnAdminLogin() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
+            Stage stage = (Stage) logoutButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Admin Login");
             stage.show();
