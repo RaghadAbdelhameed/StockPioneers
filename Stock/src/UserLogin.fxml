@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+   <children>
+      <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@UserTemplet.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="360.0" layoutY="24.0" text="User Login" textFill="#0a64b8">
+         <font>
+            <Font name="Microsoft YaHei UI Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="434.0" layoutY="130.0" text="Welcome back!!" textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="13.0" layoutY="11.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back">
+         <font>
+            <Font name="Microsoft YaHei UI" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="489.0" layoutY="178.0" text="Username" textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameField" layoutX="489.0" layoutY="208.0" onAction="#handleUsernamInput" prefHeight="32.0" prefWidth="206.0" promptText="username" />
+      <Label layoutX="489.0" layoutY="248.0" text="Password" textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="18.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordField" layoutX="489.0" layoutY="274.0" onAction="#handlePasswordInput" prefHeight="32.0" prefWidth="206.0" promptText="password" />
+      <Button fx:id="loginButton" layoutX="549.0" layoutY="314.0" mnemonicParsing="false" onAction="#loginButtonClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei UI" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="496.0" layoutY="351.0" text="Don't have an account?" textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="12.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="signupLink" layoutX="630.0" layoutY="350.0" text="Signup">
+         <font>
+            <Font name="Microsoft YaHei UI" size="12.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

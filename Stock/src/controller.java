@@ -32,11 +32,6 @@ public class controller {
 
     @FXML
     void logoutButtonClicked(ActionEvent event) {
-        if (adminButton == null) {
-            // Attempt to initialize adminButton
-            adminButton = new Button();
-            adminButton.setId("adminButton"); // Set button ID if needed
-        }
         // Create a confirmation alert
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout Confirmation");
@@ -94,6 +89,7 @@ public class controller {
     void userButtonClicked() {
         // Handle user button click
         System.out.println("Logging in as User.... ");
+        loadUserLogin();
     }
 
     @FXML
@@ -108,6 +104,18 @@ public class controller {
             Stage stage = (Stage) adminButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Admin Login");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadUserLogin() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("UserLogin.fxml"));
+            Stage stage = (Stage) userButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("User Login");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
