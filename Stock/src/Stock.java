@@ -1,23 +1,27 @@
+//package Stock;
+import java.util.*;
 
-public class Stock {
-    private String label;
+public class Stock extends Security {
+    private String label; // stock label
     private String company;
     private double initialPrice;
+    private double finalPrice;
     private double tradingPrice;
     private double dividends;
     private int availableStocks;
     private double profitPercentage;
+    private List<StockPrice> priceHistory; // Store historical price data
 
-    public Stock(String label, String company, double initialPrice, double tradingPrice, double dividends,
-            int availableStocks, double profitPercentage) {
-        this.label = label;
+
+    public Stock(String label, String company, double initialPrice, double tradingPrice, double dividends, int availableStocks , double profitPercentage) {
+       super();
+    	this.label = label;
         this.company = company;
         this.initialPrice = initialPrice;
         this.tradingPrice = tradingPrice; // Initially set current price to initial price
         this.dividends = dividends;
         this.availableStocks = availableStocks;
         this.profitPercentage = profitPercentage;
-
     }
 
     public String getLabel() {
@@ -51,7 +55,7 @@ public class Stock {
     public void setDividends(double dividends) {
         this.dividends = dividends;
     }
-
+    
     public double getTradingPrice() {
         return tradingPrice;
     }
@@ -67,7 +71,7 @@ public class Stock {
     public void setAvailableStocks(int availableStocks) {
         this.availableStocks = availableStocks;
     }
-
+    
     public double getProfitPercentage() {
         return profitPercentage;
     }
@@ -75,5 +79,30 @@ public class Stock {
     public void setProfitPercentage(double profitPercentage) {
         this.profitPercentage = profitPercentage;
     }
+    
+    public double  calcProfitLossPercentage() {
+    	if(priceHistory.isEmpty()){
+    		return 0;
+    	}
+         initialPrice = priceHistory.get(0).getPrice(); // Get initial price
+         finalPrice = priceHistory.get(priceHistory.size() - 1).getPrice(); // Get final price
+        return ((finalPrice - initialPrice) / initialPrice) * 100; // get the profit or loss percentage
+    	
+    }
+    
+    
+    
+    @Override
+    public double getCurrentPrice() {
+    	return tradingPrice;
+    }
+    
+    @Override
+    public void placeOrder(Transaction transaction) {
+        // Implement place order logic for stock transactions
+    }
 
+    
+    
+    
 }
