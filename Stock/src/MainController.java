@@ -59,6 +59,12 @@ public class MainController {
     private Button logoutUserButton;
 
     @FXML
+    private Button userManageButton;
+
+    @FXML
+    private Button createUserButton;
+
+    @FXML
     private ComboBox<String> genderCombobox;
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -144,6 +150,17 @@ public class MainController {
     }
 
     @FXML
+    void userManageClicked(ActionEvent event) {
+        loadFXML("UserManage.fxml", userManageButton, "User Management");
+
+    }
+
+    @FXML
+    void createUserClicked(ActionEvent event) {
+        loadFXML("CreateUser.fxm", createUserButton, "Create User");
+    }
+
+    @FXML
     void handleSignupClicked(ActionEvent event) {
         loadFXML("UserSignup.fxml", signupLink, "User Signup");
 
@@ -174,6 +191,58 @@ public class MainController {
         if (result.isPresent() && result.get() == yesButton) {
             loadFXML("UserLogin.fxml", logoutUserButton, "User Login");
         }
+    }
+
+    // Create User
+    @FXML
+    private TextField cUEmailField;
+
+    @FXML
+    private PasswordField cUPasswordField;
+
+    @FXML
+    private Button cUSaveButton;
+
+    @FXML
+    private TextField cUUsernameField;
+
+    @FXML
+    private TextField cUUsernameField1;
+
+    @FXML
+    private ChoiceBox<?> cUgender;
+
+    @FXML
+    private TextField cUid;
+
+    @FXML
+    void CUsaveClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handlCUUsernamInput(ActionEvent event) {
+            
+    }
+
+    @FXML
+    void handleCUEmailInput(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleCUPasswordInput(ActionEvent event) {
+           
+    }
+
+    @FXML
+    void handleCUUsernamInput(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleCUidInput(ActionEvent event) {
+
     }
 
     private void loadFXML(String fxmlFileName, Hyperlink link, String title) {
