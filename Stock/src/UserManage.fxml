@@ -24,7 +24,7 @@
             <Font name="Microsoft YaHei UI" size="20.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="172.0" layoutY="268.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Update User" textFill="#09090b">
+      <Button fx:id="updateUserButton" alignment="CENTER" layoutX="172.0" layoutY="268.0" mnemonicParsing="false" onAction="#updateUserClicked" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Update User" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>

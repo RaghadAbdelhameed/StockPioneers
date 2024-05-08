@@ -6,9 +6,19 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "StockPioneers_207b1d53",
+            "vmArgs": "--module-path \"G:/New folder (3)/javafx-sdk-22.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "${file}",
+            "vmArgs": "--module-path \"G:/New folder (3)/javafx-sdk-22.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -16,7 +26,7 @@
             "request": "launch",
             "mainClass": "App",
             "projectName": "StockPioneers_7bc583b6",
-            "vmArgs": "--module-path \"D:/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"G:/New folder (3)/javafx-sdk-22.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",

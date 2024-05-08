@@ -11,6 +11,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -63,6 +64,9 @@ public class MainController {
 
     @FXML
     private Button createUserButton;
+
+    @FXML
+    private Button updateUserButton;
 
     @FXML
     private ComboBox<String> genderCombobox;
@@ -157,7 +161,12 @@ public class MainController {
 
     @FXML
     void createUserClicked(ActionEvent event) {
-        loadFXML("CreateUser.fxm", createUserButton, "Create User");
+        loadFXML("CreateUser.fxml", createUserButton, "Create User");
+    }
+
+    @FXML
+    void updateUserClicked(ActionEvent event) {
+        loadFXML("UpdateUser.fxml", updateUserButton, "Update User");
     }
 
     @FXML
@@ -194,56 +203,135 @@ public class MainController {
     }
 
     // Create User
-    @FXML
-    private TextField cUEmailField;
 
     @FXML
-    private PasswordField cUPasswordField;
+    private TextField createUsernamefiled;
 
     @FXML
-    private Button cUSaveButton;
+    private PasswordField createPasswordfiled;
 
     @FXML
-    private TextField cUUsernameField;
+    private TextField createAccountBalancefiled;
 
     @FXML
-    private TextField cUUsernameField1;
+    private TextField createIDfiled;
 
     @FXML
-    private ChoiceBox<?> cUgender;
+    private ChoiceBox<?> createGenderBox;
 
     @FXML
-    private TextField cUid;
+    private Button saveCreateButton;
 
     @FXML
-    void CUsaveClicked(ActionEvent event) {
+    void handleCreateUsernameInput(ActionEvent event) {
 
     }
 
     @FXML
-    void handlCUUsernamInput(ActionEvent event) {
-            
-    }
-
-    @FXML
-    void handleCUEmailInput(ActionEvent event) {
+    void handleCreatePasswordInput(ActionEvent event) {
 
     }
 
     @FXML
-    void handleCUPasswordInput(ActionEvent event) {
-           
-    }
-
-    @FXML
-    void handleCUUsernamInput(ActionEvent event) {
+    void handleCreateAccountBalanceInput(ActionEvent event) {
 
     }
 
     @FXML
-    void handleCUidInput(ActionEvent event) {
+    void handleCreateIDInput(ActionEvent event) {
 
     }
+
+    @FXML
+    void saveCreateClicked(ActionEvent event) {
+    }
+
+    // Update User
+    private Admin admin; // Admin instance to interact with business logic
+    private User currentUser; // User object for creating or updating users
+
+    public void setUser(User user) {
+        this.currentUser = user; // Reference to the Admin instance
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin; // Reference to the Admin instance
+    }
+
+    @FXML
+    private TextField UpdateAccountBalancefield;
+
+    @FXML
+    private TextField UpdateIDfield;
+
+    @FXML
+    private PasswordField UpdatePasswordfield;
+
+    @FXML
+    private TextField UpdateUsernsamefield;
+
+    @FXML
+    private Button saveUpdateButton;
+
+    @FXML
+    void handleUpdateAccountBalanceInput(ActionEvent event) {
+        try {
+            double accountbalance = Double.parseDouble(UpdateAccountBalancefield.getText());
+            currentUser.setAccountBalance(accountbalance);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid account balance format.");
+        }
+    }
+
+    @FXML
+    void handleUpdateIDInput(ActionEvent event) {
+        try {
+            int id = Integer.parseInt(UpdateIDfield.getText());
+            currentUser.setID(id);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid ID format.");
+        }
+    }
+
+    @FXML
+    void handleUpdatePasswordInput(ActionEvent event) {
+        String password = UpdatePasswordfield.getText();
+        currentUser.setPassword(password); // Assuming a setPassword method in User
+    }
+
+    @FXML
+    void handleUpdateUsernameInput(ActionEvent event) {
+        String username = UpdateUsernsamefield.getText();
+        currentUser.setUserName(username);
+    }
+
+    // @FXML
+    // void handleCUEmailInput(ActionEvent event) {
+    // String email = cUEmailField.getText();
+    // currentUser.setEmail(email); // Assuming a setEmail method in User
+    // }
+
+    @FXML
+    void saveUpdateClicked(ActionEvent event) {
+        if (currentUser != null) {
+            admin.updateUser(currentUser);
+        }
+    }
+
+    // @FXML
+    // void saveUpdateClicked(ActionEvent event, Labeled UpdateIDField) {
+    // String username = UpdateIDField.getText();
+    // String password = passwordField.getText();
+    // double accountBalance =
+    // Double.parseDouble(UpdateAccountBalancefield.getText());
+    // int id = Integer.parseInt(UpdateIDField.getText());
+    // gender gender = currentUser.gender();
+    // // Create a new User object with the updated information
+    // User updatedUser = new User(username, password, id, accountBalance, gender);
+    // // abstract
+    // // Call the updateUser method of the Admin class
+    // admin.updateUser(updatedUser);
+    // }
 
     private void loadFXML(String fxmlFileName, Hyperlink link, String title) {
         try {
