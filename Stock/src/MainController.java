@@ -79,9 +79,10 @@ public class MainController {
     @FXML
     void handleEmailInput() {
         String email = emailField.getText();
-        if (!email.endsWith("@gmail.com")) {
+        if (!email.endsWith("@gmail.com") && !email.endsWith("@yahoo.com") && !email.endsWith("@hotmail.com")
+                && !email.endsWith("@outlook.com")) {
             emailField.setText("");
-            showAlert("Invalid Email", "Email should end with @gmail.com");
+            showAlert("Invalid Email", "Email should end with @example.com");
         }
     }
 
