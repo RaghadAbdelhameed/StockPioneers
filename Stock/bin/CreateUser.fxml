@@ -27,14 +27,14 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="createUsernamefiled" layoutX="473.0" layoutY="148.0" onAction="#handleCreateUsernameInput" prefHeight="26.0" prefWidth="238.0" promptText="username" />
+      <TextField fx:id="createUsernamefiled" layoutX="473.0" layoutY="148.0" prefHeight="26.0" prefWidth="238.0" promptText="username" />
       <Label layoutX="473.0" layoutY="178.0" text="Password" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <PasswordField fx:id="createPasswordfiled" layoutX="473.0" layoutY="200.0" onAction="#handleCreatePasswordInput" prefHeight="26.0" prefWidth="238.0" promptText="password" />
-      <Button fx:id="saveCreateButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveCreateClicked" style="-fx-background-color: #093fff;" text="Save" textFill="WHITE">
+      <PasswordField fx:id="createPasswordfiled" layoutX="473.0" layoutY="200.0" prefHeight="26.0" prefWidth="238.0" promptText="password" />
+      <Button fx:id="saveCreateButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" style="-fx-background-color: #093fff;" text="Save" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
@@ -60,8 +60,8 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="createAccountBalancefiled" layoutX="473.0" layoutY="252.0" onAction="#handleCreateAccountBalanceInput" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
+      <TextField fx:id="createAccountBalancefiled" layoutX="473.0" layoutY="252.0" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
       <ChoiceBox fx:id="createGenderBox" layoutX="473.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
-      <TextField fx:id="createIDfiled" layoutX="473.0" layoutY="304.0" onAction="#handleCreateIDInput" prefHeight="26.0" prefWidth="238.0" promptText="id" />
+      <TextField fx:id="createIDfiled" layoutX="473.0" layoutY="304.0" prefHeight="26.0" prefWidth="238.0" promptText="id" />
    </children>
 </AnchorPane>
