@@ -234,7 +234,6 @@ public class MainController  {
     @FXML
     void handleSignupClicked(ActionEvent event) {
         loadFXML("UserSignup.fxml", signupLink, "User Signup");
-
     }
 
 
@@ -243,8 +242,8 @@ public class MainController  {
     @FXML
     private TextField emailField;
 
-    @FXML
-    private DatePicker birthPicker;
+    // @FXML
+    // private DatePicker birthPicker;
 
     @FXML
     private Button logoutUserButton;
