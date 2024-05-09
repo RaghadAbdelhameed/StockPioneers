@@ -13,7 +13,6 @@ public class RegularUser extends User {
 	   
 	    private Map<String, List<Transaction>> orderTransactions; // Map to store stock orders by stock label
 
-
 	   
 	    public RegularUser(String username, String password, int ID, double accountbalance, gender gender){
 	        super(username, password, ID, accountbalance, gender);

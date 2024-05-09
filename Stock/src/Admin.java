@@ -51,7 +51,7 @@ public class Admin extends User{
 					user.setUserName(updatedUser.getUserName());
 					//user.setPassword(updatedUser.getPassword());  illegal due to user privacy
 					user.setAccountBalance(updatedUser.getAccountBalance());
-					System.out.println(" Stock updated successfully ");
+					System.out.println(" User updated successfully ");
 					userFound = true;
 					break;
 				}	

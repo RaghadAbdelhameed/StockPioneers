@@ -34,7 +34,7 @@
          </font>
       </Label>
       <PasswordField fx:id="createPasswordfiled" layoutX="473.0" layoutY="200.0" prefHeight="26.0" prefWidth="238.0" promptText="password" />
-      <Button fx:id="saveCreateButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" style="-fx-background-color: #093fff;" text="Save" textFill="WHITE">
+      <Button fx:id="saveCreateButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveCreateClicked" style="-fx-background-color: #093fff;" text="Save" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>

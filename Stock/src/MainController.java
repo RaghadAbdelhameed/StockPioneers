@@ -21,8 +21,9 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController  {
 
+    // New Login
     @FXML
     private Button adminButton;
 
@@ -30,22 +31,214 @@ public class MainController {
     private Button userButton;
 
     @FXML
+    void adminButtonClicked() {
+        // Handle admin button click
+        System.out.println("Logging in as Admin.... ");
+        loadFXML("AdminLogin.fxml", adminButton, "Admin Login");
+    }
+
+    @FXML
+    void userButtonClicked() {
+        // Handle user button click
+        System.out.println("Logging in as User.... ");
+        loadFXML("UserLogin.fxml", userButton, "User Login");
+    }
+
+    // Admin Login
+    @FXML
+    private PasswordField adminPasswordField;
+
+    @FXML
+    private TextField adminUsernameField;
+
+    @FXML
     private Button backButton;
 
     @FXML
-    private Button loginButton;
+    private Button adminLoginButton;
 
     @FXML
-    private Button logoutButton;
+    void handleAdminPasswordInput(ActionEvent event) {
+        String password = adminPasswordField.getText();
+        System.out.println("Password entered: " + password);
+    }
 
+    @FXML
+    void handleAdminUsernamInput(ActionEvent event) {
+        String username = adminUsernameField.getText();
+        System.out.println("Username entered: " + username);
+    }
+
+    @FXML
+    void adminLoginButtonClicked(ActionEvent event) {
+        loadFXML("AdminUI.fxml", adminLoginButton, "Admin Dashboard");
+    }
+
+    @FXML
+    void backButtonClicked() {
+        System.out.println("Going Back to Login Page...");
+        loadFXML("NewLogin.fxml", backButton, "Login Page");
+    }
+
+    // Admin UI
+    @FXML
+    private Button adminLogoutButton;
+
+    @FXML
+    private Button userManageButton;
+
+    @FXML
+    void adminLogoutButtonClicked(ActionEvent event) {
+        // Create a confirmation alert
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure that you want to Logout?");
+
+        // Customize the buttons
+        ButtonType yesButton = new ButtonType("Yes");
+        ButtonType noButton = new ButtonType("No");
+
+        alert.getButtonTypes().setAll(yesButton, noButton);
+
+        // Show the alert and wait for user response
+        Optional<ButtonType> result = alert.showAndWait();
+
+        // Check which button the user clicked
+        if (result.isPresent() && result.get() == yesButton) {
+            loadFXML("AdminLogin.fxml", adminLogoutButton, "Admin Login");
+        }
+    }
+
+    @FXML
+    void userManageClicked(ActionEvent event) {
+        loadFXML("UserManage.fxml", userManageButton, "User Management");
+    }
+
+    // User Management
+    @FXML
+    private Button createUserButton;
+
+    @FXML
+    private Button updateUserButton;
+
+    @FXML
+    void createUserClicked(ActionEvent event) {
+        loadFXML("CreateUser.fxml", createUserButton, "Create User");
+    }
+
+    @FXML
+    void updateUserClicked(ActionEvent event) {
+        loadFXML("UpdateUser.fxml", updateUserButton, "Update User");
+    }
+
+    // Create User
+    private User user;
+    private RegularUser regularUser;
+
+    public MainController(){
+      //  regularUser = new RegularUser();
+    }
+
+    @FXML
+    private TextField createUsernamefiled;
+
+    @FXML
+    private PasswordField createPasswordfiled;
+
+    @FXML
+    private TextField createAccountBalancefiled;
+
+    @FXML
+    private TextField createIDfiled;
+
+    // @FXML
+    // private ChoiceBox<?> createGenderBox;
+
+    @FXML
+    private Button saveCreateButton;
+
+    @FXML
+    void saveCreateClicked(ActionEvent event) {
+            String username = createUsernamefiled.getText();
+            String password = createPasswordfiled.getText();
+            String id = createIDfiled.getText();
+           // String gender = createGenderBox.getValue(); // Assuming you've populated the choice box with appropriate values
+            String balance = createAccountBalancefiled.getText();
+            System.out.println(username+"  "+password+"  "+id+"  "+balance);
+            // User createUser = new RegularUser(username, password, id,
+            // balance,gender);
+            // // Call the updateUser method of the Admin class
+            // RegularUser.createUser(createUser);
+    
+}
+
+    // Update User
+    private Admin admin; // Admin instance to interact with business logic
+    private RegularUser currentUser; // User object for creating or updating users
+
+    public void setUser(RegularUser user) {
+        this.currentUser = user; // Reference to the Admin instance
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin; // Reference to the Admin instance
+    }
+
+    @FXML
+    private TextField UpdateAccountBalancefield;
+
+    @FXML
+    private TextField UpdateIDfield;
+
+    @FXML
+    private PasswordField UpdatePasswordfield;
+
+    @FXML
+    private TextField UpdateUsernsamefield;
+
+    @FXML
+    private Button updateButton;
+
+    @FXML
+    void updateClicked(ActionEvent event) {
+        {
+            String username = UpdateUsernsamefield.getText();
+            String password = UpdatePasswordfield.getText();
+            double accountBalance = Double.parseDouble(UpdateAccountBalancefield.getText());
+            int id = Integer.parseInt(UpdateIDfield.getText());
+            // gender gender = currentUser.gender();
+
+            System.out.println(username + "  " + password + "  " + accountBalance + "  " + id);
+            // Create a new User object with the updated information
+            // RegularUser updatedUser = new RegularUser(username, password, id,
+            // accountBalance,
+            // gender);
+            // // Call the updateUser method of the Admin class
+            // admin.updateUser(updatedUser);
+        }
+    }
+
+    // User Login
+    @FXML
+    private Button loginUserButton;
+    
     @FXML
     private Hyperlink signupLink;
 
     @FXML
-    private PasswordField passwordField;
-
+    void loginUserClicked(ActionEvent event) {
+        loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
+    }
+    
     @FXML
-    private TextField usernameField;
+    void handleSignupClicked(ActionEvent event) {
+        loadFXML("UserSignup.fxml", signupLink, "User Signup");
+
+    }
+
+
+   // Signup
 
     @FXML
     private TextField emailField;
@@ -54,19 +247,7 @@ public class MainController {
     private DatePicker birthPicker;
 
     @FXML
-    private Button loginUserButton;
-
-    @FXML
     private Button logoutUserButton;
-
-    @FXML
-    private Button userManageButton;
-
-    @FXML
-    private Button createUserButton;
-
-    @FXML
-    private Button updateUserButton;
 
     @FXML
     private ComboBox<String> genderCombobox;
@@ -94,92 +275,7 @@ public class MainController {
         alert.showAndWait();
     }
 
-    @FXML
-    void logoutButtonClicked(ActionEvent event) {
-        // Create a confirmation alert
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Are you sure that you want to Logout?");
 
-        // Customize the buttons
-        ButtonType yesButton = new ButtonType("Yes");
-        ButtonType noButton = new ButtonType("No");
-
-        alert.getButtonTypes().setAll(yesButton, noButton);
-
-        // Show the alert and wait for user response
-        Optional<ButtonType> result = alert.showAndWait();
-
-        // Check which button the user clicked
-        if (result.isPresent() && result.get() == yesButton) {
-            loadFXML("AdminLogin.fxml", logoutButton, "Admin Login");
-        }
-    }
-
-    @FXML
-    void handlePasswordInput(ActionEvent event) {
-        String password = passwordField.getText();
-        System.out.println("Password entered: " + password);
-    }
-
-    @FXML
-    void handleUsernamInput(ActionEvent event) {
-        String username = usernameField.getText();
-        System.out.println("Username entered: " + username);
-    }
-
-    @FXML
-    void loginButtonClicked(ActionEvent event) {
-        loadFXML("AdminUI.fxml", loginButton, "Admin Dashboard");
-    }
-
-    @FXML
-    void adminButtonClicked() {
-        // Handle admin button click
-        System.out.println("Logging in as Admin.... ");
-        loadFXML("AdminLogin.fxml", adminButton, "Admin Login");
-    }
-
-    @FXML
-    void userButtonClicked() {
-        // Handle user button click
-        System.out.println("Logging in as User.... ");
-        loadFXML("UserLogin.fxml", userButton, "User Login");
-    }
-
-    @FXML
-    void backButtonClicked() {
-        System.out.println("Going Back to Login Page...");
-        loadFXML("NewLogin.fxml", backButton, "Login Page");
-    }
-
-    @FXML
-    void userManageClicked(ActionEvent event) {
-        loadFXML("UserManage.fxml", userManageButton, "User Management");
-
-    }
-
-    @FXML
-    void createUserClicked(ActionEvent event) {
-        loadFXML("CreateUser.fxml", createUserButton, "Create User");
-    }
-
-    @FXML
-    void updateUserClicked(ActionEvent event) {
-        loadFXML("UpdateUser.fxml", updateUserButton, "Update User");
-    }
-
-    @FXML
-    void handleSignupClicked(ActionEvent event) {
-        loadFXML("UserSignup.fxml", signupLink, "User Signup");
-
-    }
-
-    @FXML
-    void loginUserClicked(ActionEvent event) {
-        loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
-    }
 
     @FXML
     void logoutUserClicked(ActionEvent event) {
@@ -201,93 +297,6 @@ public class MainController {
         if (result.isPresent() && result.get() == yesButton) {
             loadFXML("UserLogin.fxml", logoutUserButton, "User Login");
         }
-    }
-
-    // Create User
-
-    @FXML
-    private TextField createUsernamefiled;
-
-    @FXML
-    private PasswordField createPasswordfiled;
-
-    @FXML
-    private TextField createAccountBalancefiled;
-
-    @FXML
-    private TextField createIDfiled;
-
-    @FXML
-    private ChoiceBox<?> createGenderBox;
-
-    @FXML
-    private Button saveCreateButton;
-
-    @FXML
-    void handleCreateUsernameInput(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleCreatePasswordInput(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleCreateAccountBalanceInput(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleCreateIDInput(ActionEvent event) {
-
-    }
-
-    @FXML
-    void saveCreateClicked(ActionEvent event) {
-    }
-
-    // Update User
-    private Admin admin; // Admin instance to interact with business logic
-    private User currentUser; // User object for creating or updating users
-
-    public void setUser(User user) {
-        this.currentUser = user; // Reference to the Admin instance
-    }
-
-    public void setAdmin(Admin admin) {
-        this.admin = admin; // Reference to the Admin instance
-    }
-
-    @FXML
-    private TextField UpdateAccountBalancefield;
-
-    @FXML
-    private TextField UpdateIDfield;
-
-    @FXML
-    private PasswordField UpdatePasswordfield;
-
-    @FXML
-    private TextField UpdateUsernsamefield;
-
-    @FXML
-    private Button updateButton;
-
-    @FXML
-    void updateClicked(ActionEvent event, Labeled UpdateIDField) {
-        // String username = UpdateIDField.getText();
-        // String password = passwordField.getText();
-        // double accountBalance =
-        // Double.parseDouble(UpdateAccountBalancefield.getText());
-        // int id = Integer.parseInt(UpdateIDField.getText());
-        // gender gender = currentUser.gender();
-        // // Create a new User object with the updated information
-        // User updatedUser = new RegularUser(username, password, id, accountBalance,
-        // gender);
-        // // abstract
-        // // Call the updateUser method of the Admin class
-        // admin.updateUser(updatedUser);
     }
 
     private void loadFXML(String fxmlFileName, Hyperlink link, String title) {
