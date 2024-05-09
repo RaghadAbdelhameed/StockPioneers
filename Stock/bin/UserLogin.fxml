@@ -37,13 +37,13 @@
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameField" layoutX="489.0" layoutY="208.0" onAction="#handleUsernamInput" prefHeight="32.0" prefWidth="206.0" promptText="username" />
+      <TextField layoutX="489.0" layoutY="208.0" prefHeight="32.0" prefWidth="206.0" promptText="username" />
       <Label layoutX="489.0" layoutY="248.0" text="Password" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="489.0" layoutY="274.0" onAction="#handlePasswordInput" prefHeight="32.0" prefWidth="206.0" promptText="password" />
+      <PasswordField layoutX="489.0" layoutY="274.0" prefHeight="32.0" prefWidth="206.0" promptText="password" />
       <Button fx:id="loginUserButton" layoutX="549.0" layoutY="314.0" mnemonicParsing="false" onAction="#loginUserClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />

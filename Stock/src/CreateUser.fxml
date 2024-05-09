@@ -22,40 +22,40 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="473.0" layoutY="126.0" text="Username" textFill="#09090b">
+      <Label layoutX="387.0" layoutY="150.0" text="Username:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
       <TextField fx:id="createUsernamefiled" layoutX="473.0" layoutY="148.0" prefHeight="26.0" prefWidth="238.0" promptText="username" />
-      <Label layoutX="473.0" layoutY="178.0" text="Password" textFill="#09090b">
+      <Label layoutX="393.0" layoutY="202.0" text="Password:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
       <PasswordField fx:id="createPasswordfiled" layoutX="473.0" layoutY="200.0" prefHeight="26.0" prefWidth="238.0" promptText="password" />
-      <Button fx:id="saveCreateButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveCreateClicked" style="-fx-background-color: #093fff;" text="Save" textFill="WHITE">
+      <Button fx:id="saveCreateButton" layoutX="541.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveCreateClicked" style="-fx-background-color: #093fff;" text="Save" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="473.0" layoutY="74.0" text="Email" textFill="#09090b">
+      <Label layoutX="418.0" layoutY="98.0" text="Email:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
       <TextField layoutX="473.0" layoutY="96.0" prefHeight="26.0" prefWidth="238.0" promptText="ahmedmohamed@example.com" />
-      <Label layoutX="473.0" layoutY="282.0" text="ID" textFill="#09090b">
+      <Label layoutX="447.0" layoutY="306.0" text="ID:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="473.0" layoutY="334.0" text="Gender" textFill="#09090b">
+      <Label layoutX="407.0" layoutY="358.0" text="Gender:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="473.0" layoutY="230.0" text="Account Balance" textFill="#09090b">
+      <Label layoutX="337.0" layoutY="254.0" text="Account Balance:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>

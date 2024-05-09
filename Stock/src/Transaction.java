@@ -1,19 +1,23 @@
+
 //package Stock;
 import java.time.LocalDateTime; // for transaction date
 
-enum Operation{sell , buy , deposit , withdrawal}; // transaction type
+enum Operation {
+    sell, buy, deposit, withdrawal
+}; // transaction type
 
-public class Transaction { // this class represents the StockOrder needed only when a user makes an order for some stock
+public class Transaction { // this class represents the StockOrder needed only when a user makes an order
+                           // for some stock
     private static int nextId = 1; // Static variable to generate unique transaction IDs
-	private int transactionId; // each transaction has a specific id
-	private int userID;
-	private String stockLabel;
-	private Operation opType;
-	private double amount;
-	private double price;
-	private LocalDateTime Transactiontime; // record transaction time
-	
-     Transaction(int userID, String stockLabel, Operation opType, double amount, double price) {
+    private int transactionId; // each transaction has a specific id
+    private int userID;
+    private String stockLabel;
+    private Operation opType;
+    private double amount;
+    private double price;
+    private LocalDateTime Transactiontime; // record transaction time
+
+    Transaction(int userID, String stockLabel, Operation opType, double amount, double price) {
         this.userID = userID;
         this.stockLabel = stockLabel;
         this.opType = opType;
@@ -22,13 +26,14 @@ public class Transaction { // this class represents the StockOrder needed only w
         this.transactionId = nextId++;
         this.Transactiontime = LocalDateTime.now(); // Set current timing
     }
-     
-     public Transaction(Operation opType, double amount) {
-         this.opType = opType;
-         this.amount = amount;
-         this.transactionId = nextId++;
-         this.Transactiontime = LocalDateTime.now(); // Set current timing
-     }	
+
+    public Transaction(Operation opType, double amount) {
+        this.opType = opType;
+        this.amount = amount;
+        this.transactionId = nextId++;
+        this.Transactiontime = LocalDateTime.now(); // Set current timing
+    }
+
     public int getUserId() {
         return userID;
     }
@@ -68,28 +73,25 @@ public class Transaction { // this class represents the StockOrder needed only w
     public void setTransactionTime(LocalDateTime Transactiontime) {
         this.Transactiontime = Transactiontime;
     }
-    
+
     public double getPrice() { // retrieve stock price
         return price;
     }
 
-    public void setPrice(double price) {  // set stock price
+    public void setPrice(double price) { // set stock price
         this.price = price;
     }
-    
-    public void displayTransactionHistory()
-    {
-    	
+
+    public void displayTransactionHistory() {
+
     }
-    
-    
+
     // Override toString method for printing transaction details
     @Override
     public String toString() {
-        String operation = opType == Operation.deposit ? "Deposit" :
-        	opType == Operation.withdrawal ? "Withdrawal" :
-        		opType == Operation.buy ? "Buy" :
-        			opType == Operation.sell ? "Sell" : "Unknown";
+        String operation = opType == Operation.deposit ? "Deposit"
+                : opType == Operation.withdrawal ? "Withdrawal"
+                        : opType == Operation.buy ? "Buy" : opType == Operation.sell ? "Sell" : "Unknown";
 
         return "Transaction { " +
                 "transactionId = " + transactionId +
@@ -97,13 +99,10 @@ public class Transaction { // this class represents the StockOrder needed only w
                 ", type = " + operation +
                 ", amount = " + amount +
                 ", userID = '" + userID + '\'' +
-                (opType == Operation.buy || opType == Operation.sell ?", stockLabel = '" + stockLabel + '\'' + ", amount = " + amount :"") +" }";
+                (opType == Operation.buy || opType == Operation.sell
+                        ? ", stockLabel = '" + stockLabel + '\'' + ", amount = " + amount
+                        : "")
+                + " }";
     }
-    
 
-
-    
-    
-    
-    
 }

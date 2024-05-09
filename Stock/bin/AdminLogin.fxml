@@ -36,14 +36,14 @@
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameField" layoutX="174.0" layoutY="221.0" onAction="#handleUsernamInput" prefHeight="32.0" prefWidth="206.0" promptText="username" />
+      <TextField fx:id="adminUsernameField" layoutX="174.0" layoutY="221.0" onAction="#handleAdminUsernamInput" prefHeight="32.0" prefWidth="206.0" promptText="username" />
       <Label layoutX="175.0" layoutY="267.0" text="Password" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="175.0" layoutY="295.0" onAction="#handlePasswordInput" prefHeight="32.0" prefWidth="206.0" promptText="password" />
-      <Button fx:id="loginButton" layoutX="235.0" layoutY="343.0" mnemonicParsing="false" onAction="#loginButtonClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
+      <PasswordField fx:id="adminPasswordField" layoutX="175.0" layoutY="295.0" onAction="#handleAdminPasswordInput" prefHeight="32.0" prefWidth="206.0" promptText="password" />
+      <Button fx:id="adminLoginButton" layoutX="235.0" layoutY="343.0" mnemonicParsing="false" onAction="#adminLoginButtonClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>

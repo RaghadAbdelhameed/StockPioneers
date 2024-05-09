@@ -17,11 +17,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.classfile.Label;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class MainController  {
+public class MainController {
 
     // New Login
     @FXML
@@ -123,6 +124,12 @@ public class MainController  {
     private Button updateUserButton;
 
     @FXML
+    private Button deleteUserButton;
+
+    @FXML
+    private Button retriveUserButton;
+
+    @FXML
     void createUserClicked(ActionEvent event) {
         loadFXML("CreateUser.fxml", createUserButton, "Create User");
     }
@@ -132,13 +139,19 @@ public class MainController  {
         loadFXML("UpdateUser.fxml", updateUserButton, "Update User");
     }
 
+    @FXML
+    void deleteUserClicked(ActionEvent event) {
+        loadFXML("DeleteUser.fxml", deleteUserButton, "Delete User");
+    }
+
+    @FXML
+    void retriveUserClicked(ActionEvent event) {
+        loadFXML("RetriveUser.fxml", retriveUserButton, "Retrive User");
+    }
+
     // Create User
     private User user;
     private RegularUser regularUser;
-
-    public MainController(){
-      //  regularUser = new RegularUser();
-    }
 
     @FXML
     private TextField createUsernamefiled;
@@ -160,18 +173,20 @@ public class MainController  {
 
     @FXML
     void saveCreateClicked(ActionEvent event) {
-            String username = createUsernamefiled.getText();
-            String password = createPasswordfiled.getText();
-            String id = createIDfiled.getText();
-           // String gender = createGenderBox.getValue(); // Assuming you've populated the choice box with appropriate values
-            String balance = createAccountBalancefiled.getText();
-            System.out.println(username+"  "+password+"  "+id+"  "+balance);
-            // User createUser = new RegularUser(username, password, id,
-            // balance,gender);
-            // // Call the updateUser method of the Admin class
-            // RegularUser.createUser(createUser);
-    
-}
+        String username = createUsernamefiled.getText();
+        String password = createPasswordfiled.getText();
+        int id = Integer.parseInt(createIDfiled.getText());
+        double balance = Double.parseDouble(createAccountBalancefiled.getText());
+        currentUser.setID(id);
+        currentUser.setUserName(username);
+        currentUser.setPassword(password);
+        currentUser.setAccountBalance(balance);
+        regularUser.createUser(currentUser);
+        // String gender = createGenderBox.getValue(); // Assuming you've populated the
+        // choice box with appropriate values
+        System.out.println(username + "  " + password + "  " + id + "  " + balance);
+
+    }
 
     // Update User
     private Admin admin; // Admin instance to interact with business logic
@@ -204,12 +219,17 @@ public class MainController  {
     void updateClicked(ActionEvent event) {
         {
             String username = UpdateUsernsamefield.getText();
-            String password = UpdatePasswordfield.getText();
             double accountBalance = Double.parseDouble(UpdateAccountBalancefield.getText());
             int id = Integer.parseInt(UpdateIDfield.getText());
             // gender gender = currentUser.gender();
 
-            System.out.println(username + "  " + password + "  " + accountBalance + "  " + id);
+            currentUser.setID(id);
+            currentUser.setUserName(username);
+            currentUser.setAccountBalance(accountBalance);
+            admin.updateUser(currentUser);
+
+            System.out.println(id + "  " + username + "  " + accountBalance);
+
             // Create a new User object with the updated information
             // RegularUser updatedUser = new RegularUser(username, password, id,
             // accountBalance,
@@ -219,25 +239,65 @@ public class MainController  {
         }
     }
 
+    // delete user
+
+    @FXML
+    private Button deleteButton;
+
+    @FXML
+    private TextField searchIDfield;
+
+    @FXML
+    private Label searchResult;
+
+    @FXML
+    private Button searhButton;
+
+    @FXML
+    void deleteClicked(ActionEvent event) {
+        int searchid = Integer.parseInt(searchIDfield.getText());
+        try {
+            currentUser.setID(searchid);
+            // Call the updateUser method of the Admin class with the retrieved id
+            admin.deleteUser(searchid);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid Input. You must enter a digit.");
+        }
+    }
+
+    @FXML
+    void searchClicked(ActionEvent event) {
+        // admin.accessUser(searchid);
+        // for (User user : Users) {
+        // if (user.getID() == searchid) {
+        // return currentUser; // return a new User object
+        // }
+        // }
+        // System.out.println(" User Not Found ");
+        // return null; // return nothing
+    }
+
+    // Retrive User
+
     // User Login
     @FXML
     private Button loginUserButton;
-    
+
     @FXML
     private Hyperlink signupLink;
 
     @FXML
     void loginUserClicked(ActionEvent event) {
         loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
+
     }
-    
+
     @FXML
     void handleSignupClicked(ActionEvent event) {
         loadFXML("UserSignup.fxml", signupLink, "User Signup");
     }
 
-
-   // Signup
+    // User Signup
 
     @FXML
     private TextField emailField;
@@ -256,25 +316,29 @@ public class MainController  {
         genderCombobox.getItems().addAll("Male", "Female");
     }
 
-    @FXML
-    void handleEmailInput() {
-        String email = emailField.getText();
-        if (!email.endsWith("@gmail.com") && !email.endsWith("@yahoo.com") && !email.endsWith("@hotmail.com")
-                && !email.endsWith("@outlook.com")) {
-            emailField.setText("");
-            showAlert("Invalid Email", "Email should end with @example.com");
-        }
-    }
+    // // handle errors
+    // @FXML
+    // private Label balanceError;
 
-    private void showAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
+    // @FXML
+    // private Label emailError;
 
+    // @FXML
+    // private Label passwordError;
 
+    // void handleEmailInput() {
+    // String email = emailField.getText();
+    // if (!email.endsWith("@gmail.com") && !email.endsWith("@yahoo.com") &&
+    // !email.endsWith("@hotmail.com")
+    // && !email.endsWith("@outlook.com")) {
+    // ((Labeled) emailError).setText("Email invalid"); // Assuming emailError is a
+    // Label or Tooltip
+    // } else {
+    // ((Labeled) emailError).setText(""); // Clear the error message if the email
+    // is valid
+
+    // }
+    // }
 
     @FXML
     void logoutUserClicked(ActionEvent event) {

@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
@@ -29,46 +28,46 @@
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="473.0" layoutY="126.0" text="Username" textFill="#09090b">
+      <Label layoutX="397.0" layoutY="150.0" text="Username:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameField" layoutX="473.0" layoutY="148.0" onAction="#handleUsernamInput" prefHeight="26.0" prefWidth="238.0" promptText="username" />
-      <Label layoutX="473.0" layoutY="178.0" text="Password" textFill="#09090b">
+      <TextField layoutX="490.0" layoutY="148.0" prefHeight="26.0" prefWidth="238.0" promptText="username" />
+      <Label layoutX="401.0" layoutY="200.0" text="Password:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="473.0" layoutY="200.0" onAction="#handlePasswordInput" prefHeight="26.0" prefWidth="238.0" promptText="password" />
-      <Button fx:id="loginUserButton" layoutX="551.0" layoutY="395.0" mnemonicParsing="false" onAction="#loginUserClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
+      <PasswordField layoutX="490.0" layoutY="200.0" prefHeight="26.0" prefWidth="238.0" promptText="password" />
+      <Button fx:id="loginUserButton" layoutX="549.0" layoutY="395.0" mnemonicParsing="false" onAction="#loginUserClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="473.0" layoutY="74.0" text="Email" textFill="#09090b">
+      <Label layoutX="432.0" layoutY="97.0" text="Email:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="emailField" layoutX="473.0" layoutY="96.0" onAction="#handleEmailInput" prefHeight="26.0" prefWidth="238.0" promptText="ahmedmohamed@example.com" />
-      <Label layoutX="473.0" layoutY="282.0" text="Date of birth" textFill="#09090b">
+      <TextField fx:id="emailField" layoutX="490.0" layoutY="96.0" prefHeight="26.0" prefWidth="238.0" promptText="ahmedmohamed@example.com" />
+      <Label layoutX="378.0" layoutY="304.0" text="Date of birth:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <DatePicker fx:id="birthPicker" layoutX="473.0" layoutY="304.0" prefHeight="26.0" prefWidth="238.0" promptText="MM/DD/YYYY" />
-      <Label layoutX="473.0" layoutY="334.0" text="Gender" textFill="#09090b">
+      <DatePicker layoutX="490.0" layoutY="304.0" prefHeight="26.0" prefWidth="238.0" promptText="MM/DD/YYYY" />
+      <Label layoutX="420.0" layoutY="356.0" text="Gender:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="473.0" layoutY="230.0" text="Account Balance" textFill="#09090b">
+      <Label layoutX="350.0" layoutY="254.0" text="Account Balance:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameField1" layoutX="473.0" layoutY="252.0" onAction="#handleUsernamInput" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
-      <ChoiceBox layoutX="473.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
+      <TextField layoutX="490.0" layoutY="252.0" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
+      <ChoiceBox layoutX="490.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
    </children>
 </AnchorPane>

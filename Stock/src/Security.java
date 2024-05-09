@@ -1,19 +1,18 @@
 //package Stock;
 
 public abstract class Security {
-    private String label; // security label 
+    private String label; // security label
     private String name; // security name
-    
-    Security()
-    {
-    	
+
+    Security() {
+
     }
-    
+
     public Security(String label, String name) {
         this.label = label;
         this.name = name;
     }
-    
+
     public String getSymbol() {
         return label;
     }
@@ -30,8 +29,10 @@ public abstract class Security {
         this.name = name;
     }
 
-    // abstract methods to be implemented in all subclasses , each subclass has its own implementation for them
+    // abstract methods to be implemented in all subclasses , each subclass has its
+    // own implementation for them
     public abstract double getCurrentPrice();
+
     public abstract void placeOrder(Transaction transaction);
 
 }
