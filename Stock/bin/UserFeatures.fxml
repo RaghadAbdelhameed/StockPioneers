@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-4.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@UserUI.png" />
+            <Image url="@data/UserUI.png" />
          </image>
       </ImageView>
       <Label layoutX="315.0" layoutY="21.0" text="User Dashboard" textFill="#0a64b8">

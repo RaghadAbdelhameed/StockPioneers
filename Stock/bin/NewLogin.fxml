@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="650.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@LoginTemplet.png" />
+            <Image url="@data/LoginTemplet.png" />
          </image>
       </ImageView>
       <Label layoutX="155.0" layoutY="323.0" text="Who are you?" textFill="#09090b">

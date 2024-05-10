@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@UserTemplet.png" />
+            <Image url="@data/UserTemplet.png" />
          </image>
       </ImageView>
       <Label layoutX="351.0" layoutY="24.0" text="Update Stock" textFill="#0a64b8">

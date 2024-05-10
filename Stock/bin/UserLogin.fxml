@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@UserTemplet.png" />
+            <Image url="@data/User.png" />
          </image>
       </ImageView>
       <Label layoutX="360.0" layoutY="24.0" text="User Login" textFill="#0a64b8">
@@ -22,39 +22,39 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="434.0" layoutY="130.0" text="Welcome back!!" textFill="#09090b">
+      <Label layoutX="151.0" layoutY="130.0" text="Welcome back!!" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="13.0" layoutY="11.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back">
+      <Button fx:id="backButton" layoutX="773.0" layoutY="9.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="29.0" prefWidth="49.0" text="Back">
          <font>
-            <Font name="Microsoft YaHei UI" size="14.0" />
+            <Font name="Microsoft YaHei UI" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="489.0" layoutY="178.0" text="Username" textFill="#09090b">
+      <Label layoutX="200.0" layoutY="178.0" text="Username" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="489.0" layoutY="208.0" prefHeight="32.0" prefWidth="206.0" promptText="username" />
-      <Label layoutX="489.0" layoutY="248.0" text="Password" textFill="#09090b">
+      <TextField layoutX="200.0" layoutY="208.0" prefHeight="32.0" prefWidth="206.0" promptText="username" />
+      <Label layoutX="200.0" layoutY="248.0" text="Password" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
       </Label>
-      <PasswordField layoutX="489.0" layoutY="274.0" prefHeight="32.0" prefWidth="206.0" promptText="password" />
-      <Button fx:id="loginUserButton" layoutX="549.0" layoutY="314.0" mnemonicParsing="false" onAction="#loginUserClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
+      <PasswordField layoutX="200.0" layoutY="274.0" prefHeight="32.0" prefWidth="206.0" promptText="password" />
+      <Button fx:id="loginUserButton" layoutX="265.0" layoutY="314.0" mnemonicParsing="false" onAction="#loginUserClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="496.0" layoutY="351.0" text="Don't have an account?" textFill="#09090b">
+      <Label layoutX="200.0" layoutY="351.0" text="Don't have an account?" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="12.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="signupLink" layoutX="630.0" layoutY="348.0" onAction="#handleSignupClicked" text="Signup">
+      <Hyperlink fx:id="signupLink" layoutX="333.0" layoutY="348.0" onAction="#handleSignupClicked" text="Signup">
          <font>
             <Font name="Microsoft YaHei UI" size="12.0" />
          </font>

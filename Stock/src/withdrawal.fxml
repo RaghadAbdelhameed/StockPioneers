@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="451.0" fitWidth="864.0" layoutX="-8.0" pickOnBounds="true">
          <image>
-            <Image url="@UserUI.png" />
+            <Image url="@data/UserUI.png" />
          </image>
       </ImageView>
       <Label layoutX="324.0" layoutY="88.0" prefHeight="24.0" prefWidth="76.0" text="Balance:" textFill="#09090b">
