@@ -11,18 +11,22 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 //import java.lang.classfile.Label;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
     // New Login
     @FXML
@@ -190,7 +194,7 @@ public class MainController {
         currentUser.setPassword(password);
         currentUser.setAccountBalance(balance);
         regularUser.createUser(currentUser);
-        // String gender = createGenderBox.getValue(); // Assuming you've populated the
+        String gender = genderChoicebox.getValue(); // Assuming you've populated the
         // choice box with appropriate values
         System.out.println(username + "  " + password + "  " + id + "  " + balance);
 
@@ -468,11 +472,16 @@ public class MainController {
     private Button logoutUserButton;
 
     @FXML
-    private ComboBox<String> genderCombobox;
+    private ChoiceBox<String> genderChoicebox;
 
-    public void initialize(URL location, ResourceBundle resources) {
-        // Initialize gender ComboBox items
-        genderCombobox.getItems().addAll("Male", "Female");
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        setLabelText();
+        if (genderChoicebox == null) {
+            genderChoicebox = new ChoiceBox<>();
+        }
+        genderChoicebox.getItems().addAll("Male", "Female");
+
     }
 
     // User Features
@@ -521,7 +530,7 @@ public class MainController {
         double maxPrice = Double.parseDouble(stockMaxPriceField.getText());
         System.out.println(label + "  " + company + "  " + maxPrice);
         try {
-            regularUser.buyStockOrder(maxPrice, label, company);
+            (regularUser).buyStockOrder(maxPrice, label, company);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Input. You must enter a digit in max.price field");
         }
@@ -547,7 +556,7 @@ public class MainController {
         double minPrice = Double.parseDouble(stockMinPriceField.getText());
         System.out.println(label + "  " + company + "  " + minPrice);
         try {
-            regularUser.sellStockOrder(label, company, minPrice);
+            (regularUser).sellStockOrder(label, company, minPrice);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Input. You must enter a digit in min.price field");
         }
@@ -621,6 +630,54 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private Button DBackButton;
+    @FXML
+    private static Label BalanceLabel;
+
+    @FXML
+    private TextField DTextField;
+    @FXML
+    private Button WithdrawalButton;
+    @FXML
+    private Button DepositButton;
+    @FXML
+    private Button DepositWithdrawalButton;
+
+    public static void setLabelText() {
+        if (BalanceLabel == null) {
+            BalanceLabel = new Label();
+        }
+        BalanceLabel.setText("0");
+    }
+
+    @FXML
+    void DepositWithdrawalButtonClicked() {
+        loadFXML("withdrawal.fxml", DepositWithdrawalButton, "Deposite and Withdrawal");
+    }
+
+    @FXML
+    void DepositButtonClicked() {
+        // add account balance
+
+        double newbalance = Double.parseDouble(DTextField.getText());
+
+        BalanceLabel.setText(String.valueOf(newbalance));
+    }
+
+    @FXML
+    void WithdrawalButtonClicked() {
+        // add account balance and conditions
+        // double balance-=Double.parseDouble(DTextField.getText());
+        double newbalance = -Double.parseDouble(DTextField.getText());
+        BalanceLabel.setText(String.valueOf(newbalance));
+    }
+
+    @FXML
+    void DBackbutonClicked() {
+        loadFXML("UserFeatures.fxml", DBackButton, "User Features");
     }
 
 }

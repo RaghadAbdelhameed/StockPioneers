@@ -24,12 +24,12 @@
             <Font name="Microsoft YaHei UI" size="20.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="68.0" layoutY="240.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Deposit/Withdrawal" textFill="#09090b">
+      <Button fx:id="DepositWithdrawalButton" alignment="CENTER" layoutX="68.0" layoutY="240.0" mnemonicParsing="false" onAction="#DepositWithdrawalButtonClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Deposit/Withdrawal" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="68.0" layoutY="190.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Order Management" textFill="#09090b">
+      <Button fx:id="orderManageButton" alignment="CENTER" layoutX="68.0" layoutY="190.0" mnemonicParsing="false" onAction="#orderManageClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Order Management" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
