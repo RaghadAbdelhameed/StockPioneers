@@ -29,7 +29,7 @@
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="186.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Mangement" textFill="#09090b">
+        <Button fx:id="stockManageButton" alignment="CENTER" layoutX="172.0" layoutY="186.0" mnemonicParsing="false" onAction="#stockManageClicked" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Stock Mangement" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>

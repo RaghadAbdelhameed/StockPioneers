@@ -27,7 +27,7 @@
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Label>
-        <Button fx:id="deleteButton" layoutX="502.0" layoutY="309.0" mnemonicParsing="false" onAction="#deleteClicked" style="-fx-background-color: #B91C1C;" stylesheets="@delete.css" text="Delete" textFill="WHITE">
+        <Button fx:id="deleteButton" layoutX="502.0" layoutY="309.0" mnemonicParsing="false" onAction="#deleteClicked" style="-fx-background-color: #B91C1C;" text="Delete" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei UI" size="14.0" />
             </font>
