@@ -1,3 +1,7 @@
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -5,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
@@ -14,6 +19,8 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -22,7 +29,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 //import java.lang.classfile.Label;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -143,7 +152,7 @@ public class MainController implements Initializable {
 
     @FXML
     void priceHistoryClicked(ActionEvent event) {
-        loadFXML("PriceHistory.fxml", priceHistoryButton, "Price History");
+        loadFXML("AdminPriceHistory.fxml", priceHistoryButton, "Price History");
     }
 
     @FXML
@@ -216,7 +225,7 @@ public class MainController implements Initializable {
         currentUser.setUserName(username);
         currentUser.setPassword(password);
         currentUser.setAccountBalance(balance);
-        regularUser.createUser(currentUser);
+        admin.createUser(currentUser);
         String gender = genderChoicebox.getValue(); // Assuming you've populated the
         // choice box with appropriate values
         System.out.println(username + "  " + password + "  " + id + "  " + balance);
@@ -474,7 +483,68 @@ public class MainController implements Initializable {
 
     @FXML
     void searchLabelClicked(ActionEvent event) {
+        String label = searchLabelField.getText();
+        stock.setLabel(label);
+        admin.listByLabel(label);
+    }
 
+    // Price History
+    public void setStockPrice(StockPrice stockPrice) {
+        this.stockPrice = stockPrice; // Reference to the Admin instance
+    }
+
+    private StockPrice stockPrice;
+
+    @FXML
+    private Button searchAdminPriceLabelButton;
+
+    @FXML
+    private TextField searchAdminPriceLabelField;
+
+    @FXML
+    private TableView<StockPrice> adminPriceTableView;
+
+    @FXML
+    private TableColumn<StockPrice, Double> priceColumn;
+
+    @FXML
+    private TableColumn<StockPrice, LocalDateTime> priceTimeColumn;
+
+    public void admininitialize() {
+        // Bind columns to corresponding properties
+        priceColumn
+                .setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getPrice()).asObject());
+        priceTimeColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPriceTime()));
+    }
+
+    @FXML
+    void searchAdminPriceLabelClicked(ActionEvent event) {
+        String priceLabel = searchAdminPriceLabelField.getText();
+        if (priceLabel == null || priceLabel.isEmpty()) {
+            // Show an error message if the label is empty
+            showErrorDialog("Error", "Please enter a valid stock label.");
+            return;
+        }
+
+        // Assuming stockPrice is set properly before invoking this method
+        List<StockPrice> priceHistory = user.retrieveStockPriceHistory(priceLabel);
+        if (priceHistory == null || priceHistory.isEmpty()) {
+            // Show a message if no price history is found
+            showErrorDialog("Error", "No price history found for label: " + priceLabel);
+            return;
+        }
+
+        // Set the items of the TableView
+        ObservableList<StockPrice> data = FXCollections.observableArrayList(priceHistory);
+        adminPriceTableView.setItems(data);
+    }
+
+    private void showErrorDialog(String title, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     // Trading Sessions Control
@@ -533,8 +603,16 @@ public class MainController implements Initializable {
     private Button orderManageButton;
 
     @FXML
+    private Button userPriceHistoryButton;
+
+    @FXML
     void orderManageClicked(ActionEvent event) {
         loadFXML("OrderManage.fxml", orderManageButton, "Order Management");
+    }
+
+    @FXML
+    void userPriceHistoryClicked(ActionEvent event) {
+        loadFXML("UserPriceHistory.fxml", userPriceHistoryButton, "Price History");
     }
 
     // Order Management
@@ -545,8 +623,16 @@ public class MainController implements Initializable {
     private Button sellStockButton;
 
     @FXML
+    private Button DepositWithdrawalButton;
+
+    @FXML
     void buyStockClicked(ActionEvent event) {
         loadFXML("BuyStock.fxml", buyStockButton, "Buy Stock");
+    }
+
+    @FXML
+    void DepositWithdrawalButtonClicked() {
+        loadFXML("withdrawal.fxml", DepositWithdrawalButton, "Deposite and Withdrawal");
     }
 
     @FXML
@@ -604,6 +690,95 @@ public class MainController implements Initializable {
         } catch (NumberFormatException e) {
             System.out.println("Invalid Input. You must enter a digit in min.price field");
         }
+    }
+
+    // Diposit & Withdrawal
+    @FXML
+    private Button DBackButton;
+
+    @FXML
+    void DBackbutonClicked() {
+        loadFXML("UserFeatures.fxml", DBackButton, "User Features");
+    }
+
+    @FXML
+    private static Label BalanceLabel;
+
+    @FXML
+    private TextField DTextField;
+
+    @FXML
+    private Button WithdrawalButton;
+
+    @FXML
+    private Button DepositButton;
+
+    public static void setLabelText() {
+        if (BalanceLabel == null) {
+            BalanceLabel = new Label();
+        }
+        BalanceLabel.setText("0");
+    }
+
+    @FXML
+    void DepositButtonClicked() {
+        // add account balance
+        double newbalance = Double.parseDouble(DTextField.getText());
+        BalanceLabel.setText(String.valueOf(newbalance));
+    }
+
+    @FXML
+    void WithdrawalButtonClicked() {
+        // add account balance and conditions
+        // double balance-=Double.parseDouble(DTextField.getText());
+        double newbalance = -Double.parseDouble(DTextField.getText());
+        BalanceLabel.setText(String.valueOf(newbalance));
+    }
+
+    // Price History
+    @FXML
+    private Button searchUserPriceLabelButton;
+
+    @FXML
+    private TextField searchUserPriceLabelField;
+
+    @FXML
+    private TableView<?> userPriceTableView;
+
+    @FXML
+    private TableColumn<StockPrice, Double> userpriceColumn;
+
+    @FXML
+    private TableColumn<StockPrice, LocalDateTime> userpriceTimeColumn;
+
+    public void userinitialize() {
+        // Bind columns to corresponding properties
+        userpriceColumn
+                .setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getPrice()).asObject());
+        userpriceTimeColumn
+                .setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPriceTime()));
+    }
+
+    @FXML
+    void searchUserPriceLabelClicked(ActionEvent event) {
+        String priceLabel = searchUserPriceLabelField.getText();
+        if (priceLabel == null || priceLabel.isEmpty()) {
+            // Show an error message if the label is empty
+            showErrorDialog("Error", "Please enter a valid stock label.");
+            return;
+        }
+
+        // Assuming stockPrice is set properly before invoking this method
+        List<StockPrice> priceHistory = user.retrieveStockPriceHistory(priceLabel);
+        if (priceHistory == null || priceHistory.isEmpty()) {
+            // Show a message if no price history is found
+            showErrorDialog("Error", "No price history found for label: " + priceLabel);
+            return;
+        }
+
+        // Set the items of the TableView
+        ObservableList<StockPrice> pricedata = FXCollections.observableArrayList(priceHistory);
+        userPriceTableView.setItems(pricedata);
     }
 
     // // handle errors
@@ -674,54 +849,6 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    private Button DBackButton;
-    @FXML
-    private static Label BalanceLabel;
-
-    @FXML
-    private TextField DTextField;
-    @FXML
-    private Button WithdrawalButton;
-    @FXML
-    private Button DepositButton;
-    @FXML
-    private Button DepositWithdrawalButton;
-
-    public static void setLabelText() {
-        if (BalanceLabel == null) {
-            BalanceLabel = new Label();
-        }
-        BalanceLabel.setText("0");
-    }
-
-    @FXML
-    void DepositWithdrawalButtonClicked() {
-        loadFXML("withdrawal.fxml", DepositWithdrawalButton, "Deposite and Withdrawal");
-    }
-
-    @FXML
-    void DepositButtonClicked() {
-        // add account balance
-
-        double newbalance = Double.parseDouble(DTextField.getText());
-
-        BalanceLabel.setText(String.valueOf(newbalance));
-    }
-
-    @FXML
-    void WithdrawalButtonClicked() {
-        // add account balance and conditions
-        // double balance-=Double.parseDouble(DTextField.getText());
-        double newbalance = -Double.parseDouble(DTextField.getText());
-        BalanceLabel.setText(String.valueOf(newbalance));
-    }
-
-    @FXML
-    void DBackbutonClicked() {
-        loadFXML("UserFeatures.fxml", DBackButton, "User Features");
     }
 
 }
