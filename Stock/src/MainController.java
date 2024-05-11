@@ -49,7 +49,6 @@ public class MainController implements Initializable {
         loadFXML("UserLogin.fxml", userButton, "User Login");
     }
 
-    // Admin Login
     @FXML
     private PasswordField adminPasswordField;
 
@@ -96,6 +95,15 @@ public class MainController implements Initializable {
     private Button stockManageButton;
 
     @FXML
+    private Button stockorderButton;
+
+    @FXML
+    private Button priceHistoryButton;
+
+    @FXML
+    private Button sessionsButton;
+
+    @FXML
     void adminLogoutButtonClicked(ActionEvent event) {
         // Create a confirmation alert
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -126,6 +134,21 @@ public class MainController implements Initializable {
     @FXML
     void stockManageClicked(ActionEvent event) {
         loadFXML("StockManage.fxml", stockManageButton, "Stock Management");
+    }
+
+    @FXML
+    void stockorderClicked(ActionEvent event) {
+        loadFXML("StockOrders.fxml", stockorderButton, "Stock Orders");
+    }
+
+    @FXML
+    void priceHistoryClicked(ActionEvent event) {
+        loadFXML("PriceHistory.fxml", priceHistoryButton, "Price History");
+    }
+
+    @FXML
+    void sessionsButtonClicked(ActionEvent event) {
+        loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions Control");
     }
 
     // User Management
@@ -439,6 +462,27 @@ public class MainController implements Initializable {
         String label = searchLabelfield.getText();
         stock.setLabel(label);
         admin.deleteStock(label);
+
+    }
+
+    // Stock Orders
+    @FXML
+    private Button searchLabelButton;
+
+    @FXML
+    private TextField searchLabelField;
+
+    @FXML
+    void searchLabelClicked(ActionEvent event) {
+
+    }
+
+    // Trading Sessions Control
+    @FXML
+    private Button initiateButton;
+
+    @FXML
+    void intiateClicked(ActionEvent event) {
 
     }
 

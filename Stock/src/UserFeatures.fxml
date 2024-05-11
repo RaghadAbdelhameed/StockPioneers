@@ -44,7 +44,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="359.0" layoutY="340.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
+      <Button fx:id="priceHistoryButton" layoutX="359.0" layoutY="340.0" mnemonicParsing="false" onAction="#priceHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
