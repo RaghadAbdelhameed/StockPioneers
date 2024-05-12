@@ -1,6 +1,20 @@
-//package Stock;
+import java.time.LocalDateTime;
 
 public abstract class Security {
+<<<<<<< HEAD
+    private String symbol;
+    private double price;
+    private LocalDateTime lastUpdate;
+
+    // Constructor
+    public Security(String symbol, double price) {
+        this.symbol = symbol;
+        this.price = price;
+        this.lastUpdate = LocalDateTime.now();
+    }
+
+    // Getters and setters
+=======
     private String label; // security label
     private String name; // security name
 
@@ -13,26 +27,36 @@ public abstract class Security {
         this.name = name;
     }
 
+>>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
     public String getSymbol() {
-        return label;
+        return symbol;
     }
 
-    public void setSymbol(String label) {
-        this.label = label;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public String getName() {
-        return name;
+    public double getPrice() {
+        return price;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPrice(double price) {
+        this.price = price;
+        this.lastUpdate = LocalDateTime.now(); // Update last update time when price changes
     }
 
+<<<<<<< HEAD
+    public LocalDateTime getLastUpdate() {
+        return lastUpdate;
+    }
+=======
     // abstract methods to be implemented in all subclasses , each subclass has its
     // own implementation for them
     public abstract double getCurrentPrice();
 
     public abstract void placeOrder(Transaction transaction);
+>>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
 
+    // Abstract method to be implemented by subclasses
+    public abstract double calculateProfitLoss();
 }

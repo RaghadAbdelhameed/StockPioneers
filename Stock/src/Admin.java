@@ -2,6 +2,74 @@
 //package Stock;
 import java.util.*;
 
+<<<<<<< HEAD
+public class Admin extends User{ 
+	
+	List<User> Users = User.getUsers();
+    private TradingManager tradingmanager; // instance from "TradingManager" class
+    private static volatile Admin Instance;
+	//private List<User> Users;
+	//	private List<Stock> Stocks;  
+//    private Map<String, List<Transaction>> Transactions; // Map to store stock orders by stock label
+//    private Map<String, List<StockPrice>> Prices; // Map to store stock price by stock label
+    
+	private Admin(String username , String password,/* double accountbalance , */gender gender, TradingManager tradingmanager)
+	{
+		super(username , password ,/*accountbalance , */ gender);
+        this.tradingmanager = tradingmanager;  // unary association admin -> TradingManager
+		//this.Users = new ArrayList<>();
+		//this.Stocks = new ArrayList<>();
+       // this.Transactions = new HashMap<>();
+       //    this.Prices = new HashMap<>();
+	}
+	
+	// Singleton design pattern
+	public static Admin getInstance(String username , String password,/* double accountbalance , */gender gender, TradingManager tradingmanager){
+		Admin result = Instance;
+		if(result == null){
+		synchronized(Admin.class) {
+		if(result == null){
+			result = new Admin( username ,  password, /* accountbalance ,  */gender,  tradingmanager);
+			return result;
+			}		
+		}
+	}
+		return result;
+	}
+	
+	// Admin features	
+	
+//		// Deleting User
+//		public void deleteUser(int ID) // to delete a user , its enough to take his ID not a complete User object that will not benefits us
+//		{
+//	        Users.removeIf(user -> user.getID() == ID);
+//	        System.out.println(" User is deleted succeessfully ");
+//		}
+		
+		public void deleteUser(User user){
+			
+			if(user != null){ // user account cannot be null
+				if(Users.contains(user)) { // check thats its not already added before
+			Users.remove(user);
+			System.out.println(" User deleted successfully ");
+			}
+				else{
+					System.out.println(" This User " + "( " + user.getUserName() + " ) does not exist ");}
+			}
+			else {
+			System.out.println(" Invalid user provided "); // null user 
+			}
+		}
+	
+		// retrieving user is to access a specific User
+		public User accessUser(int ID)
+		{
+			for(User user : Users){
+				if(user.getID() == ID){
+					System.out.println("fdsfds");
+					return user; // return a new User object
+				}
+=======
 public class Admin extends User {
 
 	List<User> Users = User.getUsers();
@@ -37,6 +105,7 @@ public class Admin extends User {
 		for (User user : Users) {
 			if (user.getID() == ID) {
 				return user; // return a new User object
+>>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
 			}
 		}
 		System.out.println(" User Not Found ");
@@ -91,6 +160,62 @@ public class Admin extends User {
 				return stock; // return a new Stock object
 			}
 		}
+<<<<<<< HEAD
+		
+//		// Delete stock from market
+//		public void deleteStock(String label) // to delete a stock , its enough to take its label not a complete Stock object that will not benefits us
+//		{
+//	        Stocks.removeIf(stock -> stock.getLabel() .equals(label)); // when comparing strings we don't use (==) operator
+//		}
+		
+		// Delete stock from market
+		public void deleteStock(Stock stock){	
+			if(stock != null){ // stock account cannot be null
+				if(Stocks.contains(stock)) { // check thats its not already added before
+			Stocks.remove(stock);
+			System.out.println(" stock deleted successfully ");
+			}
+				else{
+					System.out.println(" This Stock " + "( " + stock.getLabel() + " ) does not exist ");}
+			}
+			else {
+			System.out.println(" Invalid Stock provided "); // null stock 
+			}
+		}
+	
+		// retrieve stocks
+		public Stock accessStock(String label)
+		{
+			for(Stock stock : Stocks){
+				if(stock.getLabel() .equals(label)){
+					return stock; // return a new Stock object
+				}
+			}
+				System.out.println(" Stock Not Found "); // unreachable code when (return stock)
+				return null; // return nothing
+		}
+		
+		
+		// Updating Stock data
+		public void updateStock(Stock updatedStock) { // updatedStock with new data to be updated 
+			boolean stockFound = false;
+			for(Stock stock : Stocks)
+			{
+				if(stock.getLabel() .equals(updatedStock.getLabel())) // this guarantees that stock will not be updated if it has an invalid Label
+				{
+					stock.setCompany(updatedStock.getCompany());
+					stock.setInitialPrice(updatedStock.getInitialPrice());
+					stock.setTradingPrice(updatedStock.getTradingPrice());
+					stock.setDividends(updatedStock.getDividends());
+					stock.setAvailableStocks(updatedStock.getAvailableStocks());
+					stock.setProfitPercentage(updatedStock.getProfitPercentage());
+					stock.setAmount(updatedStock.getAmount());
+					System.out.println(" Stock updated successfully ");
+					stockFound = true;
+					break;
+					
+				}	
+=======
 		System.out.println(" Stock Not Found "); // unreachable code when (return stock)
 		return null; // return nothing
 	}
@@ -111,8 +236,24 @@ public class Admin extends User {
 				System.out.println(" Stock updated successfully ");
 				stockFound = true;
 				break;
+>>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
 			}
 		}
+<<<<<<< HEAD
+		
+		
+		// stock orders listed by label
+		public void listByLabel(String label) // admin can search for a specific label for monitoring the market
+		{
+			if(orderedTransactions.containsKey(label)){
+				System.out.println(" Stock orders with label: " + label + " ");
+				for(Transaction transaction : orderedTransactions.get(label)){
+					System.out.println(transaction.toString());}
+			}
+			else{
+				System.out.println(label + " not found in stock order list ");
+			}
+=======
 		System.out.println(" Stock with label " + updatedStock.getLabel() + " not found for update ");
 	}
 
@@ -138,6 +279,7 @@ public class Admin extends User {
 		{
 			// If the label doesn't exist in the map, create a new list for that label
 			getPrices().put(label, new ArrayList<>());
+>>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
 		}
 		// Store the price of the stock in a list
 		getPrices().get(label).add(price);

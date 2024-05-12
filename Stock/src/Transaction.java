@@ -26,6 +26,24 @@ public class Transaction { // this class represents the StockOrder needed only w
         this.transactionId = nextId++;
         this.Transactiontime = LocalDateTime.now(); // Set current timing
     }
+<<<<<<< HEAD
+     
+     Transaction(int userID, Operation opType, double price) {
+         this.userID = userID;
+         this.opType = opType;
+         this.amount = amount;
+         this.price = price;
+         this.transactionId = nextId++;
+         this.Transactiontime = LocalDateTime.now(); // Set current timing
+     }
+     
+     public Transaction(Operation opType, double amount) {
+         this.opType = opType;
+         this.amount = amount;
+         this.transactionId = nextId++;
+         this.Transactiontime = LocalDateTime.now(); // Set current timing
+     }	
+=======
 
     public Transaction(Operation opType, double amount) {
         this.opType = opType;
@@ -34,6 +52,7 @@ public class Transaction { // this class represents the StockOrder needed only w
         this.Transactiontime = LocalDateTime.now(); // Set current timing
     }
 
+>>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
     public int getUserId() {
         return userID;
     }
@@ -81,11 +100,21 @@ public class Transaction { // this class represents the StockOrder needed only w
     public void setPrice(double price) { // set stock price
         this.price = price;
     }
+<<<<<<< HEAD
+    
+//    public void displayTransactionHistory()
+//    {
+//    	
+//    }
+    
+  
+=======
 
     public void displayTransactionHistory() {
 
     }
 
+>>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
     // Override toString method for printing transaction details
     @Override
     public String toString() {
@@ -93,7 +122,7 @@ public class Transaction { // this class represents the StockOrder needed only w
                 : opType == Operation.withdrawal ? "Withdrawal"
                         : opType == Operation.buy ? "Buy" : opType == Operation.sell ? "Sell" : "Unknown";
 
-        return "Transaction { " +
+        return " Transaction { " +
                 "transactionId = " + transactionId +
                 ", Transactiontime = " + Transactiontime +
                 ", type = " + operation +
