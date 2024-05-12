@@ -34,5 +34,6 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
+      <Button fx:id="OMBackButton" layoutX="800.0" layoutY="2.0" mnemonicParsing="false" onAction="#OMBackButtonClicked" text="Back" />
    </children>
 </AnchorPane>

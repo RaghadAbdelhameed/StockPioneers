@@ -1,3 +1,4 @@
+
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -590,7 +591,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        setLabelText();
+        //setLabelText();
         if (genderChoicebox == null) {
             genderChoicebox = new ChoiceBox<>();
         }
@@ -712,23 +713,15 @@ public class MainController implements Initializable {
 
     @FXML
     private Button DepositButton;
-
-    public static void setLabelText() {
-        if (BalanceLabel == null) {
-            BalanceLabel = new Label();
-        }
-        BalanceLabel.setText("0");
-    }
-
     @FXML
-    void DepositButtonClicked() {
+    void DepositButtonClicked(ActionEvent event) {
         // add account balance
         double newbalance = Double.parseDouble(DTextField.getText());
         BalanceLabel.setText(String.valueOf(newbalance));
     }
 
     @FXML
-    void WithdrawalButtonClicked() {
+    void WithdrawalButtonClicked(ActionEvent event) {
         // add account balance and conditions
         // double balance-=Double.parseDouble(DTextField.getText());
         double newbalance = -Double.parseDouble(DTextField.getText());
@@ -778,7 +771,7 @@ public class MainController implements Initializable {
 
         // Set the items of the TableView
         ObservableList<StockPrice> pricedata = FXCollections.observableArrayList(priceHistory);
-        userPriceTableView.setItems(pricedata);
+        //userPriceTableView.setItems(pricedata);
     }
 
     // // handle errors
@@ -850,5 +843,100 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    @FXML
+    private Button PHBackButton;
+    @FXML
+    void PHBackButtonClicked(ActionEvent event) {
+    	loadFXML("AdminUI.fxml",PHBackButton,"Admin Dashboard");
+    }
+    @FXML
+    private Button BSBackButton;
+    @FXML
+    void BSBackButtonClicked(ActionEvent event) {
+    	loadFXML("OrderManage.fxml",BSBackButton,"Order Management");
+    }
+    @FXML
+    private Button CSBackButton;
+    @FXML
+    void CSBackButtonClicked(ActionEvent event) {
+    	loadFXML("StockManage.fxml",CSBackButton,"Stock Management");
+    }
+    @FXML
+    private Button DSBackButton;
+    @FXML
+    void DSBackButtonClicked(ActionEvent event) {
+    	loadFXML("StockManage.fxml",DSBackButton,"Stock Management");
+    }
+    @FXML
+    private Button DUBackButton;
+    @FXML
+    void DUBackButtonClicked(ActionEvent event) {
+    	loadFXML("UserManage.fxml",DUBackButton,"User Management");
+    }
+    @FXML
+    private Button OMBackButton;
+    @FXML
+    void OMBackButtonClicked(ActionEvent event) {
+    	loadFXML("UserFeatures.fxml",OMBackButton,"User Dashboard");
+    }
+    @FXML
+    private Button RSBackButton;
+    @FXML
+    void RSBackButtonClicked(ActionEvent event) {
+    	loadFXML("StockManage.fxml",RSBackButton,"Stock Management");
+    }
+    @FXML
+    private Button RUBackButton;
+    @FXML
+    void RUBackButtonClicked(ActionEvent event) {
+    	loadFXML("UserManage.fxml",RUBackButton,"User Management");
+    }
+    @FXML
+    private Button SSBackButton;
+    @FXML
+    void SSBackButtonClicked(ActionEvent event) {
+    	loadFXML("OrderManage.fxml",SSBackButton,"Order Management");
+    }
+    @FXML
+    private Button SMBackButton;
+    @FXML
+    void SMBackButtonClicked(ActionEvent event) {
+    	loadFXML("AdminUI.fxml",SMBackButton,"Admin Dashboard");
+    }
+    @FXML
+    private Button SOBackButton;
+    @FXML
+    void SOBackButtonClicked(ActionEvent event) {
+    	loadFXML("AdminUI.fxml",SOBackButton,"Admin Dashboard");
+    }
+    @FXML
+    private Button USBackButton;
+    @FXML
+    void USBackButtonClicked(ActionEvent event) {
+    	loadFXML("StockManage.fxml",USBackButton,"Stock Management");
+    }
+    @FXML
+    private Button UUBackButton;
+    @FXML
+    void UUBackButtonClicked(ActionEvent event) {
+    loadFXML("UserManage.fxml",UUBackButton,"User Management");
+    }	
+    @FXML
+    private Button UMBackButton;
+    @FXML
+    void UMBackButtonClicked(ActionEvent event) {
+    	loadFXML("AdminUI.fxml",UMBackButton,"Admin Dashboard");
+    } 
+    @FXML
+    private Button UPHBackButton;
+    @FXML
+    void UPHBackButtonClicked(ActionEvent event) {
+    	loadFXML("UserFeatures.fxml",UPHBackButton,"User Dashboard");
+    }
+    @FXML
+    private Button CUBackButton;
+    @FXML
+    void CUBackButtonClicked(ActionEvent event) {
+    loadFXML("UserManage.fxml",CUBackButton,"User Management");
+    }	
 }

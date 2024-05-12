@@ -61,7 +61,8 @@
          </font>
       </Label>
       <TextField fx:id="createAccountBalancefiled" layoutX="473.0" layoutY="252.0" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
-      <ChoiceBox fx:id="createGenderBox" layoutX="473.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
+      <ChoiceBox fx:id="genderChoicebox" layoutX="473.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
       <TextField fx:id="createIDfiled" layoutX="473.0" layoutY="304.0" prefHeight="26.0" prefWidth="238.0" promptText="id" />
+      <Button fx:id="CUBackButton" layoutX="-3.0" layoutY="2.0" mnemonicParsing="false" onAction="#CUBackButtonClicked" text="Back" />
    </children>
 </AnchorPane>

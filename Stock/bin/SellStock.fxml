@@ -52,5 +52,6 @@
             <Insets bottom="4.0" left="7.0" right="7.0" top="4.0" />
          </padding>
       </TextField>
+      <Button fx:id="SSBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#SSBackButtonClicked" text="Back" />
    </children>
 </AnchorPane>

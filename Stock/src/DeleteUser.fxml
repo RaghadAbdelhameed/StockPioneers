@@ -56,5 +56,6 @@
                 <Font name="Microsoft YaHei UI" size="14.0" />
             </font>
         </Button>
+      <Button fx:id="DUBackButton" layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onAction="#DUBackButtonClicked" text="Back" />
     </children>
 </AnchorPane>

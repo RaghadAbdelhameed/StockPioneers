@@ -56,5 +56,6 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
+      <Button fx:id="RUBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#RUBackButtonClicked" text="Back" />
     </children>
 </AnchorPane>

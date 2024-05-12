@@ -61,5 +61,6 @@
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
+      <Button fx:id="RSBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#RSBackButtonClicked" text="Back" />
    </children>
 </AnchorPane>

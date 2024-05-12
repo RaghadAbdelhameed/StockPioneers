@@ -51,5 +51,6 @@
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
+      <Button fx:id="DSBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#DSBackButtonClicked" text="Back" />
    </children>
 </AnchorPane>
