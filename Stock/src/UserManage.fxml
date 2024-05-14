@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zUserManageController">
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -44,6 +44,9 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="UMBackButton" layoutX="800.0" layoutY="2.0" mnemonicParsing="false" onAction="#UMBackButtonClicked" text="Back" />
+      <Button fx:id="UMBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#UMBackButtonClicked" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>
