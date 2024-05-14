@@ -1,7 +1,6 @@
 import java.time.LocalDateTime;
 
 public abstract class Security {
-<<<<<<< HEAD
     private String symbol;
     private double price;
     private LocalDateTime lastUpdate;
@@ -14,7 +13,6 @@ public abstract class Security {
     }
 
     // Getters and setters
-=======
     private String label; // security label
     private String name; // security name
 
@@ -27,7 +25,6 @@ public abstract class Security {
         this.name = name;
     }
 
->>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
     public String getSymbol() {
         return symbol;
     }
@@ -45,17 +42,15 @@ public abstract class Security {
         this.lastUpdate = LocalDateTime.now(); // Update last update time when price changes
     }
 
-<<<<<<< HEAD
     public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
-=======
+
     // abstract methods to be implemented in all subclasses , each subclass has its
     // own implementation for them
     public abstract double getCurrentPrice();
 
     public abstract void placeOrder(Transaction transaction);
->>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
 
     // Abstract method to be implemented by subclasses
     public abstract double calculateProfitLoss();

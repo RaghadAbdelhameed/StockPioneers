@@ -1,9 +1,9 @@
-////package Stock;
+//// package Stock;
 //
-//public class PremiumUser extends RegularUser{
+// public class PremiumUser extends RegularUser{
 //
 //
-//public void fdsf()
-//{
-//}
-//}
+// public void fdsf()
+// {
+// }
+// }

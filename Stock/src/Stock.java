@@ -1,5 +1,3 @@
-
-//package Stock;
 import java.util.*;
 
 public class Stock extends Security {
@@ -14,18 +12,12 @@ public class Stock extends Security {
     private double profitPercentage;
     private List<StockPrice> priceHistory; // Store historical price data
 
-<<<<<<< HEAD
-
-    public Stock(String symbol, double price, String label, int amount, String company, double initialPrice, double tradingPrice, double dividends, int availableStocks , double profitPercentage) {
-       super(symbol, price);
-    	this.label = label;
-    	this.amount = amount;
-=======
-    public Stock(String label, String company, double initialPrice, double tradingPrice, double dividends,
-            int availableStocks, double profitPercentage) {
-        super();
+    public Stock(String symbol, double price, String label, int amount, String company, double initialPrice,
+            double tradingPrice, double dividends, int availableStocks, double profitPercentage) {
+        super(symbol, price);
         this.label = label;
->>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
+        this.amount = amount;
+        this.label = label;
         this.company = company;
         this.initialPrice = initialPrice;
         this.tradingPrice = tradingPrice; // Initially set current price to initial price
@@ -42,7 +34,7 @@ public class Stock extends Security {
     public void setLabel(String label) {
         this.label = label;
     }
-    
+
     public static int getAmount() {
         return amount;
     }
@@ -94,48 +86,26 @@ public class Stock extends Security {
     public double getProfitPercentage() {
         return profitPercentage;
     }
-    
+
     public void setProfitPercentage(double profitPercentage) {
         this.profitPercentage = profitPercentage;
     }
-<<<<<<< HEAD
-    
-    public double  calculateProfitLoss() {
-    	if(priceHistory.isEmpty()){
-    		return 0;
-    	}
-         initialPrice = priceHistory.get(0).getPrice(); // Get initial price
-         finalPrice = priceHistory.get(priceHistory.size() - 1).getPrice(); // Get final price
-=======
 
-    public double calcProfitLossPercentage() {
+    public double calculateProfitLoss() {
         if (priceHistory.isEmpty()) {
             return 0;
         }
         initialPrice = priceHistory.get(0).getPrice(); // Get initial price
         finalPrice = priceHistory.get(priceHistory.size() - 1).getPrice(); // Get final price
->>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
         return ((finalPrice - initialPrice) / initialPrice) * 100; // get the profit or loss percentage
 
     }
-<<<<<<< HEAD
-    
-=======
 
     @Override
->>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
     public double getCurrentPrice() {
         return tradingPrice;
     }
-<<<<<<< HEAD
-    
-//    @Override
-//    public void placeOrder(Transaction transaction) {
-//        // Implement place order logic for stock transactions
-//    }
 
-    
-    
     @Override
     public String toString() {
         return " Stock {" +
@@ -149,14 +119,10 @@ public class Stock extends Security {
                 ", profitPercentage=" + profitPercentage +
                 " }";
     }
-    
-    
-=======
 
     @Override
     public void placeOrder(Transaction transaction) {
         // Implement place order logic for stock transactions
     }
 
->>>>>>> 7c3d53f130befb0b8408cdebfedb468eb416c169
 }
