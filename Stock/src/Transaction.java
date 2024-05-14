@@ -1,14 +1,11 @@
-
-//package Stock;
 import java.time.LocalDateTime; // for transaction date
 
 enum Operation {
     sell, buy, deposit, withdrawal
 }; // transaction type
 
-public class Transaction { // this class represents the StockOrder needed only when a user makes an order
-                           // for some stock
-    private static int nextId = 1; // Static variable to generate unique transaction IDs
+public class Transaction {
+    private static int nextId = 0; // Static variable to generate unique transaction IDs
     private int transactionId; // each transaction has a specific id
     private int userID;
     private String stockLabel;
@@ -30,7 +27,7 @@ public class Transaction { // this class represents the StockOrder needed only w
     Transaction(int userID, Operation opType, double price) {
         this.userID = userID;
         this.opType = opType;
-        this.amount = amount;
+        // this.amount = amount;
         this.price = price;
         this.transactionId = nextId++;
         this.Transactiontime = LocalDateTime.now(); // Set current timing
@@ -91,10 +88,9 @@ public class Transaction { // this class represents the StockOrder needed only w
         this.price = price;
     }
 
-    // public void displayTransactionHistory()
-    // {
-    //
-    // }
+    public void displayTransactionHistory() {
+
+    }
 
     // Override toString method for printing transaction details
     @Override
