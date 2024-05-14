@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@data/UserTemplet.png" />
+            <Image url="@data/StockManage.png" />
          </image>
       </ImageView>
       <Label layoutX="351.0" layoutY="24.0" text="Delete Stock" textFill="#0a64b8">
@@ -21,36 +21,39 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="397.0" layoutY="221.0" text="Company:" textFill="#09090b">
+      <Label layoutX="116.0" layoutY="221.0" text="Company:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="stockDeleteButton" layoutX="502.0" layoutY="309.0" mnemonicParsing="false" onAction="#stockDeleteClicked" style="-fx-background-color: #B91C1C;" text="Delete" textFill="WHITE">
+      <Button fx:id="stockDeleteButton" layoutX="240.0" layoutY="309.0" mnemonicParsing="false" onAction="#stockDeleteClicked" style="-fx-background-color: #B91C1C;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="396.0" layoutY="117.0" prefHeight="22.0" prefWidth="48.0" text="Label:" textFill="#09090b">
+      <Label layoutX="150.0" layoutY="117.0" prefHeight="22.0" prefWidth="48.0" text="Label:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="368.0" layoutY="270.0" text="Trading Price:" textFill="#09090b">
+      <Label layoutX="93.0" layoutY="270.0" text="Trading Price:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="searchLabelfield" layoutX="444.0" layoutY="115.0" prefHeight="26.0" prefWidth="238.0" promptText="label">
+      <TextField fx:id="searchLabelfield" layoutX="200.0" layoutY="115.0" prefHeight="26.0" prefWidth="238.0" promptText="label">
          <padding>
             <Insets bottom="4.0" left="7.0" right="7.0" top="4.0" />
          </padding>
       </TextField>
-      <Button fx:id="searchStockButton" layoutX="502.0" layoutY="152.0" mnemonicParsing="false" onAction="#searchStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+      <Button fx:id="searchStockButton" layoutX="240.0" layoutY="152.0" mnemonicParsing="false" onAction="#searchStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="DSBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#DSBackButtonClicked" text="Back" />
+      <Button fx:id="DSBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#DSBackButtonClicked" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@data/UserTemplet.png" />
+            <Image url="@data/StockManage.png" />
          </image>
       </ImageView>
       <Label layoutX="351.0" layoutY="24.0" text="Create Stock" textFill="#0a64b8">
@@ -20,53 +20,56 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="427.0" layoutY="129.0" text="Company:" textFill="#09090b">
+      <Label layoutX="120.0" layoutY="129.0" text="Company:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="createStockCompanyField" layoutX="510.0" layoutY="129.0" prefHeight="26.0" prefWidth="238.0" promptText="company" />
-      <Label layoutX="417.0" layoutY="174.0" text="Initial Price:" textFill="#09090b">
+      <TextField fx:id="createStockCompanyField" layoutX="200.0" layoutY="129.0" prefHeight="26.0" prefWidth="238.0" promptText="company" />
+      <Label layoutX="110.0" layoutY="174.0" text="Initial Price:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="stockCreateButton" layoutX="549.0" layoutY="395.0" mnemonicParsing="false" onAction="#stockCreateClicked" style="-fx-background-color: #093fff;" text="Create" textFill="WHITE">
+      <Button fx:id="stockCreateButton" layoutX="220.0" layoutY="395.0" mnemonicParsing="false" onAction="#stockCreateClicked" style="-fx-background-color: #093fff;" text="Create" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="460.0" layoutY="84.0" text="Label:" textFill="#09090b">
+      <Label layoutX="150.0" layoutY="84.0" text="Label:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="createStockLabelField" layoutX="510.0" layoutY="84.0" prefHeight="26.0" prefWidth="238.0" promptText="label" />
-      <Label layoutX="425.0" layoutY="264.0" text="Dividends:" textFill="#09090b">
+      <TextField fx:id="createStockLabelField" layoutX="200.0" layoutY="84.0" prefHeight="26.0" prefWidth="238.0" promptText="label" />
+      <Label layoutX="115.0" layoutY="264.0" text="Dividends:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="377.0" layoutY="309.0" text="Available Stocks:" textFill="#09090b">
+      <Label layoutX="70.0" layoutY="309.0" text="Available Stocks:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="400.0" layoutY="219.0" text="Trading Price:" textFill="#09090b">
+      <Label layoutX="93.0" layoutY="219.0" text="Trading Price:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="createTradingPriceField" layoutX="510.0" layoutY="219.0" prefHeight="26.0" prefWidth="238.0" promptText="Write trading price in $" />
-      <TextField fx:id="createDividendsField" layoutX="510.0" layoutY="264.0" prefHeight="26.0" prefWidth="238.0" promptText="dividends" />
-      <TextField fx:id="createAvailableStocksField" layoutX="510.0" layoutY="309.0" prefHeight="26.0" prefWidth="238.0" promptText=" Write no. of available stocks" />
-      <TextField fx:id="createProfitPercentageField" layoutX="510.0" layoutY="354.0" prefHeight="26.0" prefWidth="238.0" promptText="Write profit percentage" />
-      <Label layoutX="370.0" layoutY="354.0" text="Profit Percentage:" textFill="#09090b">
+      <TextField fx:id="createTradingPriceField" layoutX="200.0" layoutY="219.0" prefHeight="26.0" prefWidth="238.0" promptText="Write trading price in $" />
+      <TextField fx:id="createDividendsField" layoutX="200.0" layoutY="264.0" prefHeight="26.0" prefWidth="238.0" promptText="dividends" />
+      <TextField fx:id="createAvailableStocksField" layoutX="200.0" layoutY="309.0" prefHeight="26.0" prefWidth="238.0" promptText=" Write no. of available stocks" />
+      <TextField fx:id="createProfitPercentageField" layoutX="200.0" layoutY="354.0" prefHeight="26.0" prefWidth="238.0" promptText="Write profit percentage" />
+      <Label layoutX="60.0" layoutY="354.0" text="Profit Percentage:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="createInitialPriceField" layoutX="510.0" layoutY="174.0" prefHeight="26.0" prefWidth="238.0" promptText=" Write initial price in $" />
-      <Button fx:id="CSBackButton" layoutX="7.0" layoutY="2.0" mnemonicParsing="false" onAction="#CSBackButtonClicked" text="Back" />
+      <TextField fx:id="createInitialPriceField" layoutX="200.0" layoutY="174.0" prefHeight="26.0" prefWidth="238.0" promptText=" Write initial price in $" />
+      <Button fx:id="CSBackButton" layoutX="7.0" layoutY="2.0" mnemonicParsing="false" onAction="#CSBackButtonClicked" prefHeight="30.0" prefWidth="53.0" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

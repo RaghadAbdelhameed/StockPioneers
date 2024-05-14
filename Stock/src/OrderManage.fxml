@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@data/AdminTemplet.png" />
+            <Image url="@data/exchange.png" />
          </image>
       </ImageView>
       <Label layoutX="315.0" layoutY="21.0" text="Order Mangement " textFill="#0a64b8">
@@ -34,6 +34,9 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="OMBackButton" layoutX="800.0" layoutY="2.0" mnemonicParsing="false" onAction="#OMBackButtonClicked" text="Back" />
+      <Button fx:id="OMBackButton" layoutX="790.0" layoutY="5.0" mnemonicParsing="false" onAction="#OMBackButtonClicked" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

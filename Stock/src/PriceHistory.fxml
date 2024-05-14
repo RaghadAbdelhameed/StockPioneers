@@ -30,30 +30,24 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="searchAdminPriceLabelField" layoutX="510.0" layoutY="106.0" prefHeight="26.0" prefWidth="238.0" promptText="label" />
-      <Button fx:id="searchAdminPriceLabelButton" layoutX="581.0" layoutY="147.0" mnemonicParsing="false" onAction="#searchAdminPriceLabelClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+      <TextField fx:id="searchLabelField" layoutX="510.0" layoutY="106.0" prefHeight="26.0" prefWidth="238.0" promptText="label" />
+      <Button fx:id="searchLabelButton" layoutX="581.0" layoutY="147.0" mnemonicParsing="false" onAction="#searchLabelClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <GridPane layoutX="14.0" layoutY="414.0">
+      <GridPane>
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.80000610351563" minWidth="10.0" prefWidth="99.2" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.60000000000001" minWidth="10.0" prefWidth="101.60000000000001" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-            <Button fx:id="PHBackButton" mnemonicParsing="false" onAction="#PHBackButtonClicked" text="Back">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-         </children>
       </GridPane>
-      <TableView fx:id="adminPriceTableView" layoutX="487.0" layoutY="193.0" prefHeight="242.0" prefWidth="268.0">
+      <TableView layoutX="487.0" layoutY="193.0" prefHeight="242.0" prefWidth="268.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Price" />
           <TableColumn prefWidth="75.0" text="Price Time" />
