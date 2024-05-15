@@ -11,7 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class zPriceHistoryController extends MainController {
+public class zAdminPriceController extends MainController {
     
     private User user;
     // private StockPrice stockPrice;

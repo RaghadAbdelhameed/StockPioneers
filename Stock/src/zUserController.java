@@ -7,7 +7,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
-//import java.lang.classfile.Label;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
