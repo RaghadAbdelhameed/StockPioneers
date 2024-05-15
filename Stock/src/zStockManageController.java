@@ -154,4 +154,18 @@ public class zStockManageController extends MainController {
         stock.setLabel(label);
         admin.deleteStock(stock);
     }
+
+    // Retrieve Stock
+    @FXML
+    private TextField searchRetrieveLabelfield;
+
+    @FXML
+    private Button searchRetrieveStockButton;
+
+    @FXML
+    void searchRetriveStockClicked(ActionEvent event) {
+        String label = searchRetrieveLabelfield.getText();
+        stock.setLabel(label);
+        admin.accessStock(label);
+    }
 }

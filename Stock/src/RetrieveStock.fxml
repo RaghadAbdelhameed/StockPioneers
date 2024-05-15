@@ -35,7 +35,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="updateStockLabelField" layoutX="200.0" layoutY="84.0" prefHeight="26.0" prefWidth="238.0" promptText="label" />
+      <TextField fx:id="searchRetrieveLabelfield" layoutX="200.0" layoutY="84.0" prefHeight="26.0" prefWidth="238.0" promptText="label" />
       <Label layoutX="126.0" layoutY="288.0" text="Dividends:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
@@ -56,7 +56,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="searchStockButton" layoutX="240.0" layoutY="118.0" mnemonicParsing="false" onAction="#searchStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+      <Button fx:id="searchRetrieveStockButton" layoutX="240.0" layoutY="118.0" mnemonicParsing="false" onAction="#searchRetriveStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>

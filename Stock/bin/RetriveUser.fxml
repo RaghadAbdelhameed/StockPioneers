@@ -16,7 +16,7 @@
                 <Image url="@data/UserTemplet.png" />
             </image>
         </ImageView>
-        <Label layoutX="351.0" layoutY="24.0" text="Retrive User" textFill="#0a64b8">
+        <Label layoutX="351.0" layoutY="24.0" text="Retrieve User" textFill="#0a64b8">
             <font>
                 <Font name="Microsoft YaHei UI Bold" size="24.0" />
             </font>
@@ -36,12 +36,12 @@
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Label>
-        <TextField fx:id="searchIDfield" layoutX="444.0" layoutY="115.0" prefHeight="26.0" prefWidth="238.0" promptText="id">
+        <TextField fx:id="searchRetriveIDfield" layoutX="444.0" layoutY="115.0" prefHeight="26.0" prefWidth="238.0" promptText="id">
             <padding>
                 <Insets bottom="4.0" left="7.0" right="7.0" top="4.0" />
             </padding>
         </TextField>
-        <Button fx:id="searhButton" layoutX="502.0" layoutY="152.0" mnemonicParsing="false" onAction="#searchClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+        <Button fx:id="searhRetrieveButton" layoutX="502.0" layoutY="152.0" mnemonicParsing="false" onAction="#searchRetrieveClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei UI" size="14.0" />
             </font>

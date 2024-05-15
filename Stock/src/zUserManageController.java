@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 
 public class zUserManageController extends MainController{
     
-    // private User user;
+    private User user;
     // private RegularUser regularUser;
     private Admin admin; 
     private RegularUser currentUser; 
@@ -74,11 +74,10 @@ public class zUserManageController extends MainController{
          currentUser.setUserName(username);
          currentUser.setPassword(password);
          currentUser.setAccountBalance(balance);
-         admin.createUser(currentUser);
+         user.createUser(currentUser);
       //   String gender = genderChoicebox.getValue(); // Assuming you've populated the
          // choice box with appropriate values
          System.out.println(username + "  " + password + "  " + id + "  " + balance);
- 
      }
  
      // Update User
@@ -110,15 +109,7 @@ public class zUserManageController extends MainController{
              currentUser.setUserName(username);
              currentUser.setAccountBalance(accountBalance);
              admin.updateUser(currentUser);
- 
              System.out.println(id + "  " + username + "  " + accountBalance);
- 
-             // Create a new User object with the updated information
-             // RegularUser updatedUser = new RegularUser(username, password, id,
-             // accountBalance,
-             // gender);
-             // // Call the updateUser method of the Admin class
-             // admin.updateUser(updatedUser);
          }
      }
  
@@ -129,9 +120,6 @@ public class zUserManageController extends MainController{
  
      @FXML
      private TextField searchIDfield;
- 
-     // @FXML
-     // private Label searchResult;
  
      @FXML
      private Button searhButton;
@@ -150,15 +138,25 @@ public class zUserManageController extends MainController{
  
      @FXML
      void searchClicked(ActionEvent event) {
-         // admin.accessUser(searchid);
-         // for (User user : Users) {
-         // if (user.getID() == searchid) {
-         // return currentUser; // return a new User object
-         // }
-         // }
-         // System.out.println(" User Not Found ");
-         // return null; // return nothing
+         
      }
  
      // Retrive User
+     @FXML
+     private TextField searchRetriveIDfield;
+ 
+     @FXML
+     private Button searhRetrieveButton;
+ 
+     @FXML
+     void searchRetrieveClicked(ActionEvent event) {
+        int searchid = Integer.parseInt(searchRetriveIDfield.getText());
+        try {
+            currentUser.setID(searchid);
+            // Call the updateUser method of the Admin class with the retrieved id
+            admin.accessUser(searchid);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid Input. You must enter a digit.");
+        }
+     }
 }
