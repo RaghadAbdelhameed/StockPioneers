@@ -34,7 +34,7 @@
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" layoutX="172.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Approval System" textFill="#09090b">
+        <Button fx:id="approvalButton" alignment="CENTER" layoutX="172.0" layoutY="277.0" mnemonicParsing="false" onAction="#approvalClicked" prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #7DD3FC;" text="Approval System" textFill="#09090b">
             <font>
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>

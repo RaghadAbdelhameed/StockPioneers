@@ -49,7 +49,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="22.0" layoutY="140.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Account Management" textFill="#09090b">
+      <Button fx:id="AccountManageButton" alignment="CENTER" layoutX="22.0" layoutY="140.0" mnemonicParsing="false" onAction="#AccountManageClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Account Management" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>

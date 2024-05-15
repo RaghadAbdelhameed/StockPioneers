@@ -47,7 +47,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="UPHBackButton" mnemonicParsing="false" onAction="#UPHBackButtonClicked" text="Back" />
+            <Button fx:id="UPHBackButton" mnemonicParsing="false" onAction="#UPHBackButtonClicked" prefHeight="30.0" prefWidth="49.0" text="Back">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </GridPane>
       <TableView fx:id="userPriceTableView" layoutX="487.0" layoutY="193.0" prefHeight="242.0" prefWidth="268.0">

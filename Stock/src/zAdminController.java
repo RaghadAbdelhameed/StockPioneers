@@ -66,6 +66,9 @@ public class zAdminController extends MainController {
     private Button sessionsButton;
 
     @FXML
+    private Button approvalButton;
+
+    @FXML
     void adminLogoutButtonClicked(ActionEvent event) {
         // Create a confirmation alert
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -113,5 +116,8 @@ public class zAdminController extends MainController {
         loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions Control");
     }
 
-    
+    @FXML
+    void approvalClicked(ActionEvent event) {
+        loadFXML("Approval.fxml", approvalButton, "Approval System");
+    }
 }

@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zUserManageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zAccountManageController">
    <children>
       <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@data/UserTemplet.png" />
          </image>
       </ImageView>
-      <Label layoutX="351.0" layoutY="24.0" text="Create User" textFill="#0a64b8">
+      <Label layoutX="274.0" layoutY="23.0" text="Create a new account" textFill="#0a64b8">
          <font>
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
@@ -34,7 +34,7 @@
          </font>
       </Label>
       <PasswordField fx:id="createPasswordfiled" layoutX="473.0" layoutY="200.0" prefHeight="26.0" prefWidth="238.0" promptText="password" />
-      <Button fx:id="saveCreateButton" layoutX="541.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveCreateClicked" style="-fx-background-color: #093fff;" text="Save" textFill="WHITE">
+      <Button fx:id="saveCreateButton" layoutX="541.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveCreateClicked" style="-fx-background-color: #093fff;" text="Create" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
@@ -63,9 +63,10 @@
       <TextField fx:id="createAccountBalancefiled" layoutX="473.0" layoutY="252.0" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
       <ChoiceBox fx:id="genderChoicebox" layoutX="473.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
       <TextField fx:id="createIDfiled" layoutX="473.0" layoutY="304.0" prefHeight="26.0" prefWidth="238.0" promptText="id" />
-      <Button id=".button" fx:id="CUBackButton" layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#CUBackButtonClicked" text="Back">
+      <Button fx:id="UPHBackButton" layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#UPHBackButtonClicked" prefHeight="30.0" prefWidth="49.0" text="Back">
          <font>
             <Font size="14.0" />
-         </font></Button>
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -15,6 +15,9 @@ public class zUserController extends MainController {
 
     // User Login
     @FXML
+    private Button AccountManageButton;
+
+    @FXML
     private Button loginUserButton;
 
     @FXML
@@ -22,7 +25,6 @@ public class zUserController extends MainController {
 
     @FXML
     private Button backButton;
-
 
     @FXML
     void loginUserClicked(ActionEvent event) {
@@ -39,6 +41,11 @@ public class zUserController extends MainController {
     void backButtonClicked() {
         System.out.println("Going Back to Login Page...");
         loadFXML("NewLogin.fxml", backButton, "Login Page");
+    }
+
+    @FXML
+    void AccountManageClicked(ActionEvent event) {
+        loadFXML("AccountManage.fxml", AccountManageButton, "Create an Account");
     }
 
     // User Signup
@@ -89,7 +96,8 @@ public class zUserController extends MainController {
     void DepositWithdrawalButtonClicked() {
         loadFXML("withdrawal.fxml", DepositWithdrawalButton, "Deposite and Withdrawal");
     }
-     @FXML
+
+    @FXML
     void logoutUserClicked(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout Confirmation");
