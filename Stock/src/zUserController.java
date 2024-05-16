@@ -111,12 +111,30 @@ public class zUserController extends MainController {
     private Button chartingButton;
 
     @FXML
+    private Button marketButton;
+
+    @FXML
+    private Button premiumButton;
+
+    @FXML
+    void premiumClicked(ActionEvent event) {
+        loadFXML("Premium.fxml", premiumButton, "Premium User");
+    }
+
+    @FXML
     void orderManageClicked(ActionEvent event) {
         loadFXML("OrderManage.fxml", orderManageButton, "Order Management");
     }
 
     @FXML
+    void marketClicked(ActionEvent event) {
+        loadFXML("MarketTracking.fxml", marketButton, "Market Performance Tracking");
+    }
+
+    @FXML
     void financialClicked(ActionEvent event) {
+        loadFXML("FinancialActions.fxml", financialButton, "Financial Actions");
+        currentUser.getFinancialTransactions();
     }
 
     @FXML
