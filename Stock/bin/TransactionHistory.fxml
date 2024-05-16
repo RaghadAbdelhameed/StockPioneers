@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0"
+   prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="zTransactionHistoryController">
+   <children>
+      <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" pickOnBounds="true"
+         preserveRatio="true">
+         <image>
+            <Image url="@data/exchange.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="1.0" layoutY="18.0" prefHeight="32.0" prefWidth="850.0"
+         text="Transaction History" textFill="#0a64b8">
+         <font>
+            <Font name="Microsoft YaHei UI Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="UPHBackButton" layoutX="8.0" layoutY="4.0" mnemonicParsing="false"
+         onAction="#UPHBackButtonClicked" prefHeight="30.0" prefWidth="49.0" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TableView layoutX="14.0" layoutY="76.0" prefHeight="354.0" prefWidth="496.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Operation " />
+            <TableColumn prefWidth="100.0" text="Transaction ID" />
+            <TableColumn prefWidth="75.20001220703125" text="Stock Label" />
+            <TableColumn prefWidth="64.0" text="Price" />
+            <TableColumn prefWidth="75.0" text="Amount" />
+            <TableColumn prefWidth="104.79998779296875" text="Transaction Time" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
