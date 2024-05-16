@@ -83,8 +83,18 @@ public class zUserController extends MainController {
     private Button DepositWithdrawalButton;
 
     @FXML
+    private Button financialButton;
+
+    @FXML
+    private Button TransactionHistoryButton;
+
+    @FXML
     void orderManageClicked(ActionEvent event) {
         loadFXML("OrderManage.fxml", orderManageButton, "Order Management");
+    }
+
+    @FXML
+    void financialClicked(ActionEvent event) {
     }
 
     @FXML
@@ -95,6 +105,12 @@ public class zUserController extends MainController {
     @FXML
     void DepositWithdrawalButtonClicked() {
         loadFXML("withdrawal.fxml", DepositWithdrawalButton, "Deposite and Withdrawal");
+    }
+
+    @FXML
+    void TransactionHistoryClicked(ActionEvent event) {
+        loadFXML("TransactionHistory.fxml", financialButton, "Transaction History");
+
     }
 
     @FXML

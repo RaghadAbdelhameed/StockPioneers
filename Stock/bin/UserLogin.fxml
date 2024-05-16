@@ -29,7 +29,7 @@
       </Label>
       <Button fx:id="backButton" layoutX="773.0" layoutY="9.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="29.0" prefWidth="49.0" text="Back">
          <font>
-            <Font name="Microsoft YaHei UI" size="12.0" />
+            <Font name="Microsoft YaHei UI" size="13.0" />
          </font>
       </Button>
       <Label layoutX="200.0" layoutY="178.0" text="Username" textFill="#09090b">

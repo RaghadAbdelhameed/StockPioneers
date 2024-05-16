@@ -1,4 +1,3 @@
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,6 +8,7 @@ import javafx.scene.control.TextField;
 import java.util.Optional;
 
 public class zAdminController extends MainController {
+    private TradingManager tradingManager;
 
     // Admin Login
     @FXML
@@ -113,7 +113,10 @@ public class zAdminController extends MainController {
 
     @FXML
     void sessionsButtonClicked(ActionEvent event) {
-        loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions Control");
+        if (!tradingManager.isTradingSessionOpen()) {
+            loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions Intiate");
+        }
+        loadFXML("TradingSessionsClose.fxml", sessionsButton, "Trading Sessions Close");
     }
 
     @FXML

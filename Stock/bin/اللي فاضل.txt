@@ -1,4 +1,8 @@
-الابروفال والترايدنج كلهم
-approval table w el price history table ma3 loay
- الاوردر مانجمنت في اليوزر تعديل السين 
+الابروفال والترايدنج والاوردر مانجمنت كلهم
+approval table w el price history table  w el finical table ma3 loay
+ csv transction 
 وباقي اليوزر
+
+
+هنطبع تابل كبير فيه اول حاجة اوبريشين ، ترانسكشن اي دي ، ترانسكشن تايم، برايس, stock label , amount
+الابروفال روان مش هتعرف تعمله من غير التابل اللي المفروض لؤي يعمله

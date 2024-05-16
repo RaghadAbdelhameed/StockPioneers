@@ -34,12 +34,12 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="22.0" layoutY="290.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text=" Financial Actions" textFill="#09090b">
+      <Button fx:id="financialButton" alignment="CENTER" layoutX="22.0" layoutY="290.0" mnemonicParsing="false" onAction="#financialClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text=" Financial Actions" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="22.0" layoutY="340.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Transaction History" textFill="#09090b">
+      <Button fx:id="TransactionHistoryButton" alignment="CENTER" layoutX="22.0" layoutY="340.0" mnemonicParsing="false" onAction="#TransactionHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Transaction History" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
