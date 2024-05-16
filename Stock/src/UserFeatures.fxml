@@ -19,7 +19,7 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="237.0" layoutY="100.0" text="What do you want to do?" textFill="#09090b">
+      <Label layoutX="165.0" layoutY="101.0" text="What do you want to do?" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="20.0" />
          </font>
@@ -59,7 +59,7 @@
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="295.0" layoutY="190.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Charting Options" textFill="#09090b">
+      <Button fx:id="chartingButton" alignment="CENTER" layoutX="295.0" layoutY="190.0" mnemonicParsing="false" onAction="#chartingClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Charting Options" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
