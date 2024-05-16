@@ -45,7 +45,6 @@ public abstract class Security {
     public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
-
     // abstract methods to be implemented in all subclasses , each subclass has its
     // own implementation for them
     public abstract double getCurrentPrice();
@@ -53,5 +52,5 @@ public abstract class Security {
     public abstract void placeOrder(Transaction transaction);
 
     // Abstract method to be implemented by subclasses
-    public abstract double calculateProfitLoss();
+    public abstract double calculateProfitPercentage();
 }

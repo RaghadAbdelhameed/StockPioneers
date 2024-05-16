@@ -1,8 +1,6 @@
 import java.time.LocalDateTime; // for transaction date
 
-enum Operation {
-    sell, buy, deposit, withdrawal
-}; // transaction type
+enum Operation {sell, buy, deposit, withdrawal}; // transaction type
 
 public class Transaction {
     private static int nextId = 0; // Static variable to generate unique transaction IDs
@@ -23,22 +21,22 @@ public class Transaction {
         this.transactionId = nextId++;
         this.Transactiontime = LocalDateTime.now(); // Set current timing
     }
-
-    Transaction(int userID, Operation opType, double price) {
-        this.userID = userID;
-        this.opType = opType;
-        // this.amount = amount;
-        this.price = price;
-        this.transactionId = nextId++;
-        this.Transactiontime = LocalDateTime.now(); // Set current timing
-    }
-
-    public Transaction(Operation opType, double amount) {
-        this.opType = opType;
-        this.amount = amount;
-        this.transactionId = nextId++;
-        this.Transactiontime = LocalDateTime.now(); // Set current timing
-    }
+     
+     Transaction(int userID, Operation opType, double price) {
+         this.userID = userID;
+         this.opType = opType;
+//         this.amount = amount;
+         this.price = price;
+         this.transactionId = nextId++;
+         this.Transactiontime = LocalDateTime.now(); // Set current timing
+     }
+     
+     public Transaction(Operation opType, double amount) {
+         this.opType = opType;
+         this.amount = amount;
+         this.transactionId = nextId++;
+         this.Transactiontime = LocalDateTime.now(); // Set current timing
+     }	
 
     public int getUserId() {
         return userID;

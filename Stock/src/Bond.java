@@ -41,13 +41,11 @@ public class Bond extends Security {
     // Implementation of abstract method
     @Override
     public double calculateProfitLoss() {
-        // For bonds, profit/loss calculation may be complex and depends on various
-        // factors such as current market interest rates
-        // Here, we can implement a simplified version considering only the difference
-        // between face value and current price
+        // For bonds, profit/loss calculation may be complex and depends on various factors such as current market interest rates
+        // Here, we can implement a simplified version considering only the difference between face value and current price
         return getFaceValue() - getPrice();
     }
-
+    
     public abstract double getCurrentPrice() {
     	
     }
@@ -55,5 +53,5 @@ public class Bond extends Security {
     public abstract void placeOrder(Transaction transaction) {
     	
     }
-
+    
 }

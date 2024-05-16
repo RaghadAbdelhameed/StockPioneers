@@ -1,40 +1,108 @@
+import java.time.LocalDateTime;
+import java.util.*;
 
-//package Stock;
-import java.time.LocalDateTime; // for price history
-
-// class for stocks prices management and monitoring
 public class StockPrice {
+	
+	 private double initialPrice;
+	    private double openingPrice;
+	    private double finalPrice;
+	    private double closingPrice;
+	    private double tradingPrice;
+	    private double dividends;
+	    private double profitPercentage;
+	    private LocalDateTime dateTime;
 
-    private double price;
-    private LocalDateTime priceTime; // record prices at a specific time
+	    public StockPrice(double initialPrice, double openingPrice, double finalPrice, double closingPrice, double tradingPrice, double dividends, double profitPercentage, LocalDateTime dateTime) {
+	        this.initialPrice = initialPrice;
+	        this.openingPrice = openingPrice;
+	        this.finalPrice = finalPrice;
+	        this.closingPrice = closingPrice;
+	        this.tradingPrice = tradingPrice;
+	        this.dividends = dividends;
+	        this.profitPercentage = profitPercentage;
+	        this.dateTime = dateTime;
+	    } 
 
-    StockPrice(double price, LocalDateTime priceTime) {
-        this.price = price;
-        this.priceTime = priceTime;
+	    public double getInitialPrice() {
+	        return initialPrice;
+	    }
+
+	    public void setInitialPrice(double initialPrice) {
+	        this.initialPrice = initialPrice;
+	    }
+	    
+	    public double getProfitPercentage() {
+	        return profitPercentage;
+	    }
+
+	    public void setProfitPercentage(double profitPercentage) {
+	        this.profitPercentage = profitPercentage;
+	    }
+	    
+	    
+    public double getOpeningPrice() {
+        return openingPrice;
     }
 
-    public double getPrice() { // retrieve stock price
-        return price;
+    public void setOpeningPrice(double openingPrice) {
+        this.openingPrice = openingPrice;
     }
 
-    public void setPrice(double price) { // set stock price
-        this.price = price;
+    public double getFinalPrice() {
+        return finalPrice;
     }
 
-    public LocalDateTime getPriceTime() {
-        return priceTime;
+    public void setFinalPrice(double finalPrice) {
+        this.finalPrice = finalPrice;
     }
 
-    public void setPriceTime(LocalDateTime priceTime) {
-        this.priceTime = priceTime;
+    public double getClosingPrice() {
+        return closingPrice;
     }
+
+    public void setClosingPrice(double closingPrice) {
+        this.closingPrice = closingPrice;
+    }
+
+    public double getTradingPrice() {
+        return tradingPrice;
+    }
+
+    public void setTradingPrice(double tradingPrice) {
+        this.tradingPrice = tradingPrice;
+    }
+
+    public double getDividends() {
+        return dividends;
+    }
+
+    public void setDividends(double dividends) {
+        this.dividends = dividends;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+    
+//    public List<StockPrice> getPriceHistory() {
+//        return priceHistory;
+//    }
 
     @Override
-    public String toString() { // display the price history for stocks
-        return "Price{ " +
-                "dateTime = " + priceTime +
-                ", price = " + price +
-                " }";
+    public String toString() {
+        return "StockPrice{" +
+                "initialPrice=" + initialPrice +
+                ", openingPrice=" + openingPrice +
+                ", finalPrice=" + finalPrice +
+                ", closingPrice=" + closingPrice +
+                ", tradingPrice=" + tradingPrice +
+                ", dividends=" + dividends +
+                ", profitPercentage=" + profitPercentage +
+                ", dateTime=" + dateTime +
+                '}';
     }
-
 }
