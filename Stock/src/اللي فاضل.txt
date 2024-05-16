@@ -2,7 +2,8 @@
 التريدينج ناقصه داتا عشان كدا بيدي ايرور
 approval table w el price history table  w el finical table ma3 loay
  csv transction ma3 loay w Mostafa 
-وباقي اليوزر
+csv user manage , stock manage, create user, create account , 
+ay csv ناقص عشان اللي احنا فيه دا عبث اقسم بالله 
 
 الابروفال روان مش هتعرف تعمله من غير التابل اللي المفروض لؤي يعمله
 financial actions msh fahmeno mastnyeen zeyad yshra7o
