@@ -12,6 +12,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class zUserController extends MainController {
+    private RegularUser currentUser;
 
     // User Login
     @FXML
@@ -113,6 +114,7 @@ public class zUserController extends MainController {
     @FXML
     void TransactionHistoryClicked(ActionEvent event) {
         loadFXML("TransactionHistory.fxml", financialButton, "Transaction History");
+        currentUser.listAllTransactions();
 
     }
 

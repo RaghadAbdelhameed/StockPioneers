@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zChartingController">
    <children>
-      <ImageView fitHeight="585.0" fitWidth="850.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="585.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@data/UserUI.png" />
+            <Image url="@data/Charts.png" />
          </image>
       </ImageView>
       <Label layoutX="285.0" layoutY="14.0" text="CandleStick Charts" textFill="#0a64b8">
@@ -19,7 +19,7 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="778.0" layoutY="8.0" mnemonicParsing="false" onAction="#backClicked" text="Back">
+      <Button fx:id="backButton" layoutX="13.0" layoutY="7.0" mnemonicParsing="false" onAction="#backClicked" text="Back">
          <font>
             <Font size="14.0" />
          </font>
