@@ -1,8 +1,10 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class zUserManageController extends MainController{
     
@@ -68,16 +70,16 @@ public class zUserManageController extends MainController{
      void saveCreateClicked(ActionEvent event) {
          String username = createUsernamefiled.getText();
          String password = createPasswordfiled.getText();
-         int id = Integer.parseInt(createIDfiled.getText());
-         double balance = Double.parseDouble(createAccountBalancefiled.getText());
-         currentUser.setID(id);
+        // int id = Integer.parseInt(createIDfiled.getText());
+         //double balance = Double.parseDouble(createAccountBalancefiled.getText());
+         //currentUser.setID(id);
          currentUser.setUserName(username);
-         currentUser.setPassword(password);
-         currentUser.setAccountBalance(balance);
+        currentUser.setPassword(password);
+         //currentUser.setAccountBalance(balance);
          user.createUser(currentUser);
       //   String gender = genderChoicebox.getValue(); // Assuming you've populated the
          // choice box with appropriate values
-         System.out.println(username + "  " + password + "  " + id + "  " + balance);
+         System.out.println(username + "  " + password );
      }
  
      // Update User
@@ -135,28 +137,75 @@ public class zUserManageController extends MainController{
              System.out.println("Invalid Input. You must enter a digit.");
          }
      }
- 
+     @FXML
+     private Label deleteuserusernamelabel;
+     @FXML
+     private Label deleteuserabalance;
+     @FXML
+     private Label deleteUserLabel;
      @FXML
      void searchClicked(ActionEvent event) {
-         
-     }
- 
+        	 int searchid = searchID(searchIDfield,deleteUserLabel);
+        	 String[][] data =(CSV.readData("src//csv files/UserData.csv"));
+          if(searchid>0) {
+                     deleteuserusernamelabel.setTextFill(Color.BLACK);
+                     deleteuserusernamelabel.setText("username: " + data[searchid][0]);
+                     deleteuserabalance.setText("account balance: " + data[searchid][3]);
+                 }
+         }
      // Retrive User
      @FXML
      private TextField searchRetriveIDfield;
  
      @FXML
      private Button searhRetrieveButton;
+     @FXML
+  	private Label retriveUserLabel;
+      @FXML
+   	private Label retriveUserUNLabel;
+      @FXML
+   	private Label retriveUserABLabel;
+      @FXML
+   	private Label retriveUserEmailLabel;
+      @FXML
+   	private Label retriveUserGenderLabel;
  
      @FXML
      void searchRetrieveClicked(ActionEvent event) {
-        int searchid = Integer.parseInt(searchRetriveIDfield.getText());
-        try {
-            currentUser.setID(searchid);
-            // Call the updateUser method of the Admin class with the retrieved id
-            admin.accessUser(searchid);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid Input. You must enter a digit.");
-        }
+    	 int searchid = searchID(searchRetriveIDfield,retriveUserLabel);
+    	 String[][] data =(CSV.readData("src//csv files/UserData.csv"));
+      if(searchid>0) {
+    	  retriveUserUNLabel.setText("UserName: "+data[searchid][0]);
+    	  retriveUserABLabel.setText("Account Balance: "+data[searchid][3]);
+    	 // retriveUserEmailLabel.setText("UserName: "+data[searchid][0]);
+    	  retriveUserGenderLabel.setText("Gender: "+data[searchid][4]);
+     }  
+     }
+     
+     int searchID( TextField id,Label label) {
+    	    try {
+    	    	int searchid = Integer.parseInt(id.getText());
+    	    	System.out.println(searchid);
+    	        boolean found = false;
+    	        String[][] data = CSV.readData("src//csv files/UserData.csv");
+    	        for (int i = 1; i < data.length; i++) {
+    	            if (searchid == Integer.parseInt(data[i][2])) {
+    	            	label.setOpacity(0);
+    	            	found=true;
+    	            	return searchid;
+    	            }
+    	        }   
+    	        if(!found) {
+    	        	label.setTextFill(Color.RED);
+    	        	label.setOpacity(1);
+    	        	label.setText("Not Found");
+    	        }
+    	    } catch (Exception e) {
+    	    	label.setTextFill(Color.RED);
+    	    	label.setOpacity(1);
+    	        label.setText("Invalid Input");
+    	        System.out.println(e);
+    	    }
+    		return 0;
      }
 }

@@ -73,6 +73,7 @@ public class zStockManageController extends MainController {
 
     @FXML
     void stockCreateClicked(ActionEvent event) {
+    	
         String label = createStockLabelField.getText();
         String company = createStockCompanyField.getText();
         double initialPrice = Double.parseDouble(createInitialPriceField.getText());
@@ -80,6 +81,7 @@ public class zStockManageController extends MainController {
         double dividends = Double.parseDouble(createDividendsField.getText());
         double profitPercentage = Double.parseDouble(createProfitPercentageField.getText());
         int availableStocks = Integer.parseInt(createAvailableStocksField.getText());
+        
         stock.setLabel(label);
         stock.setCompany(company);
         stock.setInitialPrice(initialPrice);
@@ -88,6 +90,7 @@ public class zStockManageController extends MainController {
         stock.setProfitPercentage(profitPercentage);
         stock.setAvailableStocks(availableStocks);
         admin.createStock(stock);
+        
     }
 
     // Update Stock

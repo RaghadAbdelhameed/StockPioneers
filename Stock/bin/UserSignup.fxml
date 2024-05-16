@@ -68,6 +68,6 @@
          </font>
       </Label>
       <TextField layoutX="250.0" layoutY="252.0" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
-      <ChoiceBox layoutX="250.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
+      <ChoiceBox fx:id="genderChoicebox" layoutX="250.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
    </children>
 </AnchorPane>

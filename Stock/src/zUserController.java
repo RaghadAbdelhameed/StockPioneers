@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.Optional;
@@ -28,11 +29,26 @@ public class zUserController extends MainController {
     private Button backButton;
 
     @FXML
+    private PasswordField userPasswordField;
+    @FXML
+    private TextField userUsernameField;
+    @FXML
     void loginUserClicked(ActionEvent event) {
-        loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
-
-    }
-
+        String password = userPasswordField.getText();
+        String username = userUsernameField.getText();
+        String[][] data = (CSV.readData("src//csv files/UserData.csv"));
+        boolean found = false;
+        for (int i = 0; i < data.length; i++) {
+            if (username.equals(data[i][0]) && password.equals(data[i][1])) {
+                loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("wrong input");
+        }
+    }  
     @FXML
     void handleSignupClicked(ActionEvent event) {
         loadFXML("UserSignup.fxml", signupLink, "User Signup");
