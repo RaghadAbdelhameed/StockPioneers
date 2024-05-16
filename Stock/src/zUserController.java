@@ -32,11 +32,12 @@ public class zUserController extends MainController {
     private PasswordField userPasswordField;
     @FXML
     private TextField userUsernameField;
+
     @FXML
     void loginUserClicked(ActionEvent event) {
         String password = userPasswordField.getText();
         String username = userUsernameField.getText();
-        String[][] data = (CSV.readData("src//csv files/UserData.csv"));
+        String[][] data = (CSV.readData("csv files/UserData.csv"));
         boolean found = false;
         for (int i = 0; i < data.length; i++) {
             if (username.equals(data[i][0]) && password.equals(data[i][1])) {
@@ -48,7 +49,8 @@ public class zUserController extends MainController {
         if (!found) {
             System.out.println("wrong input");
         }
-    }  
+    }
+
     @FXML
     void handleSignupClicked(ActionEvent event) {
         loadFXML("UserSignup.fxml", signupLink, "User Signup");

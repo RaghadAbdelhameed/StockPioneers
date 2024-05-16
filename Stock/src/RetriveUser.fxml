@@ -46,12 +46,7 @@
                 <Font name="Microsoft YaHei UI" size="14.0" />
             </font>
         </Button>
-      <Label fx:id="retriveUserEmailLabel" layoutX="438.0" layoutY="308.0" text="Email:" textFill="#09090b">
-         <font>
-            <Font name="Microsoft YaHei UI" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="retriveUserGenderLabel" layoutX="425.0" layoutY="348.0" text="Gender:" textFill="#09090b">
+      <Label fx:id="retriveUserGenderLabel" layoutX="425.0" layoutY="308.0" text="Gender:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
