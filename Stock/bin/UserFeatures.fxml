@@ -39,12 +39,12 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="TransactionHistoryButton" alignment="CENTER" layoutX="22.0" layoutY="340.0" mnemonicParsing="false" onAction="#TransactionHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Transaction History" textFill="#09090b">
+      <Button fx:id="TransactionHistoryButton" alignment="CENTER" layoutX="295.0" layoutY="290.0" mnemonicParsing="false" onAction="#TransactionHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Transaction History" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userPriceHistoryButton" layoutX="295.0" layoutY="340.0" mnemonicParsing="false" onAction="#userPriceHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
+      <Button fx:id="userPriceHistoryButton" layoutX="295.0" layoutY="240.0" mnemonicParsing="false" onAction="#userPriceHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
@@ -69,12 +69,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="295.0" layoutY="290.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Premium Features" textFill="#09090b">
-         <font>
-            <Font name="Microsoft YaHei UI" size="16.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" layoutX="295.0" layoutY="240.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Export Functionality" textFill="#09090b">
+      <Button alignment="CENTER" layoutX="158.0" layoutY="350.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #FDC82A;" text="Premium Features" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
