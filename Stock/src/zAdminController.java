@@ -39,7 +39,7 @@ public class zAdminController extends MainController {
     void adminLoginButtonClicked(ActionEvent event) {
         String password = adminPasswordField.getText();
         String username = adminUsernameField.getText();
-        String[][] data = CSV.readData("csv files/AdminCredentials.csv");
+        String[][] data = CSV.readData("Stock\\src\\csvfiles\\AdminCredentials.csv");
         if (username.equals(data[1][0]) && password.equals(data[1][1])) {
             loadFXML("AdminUI.fxml", adminLoginButton, "Admin Dashboard");
         } else {

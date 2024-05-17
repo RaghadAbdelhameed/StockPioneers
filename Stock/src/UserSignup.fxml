@@ -33,14 +33,14 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="250.0" layoutY="148.0" prefHeight="26.0" prefWidth="238.0" promptText="username" />
+      <TextField fx:id="signupusername" layoutX="250.0" layoutY="148.0" prefHeight="26.0" prefWidth="238.0" promptText="username" />
       <Label layoutX="160.0" layoutY="200.0" text="Password:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <PasswordField layoutX="250.0" layoutY="200.0" prefHeight="26.0" prefWidth="238.0" promptText="password" />
-      <Button fx:id="loginUserButton" layoutX="300.0" layoutY="395.0" mnemonicParsing="false" onAction="#loginUserClicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
+      <PasswordField fx:id="signuppassword" layoutX="250.0" layoutY="200.0" prefHeight="26.0" prefWidth="238.0" promptText="password" />
+      <Button fx:id="loginUserButton" layoutX="300.0" layoutY="350.0" mnemonicParsing="false" onAction="#signubloginclicked" style="-fx-background-color: #093fff;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
@@ -51,23 +51,17 @@
          </font>
       </Label>
       <TextField fx:id="emailField" layoutX="250.0" layoutY="96.0" prefHeight="26.0" prefWidth="238.0" promptText="ahmedmohamed@example.com" />
-      <Label layoutX="145.0" layoutY="304.0" text="Date of birth:" textFill="#09090b">
+      <Label layoutX="145.0" layoutY="254.0" text="Date of birth:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <DatePicker layoutX="250.0" layoutY="304.0" prefHeight="26.0" prefWidth="238.0" promptText="MM/DD/YYYY" />
-      <Label layoutX="180.0" layoutY="356.0" text="Gender:" textFill="#09090b">
+      <DatePicker layoutX="250.0" layoutY="254.0" prefHeight="26.0" prefWidth="238.0" promptText="MM/DD/YYYY" />
+      <Label layoutX="180.0" layoutY="304.0" text="Gender:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="115.0" layoutY="254.0" text="Account Balance:" textFill="#09090b">
-         <font>
-            <Font name="Microsoft YaHei UI" size="16.0" />
-         </font>
-      </Label>
-      <TextField layoutX="250.0" layoutY="252.0" prefHeight="26.0" prefWidth="238.0" promptText="Write your balance in $" />
-      <ChoiceBox fx:id="genderChoicebox" layoutX="250.0" layoutY="356.0" prefHeight="26.0" prefWidth="238.0" />
+      <ChoiceBox fx:id="genderChoicebox" layoutX="250.0" layoutY="304.0" prefHeight="26.0" prefWidth="238.0" />
    </children>
 </AnchorPane>

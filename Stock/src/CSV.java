@@ -57,8 +57,8 @@ public class CSV {
 	    }
 	    return result;
 	}
-	public static void writeData(ArrayList<RegularUser> users) {
-		try (PrintWriter writer = new PrintWriter(new FileWriter("UserData.csv"))) {
+	public static void writeData(List<RegularUser> users) {
+		try (PrintWriter writer = new PrintWriter(new FileWriter("Stock\\src\\csvfiles\\UserData.csv"))) {
 			writer.println("UserName,Password,ID,AccountBalance,gender");
 			for (RegularUser user : users) {
 				writer.println(String.format("%s,%s,%d,%.2f,%s", user.getUserName(), user.getPassword(), user.getID(),

@@ -37,7 +37,7 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="200.0" layoutY="220.0" prefHeight="26.0" prefWidth="180.0" />
+      <ChoiceBox fx:id="periodChoicebox" layoutX="200.0" layoutY="220.0" prefHeight="26.0" prefWidth="180.0" />
       <Label layoutX="105.0" layoutY="84.0" text="Stock Label:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />

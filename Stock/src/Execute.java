@@ -3,24 +3,50 @@ import java.util.*;
 
 public class Execute {
     public static void main(String[] args) {
+    	Admin admin = Admin.getInstance("ahmed", "ahmed54");
+    	RegularUser user1 = new RegularUser("mostafa" , "fdhfds" , "male");
+    	admin.createUser(user1);
+    	admin.createUser(user1);
+    	admin.deleteUser(user1);
+    	admin.initiateTradingSession();
+    	admin.initiateTradingSession();
+
     	
-        // Create a MarketPerformanceTracker
-        MarketPerformanceTracker marketTracker = new MarketPerformanceTracker();
-
-        // Create a PremiumUser
-        PremiumUser premiumUser = new PremiumUser("John", "password123", gender.male);
-
-        // Subscribe premiumUser to market updates
-        marketTracker.subscribe(premiumUser);
-
-        // Simulate market update
-        marketTracker.notifyObservers();
-
-        // Show line chart for a specific stock (e.g., "AAPL")
-        premiumUser.showLineChart("AAPL", marketTracker.getPrices());
-
-        // Unsubscribe premiumUser
-        marketTracker.unsubscribe(premiumUser);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+//        // Create a MarketPerformanceTracker
+//        MarketPerformanceTracker marketTracker = new MarketPerformanceTracker();
+//
+//        // Create a PremiumUser
+//        PremiumUser premiumUser = new PremiumUser("John", "password123", gender.male);
+//
+//        // Subscribe premiumUser to market updates
+//        marketTracker.subscribe(premiumUser);
+//
+//        // Simulate market update
+//        marketTracker.notifyObservers();
+//
+//        // Show line chart for a specific stock (e.g., "AAPL")
+//        premiumUser.showLineChart("AAPL", marketTracker.getPrices());
+//
+//        // Unsubscribe premiumUser
+//        marketTracker.unsubscribe(premiumUser);
     }
 }
 

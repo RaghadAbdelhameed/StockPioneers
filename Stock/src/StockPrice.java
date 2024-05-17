@@ -94,7 +94,7 @@ public class StockPrice {
 
     @Override
     public String toString() {
-        return "StockPrice{" +
+        return " StockPrice{" +
                 "initialPrice=" + initialPrice +
                 ", openingPrice=" + openingPrice +
                 ", finalPrice=" + finalPrice +

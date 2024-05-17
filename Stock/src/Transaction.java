@@ -25,7 +25,6 @@ public class Transaction {
      Transaction(int userID, Operation opType, double price) {
          this.userID = userID;
          this.opType = opType;
-//         this.amount = amount;
          this.price = price;
          this.transactionId = nextId++;
          this.Transactiontime = LocalDateTime.now(); // Set current timing

@@ -1,46 +1,44 @@
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 
 public class Admin extends User{ 
-	
-	List<User> Users = User.getUsers();
+
     private TradingManager tradingmanager; // instance from "TradingManager" class
     private static volatile Admin Instance;
     private LocalDateTime dateTime;
-	//private List<User> Users;
-	//	private List<Stock> Stocks;  
-    //    private Map<String, List<Transaction>> Transactions; // Map to store stock orders by stock label
-    //    private Map<String, List<StockPrice>> Prices; // Map to store stock price by stock label
-    
 	
-	private Admin(String username , String password,/* double accountbalance , */gender gender)
-	{
-		super(username , password ,/*accountbalance , */ gender);
-       // this.tradingmanager = tradingmanager;  // unary association admin -> TradingManager
-		//this.Users = new ArrayList<>();
-		//this.Stocks = new ArrayList<>();
-        // this.Transactions = new HashMap<>();
-        //    this.Prices = new HashMap<>();
+	List<RegularUser> Users = User.getUsers();
+	void ReadData(){
+	String[][]data=CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
+	for(int i=1;i<data.length;i++) {
+		try {
+			RegularUser user1= new RegularUser(data[i][0],data[i][1]/*,Integer.parseInt(data[i][2])
+					,Double.parseDouble(data[i][3])*/,data[i][4]);
+			user1.setAccountBalance(Double.parseDouble(data[i][3]));
+			Users.add(user1);
+		} catch (NumberFormatException e) {
+			System.out.println("Error reading data from CSV file: " + e.getMessage());
+		}
 	}
-    
-    private Admin(String username , String password,/* double accountbalance , */gender gender, TradingManager tradingmanager)
-	{
-		super(username , password ,/*accountbalance , */ gender);
-        this.tradingmanager = tradingmanager;  // unary association admin -> TradingManager
-		//this.Users = new ArrayList<>();
-		//this.Stocks = new ArrayList<>();
-        // this.Transactions = new HashMap<>();
-        //    this.Prices = new HashMap<>();
 	}
+
+    private Admin(String username , String password)
+	{
+		super(username , password);
+		tradingmanager = new TradingManager(); 
+		}
 	
 	// Singleton design pattern
-	public static Admin getInstance(String username , String password,/* double accountbalance , */gender gender, TradingManager tradingmanager){
+	public static Admin getInstance(String username , String password){
 		Admin result = Instance;
 		if(result == null){
 		synchronized(Admin.class) {
 		if(result == null){
-			result = new Admin( username ,  password, /* accountbalance ,  */gender,  tradingmanager);
+			result = new Admin( username ,  password);
 			return result;
 			}		
 		}
@@ -49,19 +47,79 @@ public class Admin extends User{
 	}
 	
 	// Admin features	
+	public void createUser(RegularUser user)
+	{
+		try {
+		String [][]data=CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
+		for(int i=1;i<data.length;i++) {
+			try {
+				RegularUser user1= new RegularUser(data[i][0],data[i][1]/*,Integer.parseInt(data[i][2])
+						,Double.parseDouble(data[i][3])*/,data[i][4]);
+				user1.setAccountBalance(Double.parseDouble(data[i][3]));
+				Users.add(user1);
+			} catch (NumberFormatException e) {
+				System.out.println("Error reading data from CSV file: " + e.getMessage());
+			}
+		}
+		if(user != null){ // user account cannot be null
+			if(!checkUserExists(user.getUserName(),user.getPassword())) { // check thats its not already added before
+				Users.add(user);
+				CSV.writeData(Users);
+		System.out.println(" User created successfully ");
+			}
+			else{
+				System.out.println(" This User " + "( " + user.getUserName() + " ) already exist ");
+				}
+		}else {
+		System.out.println(" Invalid user provided "); // null user 
+		}	
+		}
 		
-		public void deleteUser(User user){		
-			if(user != null){ // user account cannot be null
-				if(Users.contains(user)) { // check thats its not already added before
-			Users.remove(user);
-			System.out.println(" User deleted successfully ");
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static boolean checkUserExists(String userName, String password) {
+        String filePath = "Stock\\src\\csvfiles\\UserData.csv";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith(userName + "," + password)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+		public void deleteUser(RegularUser user){		
+			try {	
+			String [][]data=CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
+				for(int i=1;i<data.length;i++) {
+					
+						RegularUser user1= new RegularUser(data[i][0],data[i][1],Integer.parseInt(data[i][2])
+								,Double.parseDouble(data[i][3]),data[i][4]);
+						Users.add(user1);
+					}
 			}
-				else{
-					System.out.println(" This User " + "( " + user.getUserName() + " ) does not exist ");}
-			}
-			else {
-			System.out.println(" Invalid user provided "); // null user 
-			}
+				catch (NumberFormatException e) {
+						System.out.println("Error reading data from CSV file: " + e.getMessage());
+					}
+			 if (user != null) { // user account cannot be null
+			        if (checkUserExists(user.getUserName(), user.getPassword())) { // check that it's not already added before
+			            Users.remove(user);
+			            System.out.println(Users.get(user.getID()).getUserName());
+			            
+			            CSV.writeData(Users);
+			            System.out.println(" User deleted successfully ");
+			        } else {
+			            System.out.println(" This User " + "( " + user.getUserName() + " ) does not exist ");
+			        }
+			    } else {
+			        System.out.println(" Invalid user provided "); // null user
+			    }
+
 		}
 	
 		// retrieving user is to access a specific User
@@ -75,13 +133,15 @@ public class Admin extends User{
 		}
 			
 	// Updating user data
-	public void updateUser(User updatedUser) { // updated user with new data to be updated
+	public void updateUser(RegularUser updatedUser) { // updated user with new data to be updated
 		boolean userFound = false;
+		ReadData();
 		for (User user : Users) {
 			if (user.getID() == updatedUser.getID()) // this guarantees that user will not be updated if it has an invalid ID
 			{
 				user.setUserName(updatedUser.getUserName());
-				user.setAccountBalance(updatedUser.getAccountBalance());
+				user.setPassword(updatedUser.getPassword());
+				CSV.writeData(Users);
 				System.out.println(" User updated successfully ");
 				userFound = true;
 				break;
@@ -89,17 +149,16 @@ public class Admin extends User{
 		}
 		System.out.println(" User with ID ( " + updatedUser.getID() + " ) not found for update ");
 	}
-
-	
-	
 	
 	// 2- Stock Management
 
 	// create a new stock to be traded in the market
-	public void createStock(Stock stock) {
+	public void createStock(Stock stock,StockPrice stockp) {
 		if (stock != null) {
 			if (!Stocks.contains(stock)) { // check thats its not already added before
 				Stocks.add(stock);
+				 stockPrices.add("",stockp);
+				CSV.writeStockHistory(Stocks,stockPrices.get(stockp));
 				System.out.println(" Stock created successfully ");
 				//getPrices().get(stock.getLabel()).add(stock.getTradingPrice()); // Store the price of the stock in a list
 
@@ -175,123 +234,10 @@ public class Admin extends User{
 		    }
 		}
 
-//	    // Method to get stock details including price history
-//	    public String getStockDetails(Stock stock) {
-//	        StringBuilder details = new StringBuilder();
-//	        details.append("Stock Details:\n")
-//	                .append(stock.toString())
-//	                .append("\nPrice History:\n");
-//	        
-//	        List<StockPrice> priceHistory = stock.getPriceHistory();
-//	        for (StockPrice price : priceHistory) {
-//	            details.append(price.toString()).append("\n");
-//	        }
-//	        return details.toString();
-//	    }
-	    
-	    
-//	    // Method to display the price history for a specific stock label
-//	    public void displayPriceHistoryForStock(String label) {
-//	        List<StockPrice> priceHistory = retrieveStockPriceHistory(label); // calling the method with the specified label
-//	        if (!priceHistory.isEmpty()) {
-//	            System.out.println("Price history for stock with label " + label + ":");
-//	            for (StockPrice price : priceHistory) {
-//	                System.out.println(price.toString()); // Assuming StockPrice class has a toString() method
-//	            }
-//	        } else {
-//	            System.out.println("No price history found for stock with label: " + label);
-//	        }
-//	    }
-		
-//	    public void displayPriceHistory(String label) {
-//	        for (Stock stock : Stocks) {
-//	            if (stock.getLabel().equals(label)) {
-//	                for (StockPrice stockPrice : stock.getPriceHistory()) {
-//	                    System.out.println(stockPrice);
-//	                }
-//	                return; // Exit method after printing price history
-//	            }
-//	        }
-//	        System.out.println("No price history found for stock with label: " + label);
-//	    }
-//
-//		// stock orders listed by label
-//		public void listByLabel(String label) // admin can search for a specific label for monitoring the market
-//		{
-//			if(orderedTransactions.containsKey(label)){
-//				System.out.println(" Stock orders with label: " + label + " ");
-//				for(Transaction transaction : orderedTransactions.get(label)){
-//					System.out.println(transaction.toString());}
-//			}
-//			else{
-//				System.out.println(label + " not found in stock order list ");
-//			}
-//		System.out.println(" Stock with label " + label + " not found for update ");
-//	}
-
-//		public void displayPriceHistory(String stockLabel) {
-//		    boolean found = false;
-//		    for (Stock stock : Stocks) {
-//            	System.out.println("4654656546");
-//		        if (stock.getLabel().equals(stockLabel)) {
-//		            found = true;
-//		            List<StockPrice> priceHistory = stock.getPriceHistory();
-//		            if (!priceHistory.isEmpty()) {
-//		                System.out.println(" Price history for stock with label: " + stockLabel);
-//		                for (StockPrice price : priceHistory) {
-//		                    System.out.println(price);
-//		                }
-//		            } else {
-//		                System.out.println(" No price history found for stock with label: " + stockLabel);
-//		            }
-//		            break;
-//		        }
-//		    }
-//		    if (!found) {
-//		        System.out.println(" Stock with label " + stockLabel + " not found ");
-//		    }
-//		}
-		
-		public void displayPriceHistory(Stock stockk) {
-			if(Stocks.contains(stockk)) {
-//				Stock st = new Stock();
-			
-				System.out.println("fsdfsd");
-	            List<StockPrice> priceHistory = stockk.getPriceHistory();
-	            if (!priceHistory.isEmpty()) {
-	                System.out.println(" Price history for stock with label: " + stockk.getLabel());
-	                for (StockPrice price : priceHistory) {
-	                    System.out.println(price);
-			}
-	                }
-	    }
-			/*
-		    boolean found = false;
-		    for (Stock stock : Stocks) {
-            	System.out.println("4654656546");
-		        if (stock.getLabel().equals(stockLabel)) {
-		            found = true;
-		            List<StockPrice> priceHistory = stock.getPriceHistory();
-		            if (!priceHistory.isEmpty()) {
-		                System.out.println(" Price history for stock with label: " + stockLabel);
-		                for (StockPrice price : priceHistory) {
-		                    System.out.println(price);
-		                }
-		            } else {
-		                System.out.println(" No price history found for stock with label: " + stockLabel);
-		            }
-		            break;
-		        }
-		    }
-		    if (!found) {
-		        System.out.println(" Stock with label " + stockLabel + " not found ");
-		    }
-		    */
-		}
 		
 	// stock price management
 
-	// add prices for each stock
+	// define a stock price
 	public void addStockPrice(String label, StockPrice price){ // define the stock price using the stock label
 		if (!getPrices().containsKey(label)){ // check label existence
 			getPrices().put(label, new ArrayList<>()); // If the label doesn't exist in the map, create a new list for that label

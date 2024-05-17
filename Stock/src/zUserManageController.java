@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 
 public class zUserManageController extends MainController {
 
-    private User user;
+//    private User user;
     // private RegularUser regularUser;
     private Admin admin;
     private RegularUser currentUser;
@@ -68,19 +68,22 @@ public class zUserManageController extends MainController {
 
     @FXML
     void saveCreateClicked(ActionEvent event) {
-        String username = createUsernamefiled.getText();
-        String password = createPasswordfiled.getText();
-        // int id = Integer.parseInt(createIDfiled.getText());
-        // double balance = Double.parseDouble(createAccountBalancefiled.getText());
-        // currentUser.setID(id);
-        currentUser.setUserName(username);
-        currentUser.setPassword(password);
-        // currentUser.setAccountBalance(balance);
-        user.createUser(currentUser);
-        // String gender = genderChoicebox.getValue(); // Assuming you've populated the
-        // choice box with appropriate values
-        System.out.println(username + "  " + password);
-    }
+    	try { 
+       	 String [][]data=CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
+       	Admin admin = Admin.getInstance("ahmed", "ahmed45"); 
+            String username = createUsernamefiled.getText();
+            String password = createPasswordfiled.getText();
+            int counter=data.length;
+            String gender=genderChoicebox.getValue();
+            currentUser = new RegularUser(username,password,gender);
+            currentUser.setID(counter++);
+            admin.createUser(currentUser);
+            System.out.println(username + "  " + password );
+       	}
+       	catch(Exception e) {
+       		System.out.println(e);
+       	}
+       	}
 
     // Update User
 
@@ -98,16 +101,31 @@ public class zUserManageController extends MainController {
 
     @FXML
     void updateClicked(ActionEvent event) {
-        {
-            String username = UpdateUsernsamefield.getText();
-            String password = UpdatePasswordfield.getText();
-            int id = Integer.parseInt(UpdateIDfield.getText());
-            currentUser.setID(id);
-            currentUser.setUserName(username);
-            currentUser.setPassword(password);
+       try {
+        	int searchid = searchID(searchIDfield, deleteUserLabel);
+        	Admin admin = Admin.getInstance("ahmed", "ahmed45"); 
+        	String username = UpdateUsernsamefield.getText();
+            String password = UpdatePasswordfield.getText();       
+            String [][]data=CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
+            currentUser = new RegularUser(username,password,Integer.parseInt(data[searchid][2])
+					,Double.parseDouble(data[searchid][3]),data[searchid][4]);
             admin.updateUser(currentUser);
-            System.out.println(id + "  " + username + "  " + password);
+            System.out.println(username + "  " + password);
         }
+       catch(Exception e) {
+    	   
+       }
+    }
+    @FXML
+    void updateSearchClicked(ActionEvent event) throws Exception {
+   	 int searchid = searchID(searchIDfield,deleteUserLabel);
+   	// String[][] data =(CSV.readData("Stock\\src\\csvfiles\\UserData.csv"));
+   	 if(searchid>0) {
+   		 deleteUserLabel.setTextFill(Color.BLACK);
+   		 deleteUserLabel.setOpacity(1);
+   		 deleteUserLabel.setText("found");
+            }
+
     }
 
     // delete user
@@ -123,12 +141,18 @@ public class zUserManageController extends MainController {
 
     @FXML
     void deleteClicked(ActionEvent event) {
-        int searchid = Integer.parseInt(searchIDfield.getText());
-        try {
-            currentUser.setID(searchid);
-            // Call the updateUser method of the Admin class with the retrieved id
+    	try {
+    	int searchid = searchID(searchIDfield, deleteUserLabel);
+    	Admin admin = Admin.getInstance("ahmed", "ahmed45"); 
+    	String[][] data = (CSV.readData("Stock\\src\\csvfiles\\UserData.csv"));
+    		if(searchid>0) {
+    		currentUser=new RegularUser(data[searchid][0],data[searchid][1]
+    				,Integer.parseInt(data[searchid][2])
+					,Double.parseDouble(data[searchid][3]),data[searchid][4]);	
             admin.deleteUser(currentUser);
-        } catch (NumberFormatException e) {
+        } 
+    		}
+    	catch (NumberFormatException e) {
             System.out.println("Invalid Input. You must enter a digit.");
         }
     }
@@ -143,14 +167,13 @@ public class zUserManageController extends MainController {
     @FXML
     void searchClicked(ActionEvent event) {
         int searchid = searchID(searchIDfield, deleteUserLabel);
-        String[][] data = (CSV.readData("csv files/UserData.csv"));
+        String[][] data = (CSV.readData("Stock\\src\\csvfiles\\UserData.csv"));
         if (searchid > 0) {
             deleteuserusernamelabel.setTextFill(Color.BLACK);
             deleteuserusernamelabel.setText("username: " + data[searchid][0]);
             deleteuserabalance.setText("account balance: " + data[searchid][3]);
         }
     }
-
     // Retrive User
     @FXML
     private TextField searchRetriveIDfield;
@@ -171,7 +194,7 @@ public class zUserManageController extends MainController {
     @FXML
     void searchRetrieveClicked(ActionEvent event) {
         int searchid = searchID(searchRetriveIDfield, retriveUserLabel);
-        String[][] data = (CSV.readData("csv files/UserData.csv"));
+        String[][] data = (CSV.readData("Stock\\src\\csvfiles\\UserData.csv"));
         if (searchid > 0) {
             retriveUserUNLabel.setText("UserName: " + data[searchid][0]);
             retriveUserABLabel.setText("Account Balance: " + data[searchid][3]);
@@ -185,13 +208,17 @@ public class zUserManageController extends MainController {
             int searchid = Integer.parseInt(id.getText());
             System.out.println(searchid);
             boolean found = false;
-            String[][] data = CSV.readData("csv files/UserData.csv");
+            String[][] data = CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
             for (int i = 1; i < data.length; i++) {
                 if (searchid == Integer.parseInt(data[i][2])) {
                     label.setOpacity(0);
                     found = true;
                     return searchid;
                 }
+               
+            }
+            if(searchid<=0) {
+            	throw new Exception();	
             }
             if (!found) {
                 label.setTextFill(Color.RED);

@@ -1,13 +1,11 @@
 import java.time.LocalDateTime;
 
 public abstract class Security {
-    private String symbol;
     private double price;
     private LocalDateTime lastUpdate;
 
     // Constructor
-    public Security(String symbol, double price) {
-        this.symbol = symbol;
+    public Security( double price) {
         this.price = price;
         this.lastUpdate = LocalDateTime.now();
     }
@@ -23,14 +21,6 @@ public abstract class Security {
     public Security(String label, String name) {
         this.label = label;
         this.name = name;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
     }
 
     public double getPrice() {

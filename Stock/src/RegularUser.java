@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.Scanner;
 import java.time.LocalDateTime;
 
 
@@ -11,30 +10,56 @@ public class RegularUser extends User {
 	   private List<Transaction> financialTransactions; 
 	   private List<Stock> haveStocks;
 
-	    public RegularUser(String username, String password, /* double accountbalance, */gender gender){
-	        super(username, password, /* accountbalance, */gender);
+	    public RegularUser(String username, String password, String gender){
+	        super(username, password, gender);
 	        this.isDepositApproved = false; // Admin doesnot approved by default
 	        this.isWithdrawalApproved = false;
 	        pendingTransactions = new ArrayList<>();
 	        this.haveStocks = new ArrayList<>(); // list for the stocks that User have
 	        this.financialTransactions = new ArrayList<>();
 	        }
-	
+	    
+	    // for csv data
+	    public RegularUser(String username, String password, int id, double accountbalance, String gender) {
+	 		super(username,password,gender);
+	 		this.ID=id;
+	 		this.accountbalance=accountbalance;
+	 		this.isDepositApproved = false; // Admin doesnot approved by default
+	 	    this.isWithdrawalApproved = false;
+	 	    this.pendingTransactions = new ArrayList<>();
+	 	    this.haveStocks = new ArrayList<>(); // list for the stocks that User have
+	 	    this.financialTransactions = new ArrayList<>();
+	 	    }
+	 	    
 	    
 	    
 	    //financial actions
 	    
-	    // Method to deposit funds (pending admin approval)
-	    public void deposit(double amount) { // deposit request 
-	        if (amount > 0) { // to be valid
-	        	Transaction depositTransaction = new Transaction(Operation.deposit, amount);
-	        	pendingTransactions.add(depositTransaction);
-	            System.out.println(" Deposit request submitted for approval ");
+	    public void deposit(double amount) {
+	        if (amount > 0) {
+	            Transaction depositTransaction = new Transaction(Operation.deposit, amount);
+	            pendingTransactions.add(depositTransaction);
+	            System.out.println("Deposit request submitted for approval.");
+	            // wait for transaction to be approved
+	            while (!this.isDepositApproved) {
+	                try {
+	                    Thread.sleep(1000);
+	                } catch (InterruptedException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	            // update the user's account balance
+	            this.accountbalance += amount;
+	            // update the Users list
+	            int index = Users.indexOf(this);
+	            Users.set(index, this);
+	            // write the updated Users list to the CSV file
+	            CSV.writeData(Users);
+	            System.out.println("Deposit successful. New balance: " + this.accountbalance);
 	        } else {
-	            System.out.println(" Invalid deposit amount ");
+	            System.out.println("Invalid deposit amount.");
 	        }
 	    }
-
 	    // Method to withdraw funds (pending admin approval)
 	    public void withdrawal(double amount) {
 	        if (amount > 0 && amount <= accountbalance) {
@@ -110,7 +135,6 @@ public class RegularUser extends User {
 	    	    	String decision=input.nextLine(); // exception handling needed
 	    	    	if(decision.equals("yes")  || decision.equals("YES")){
 	    	    		amount = stockCounter;
-	    	    		//buyStockOrder(label , company , maxPrice , amount);
 	    	    	}
 	    	    	else {
 	        		return; 
@@ -130,6 +154,8 @@ public class RegularUser extends User {
 	            	setAccountBalance(getAccountBalance() - totalPrice);
 	                haveStocks.add(stockToBuy);
 	                Stocks.remove(stockToBuy);
+	                // updating the available stocks in the market
+	                stockToBuy.setAvailableStocks(stockToBuy.getAvailableStocks() - amount);
 	                System.out.println(" Stock bought successfully ");
 	                // Update stock price history
 	                LocalDateTime currentTime = LocalDateTime.now();
@@ -143,6 +169,8 @@ public class RegularUser extends User {
 	                if (autoExecuteBuyOrder(stockToBuy, maxPrice)) {
 	                    System.out.println(" Executing buy order... ");
 	                    setAccountBalance(getAccountBalance() - stockToBuy.getTradingPrice());
+		                // updating the available stocks in the market
+		                stockToBuy.setAvailableStocks(stockToBuy.getAvailableStocks() - amount);
 	                    haveStocks.add(stockToBuy);	// Add the stock to the user's portfolio
 	                    Stocks.remove(stockToBuy);  // Remove the bought stock from the market
 	                    System.out.println(" Stock bought successfully ");
@@ -205,6 +233,8 @@ public class RegularUser extends User {
 	                if (stockToSell.getTradingPrice() >= minPrice) { // condition to sell that stock
 	                	double totalPrice = stockToSell.getTradingPrice() * amount;
 	                    setAccountBalance(getAccountBalance() + totalPrice);
+		                // updating the available stocks in the market
+	                    stockToSell.setAvailableStocks(stockToSell.getAvailableStocks() - amount);
 	                    haveStocks.remove(stockToSell);
 	                    Stocks.add(stockToSell); // making it available in the market again
 	                    System.out.println(" Stock sold successfully ");
@@ -258,7 +288,7 @@ public class RegularUser extends User {
 	            String label = entry.getKey();
 	            List<Transaction> transactions = entry.getValue();
 	            for (Transaction transaction : transactions) {
-	                System.out.println(/*" Label: " + label + */  /*" Transaction: " + */transaction);
+	                System.out.println(transaction);
 	            }
 	        }
 	    }

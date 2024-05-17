@@ -11,8 +11,8 @@ public class Option extends Security {
     private String underlyingAssetSymbol;
 
     // Constructor
-    public Option(String symbol, double price, OptionType optionType, double strikePrice, LocalDate expirationDate, String underlyingAssetSymbol) {
-        super(symbol, price);
+    public Option(double price, OptionType optionType, double strikePrice, LocalDate expirationDate, String underlyingAssetSymbol) {
+        super(price);
         this.optionType = optionType;
         this.strikePrice = strikePrice;
         this.expirationDate = expirationDate;
@@ -52,20 +52,27 @@ public class Option extends Security {
         this.underlyingAssetSymbol = underlyingAssetSymbol;
     }
 
-    // Implementation of abstract method
+    // Implementation of abstract method to get current price
     @Override
-    public double calculateProfitLoss() {
-        // Profit/Loss calculation for options depends on various factors including the option type, strike price, and market price of the underlying asset
-        // We can implement a simplified version considering only the difference between the strike price and the current price of the underlying asset
-        return getPrice() - strikePrice;
-    }
-    
-    public abstract double getCurrentPrice() {
-    	
+    public double getCurrentPrice() {
+        return getPrice(); // For simplicity, the current price of an option is its market price
     }
 
-    public abstract void placeOrder(Transaction transaction) {
-    	
+    // Implementation of abstract method to place an order
+    @Override
+    public void placeOrder(Transaction transaction) {
+        // Implementation specific to placing orders for options can be added here if needed
+        // For example, validation of option-specific transaction details
+        System.out.println("Placing order for option: " + transaction.toString());
     }
+
+    // Implementation of abstract method to calculate profit percentage
+    @Override
+    public double calculateProfitPercentage() {
+        // Profit/Loss calculation for options depends on various factors including the option type, strike price, and market price of the underlying asset
+        // We can implement a simplified version considering only the difference between the strike price and the current price of the underlying asset
+        return (getPrice() - strikePrice) / strikePrice * 100;
     
+}
+
 }

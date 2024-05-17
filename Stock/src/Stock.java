@@ -7,58 +7,21 @@ public class Stock extends Security{
     private String label; // stock label
     private String company;
     private int availableStocks;
+    private int amount;
     protected List<StockPrice> priceHistory; // Store historical price data
-  //  private List<Observer> observerList ;
 
-    public Stock(String symbol, double price, String label, int amount, String company, int availableStocks) {
-        super(symbol, price);
+    public Stock(double price, String label, int amount, String company, int availableStocks) {
+        super(price);
         this.label = label;
         this.company = company;
         this.availableStocks = availableStocks;
+        this.amount = amount;
         this.priceHistory = new ArrayList<>();
-        // Add initial stock price to the history
+        // Add initial stock price to the history automatically when defining a stock
         StockPrice initialStockPrice = new StockPrice(price, price, price, price, price, 0.0, 0.0, LocalDateTime.now());
         priceHistory.add(initialStockPrice);
-    //    observerList = new ArrayList<>();
     }
     
-    
-//    @Override
-//    public void subscribe(Observer observer)
-//    {
-//    	observerList.add(observer);
-//    }
-    
-//    private String label; // stock label
-//    private static int amount;
-//    private String company;
-//    private int availableStocks;
-//    private List<StockPrice> priceHistory; // Store historical price data
-
-//    public Stock(String symbol, double price, String label, int amount, String company, double initialPrice, double tradingPrice, double dividends, int availableStocks , double profitPercentage) {
-//       super(symbol, price);
-//    	this.label = label;
-//    	this.amount = amount;
-//        this.label = label;
-//        this.company = company;
-//        this.initialPrice = initialPrice;
-//        this.tradingPrice = tradingPrice; // Initially set current price to initial price
-//        this.dividends = dividends;
-//        this.availableStocks = availableStocks;
-//        this.profitPercentage = profitPercentage;
-//        this.priceHistory = new ArrayList<>();
-//    }
-    
-//    public Stock(String symbol, double price, String label, int amount, String company, int availableStocks) {
-//        super(symbol, price);
-//        this.label = label;
-//        this.amount = amount;
-//        this.company = company;
-//        this.availableStocks = availableStocks;
-//        this.priceHistory = new ArrayList<>();
-//    }
-
-      
     public String getLabel() {
         return label;
     }
@@ -67,13 +30,13 @@ public class Stock extends Security{
         this.label = label;
     }
     
-//    public static int getAmount() {
-//        return amount;
-//    }
-//
-//    public void setAmount(int amount) {
-//        this.amount = amount;
-//    }
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 
     public String getCompany() {
         return company;

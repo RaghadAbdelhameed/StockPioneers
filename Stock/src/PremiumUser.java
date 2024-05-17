@@ -3,7 +3,7 @@ import java.util.*;
 public class PremiumUser extends RegularUser implements Observer {
 
 	
-	public PremiumUser(String username, String password, gender gender) {
+	public PremiumUser(String username, String password, String gender) {
         super(username, password, gender);
     }
 
@@ -11,19 +11,8 @@ public class PremiumUser extends RegularUser implements Observer {
     @Override
     public void update(User user) {
         System.out.println(" Updating user: " + user.getUserName());
-//        show
     }
-//    // Subscribe for Notifications on Stock Price Changes
-//    public void subscribeForNotifications() {
-//        MarketPerformanceTracker.subscribe(this);        // Subscribe to the market performance tracker
-//        System.out.println("Subscribed for notifications on stock price changes.");
-//    }
-//
-//    // Unsubscribe from Notifications on Stock Price Changes
-//    public void unsubscribeFromNotifications() {
-//        MarketPerformanceTracker.unsubscribe(this);        // Unsubscribe from the market performance tracker
-//        System.out.println("Unsubscribed from notifications on stock price changes.");
-//    }
+
 
     // Method to show line charts for specific stocks
     public void showLineChart(String stockLabel, Map<String, List<StockPrice>> stockPrices) {
@@ -40,14 +29,6 @@ public class PremiumUser extends RegularUser implements Observer {
             System.out.println(price.getDateTime() + " - " + price.getTradingPrice());
         }
     }
-
-//    // Implement update method from Observer interface
-//    @Override
-//    public void update(String username) {
-//        // This method will be called when there's a notification about stock price changes
-//        System.out.println( username +" Received notification: Stock price has changed ");
-//        // Add code here to handle the notification, such as updating line charts
-//    }
 
     
 }
