@@ -26,7 +26,7 @@ The workspace contains folders as shown:
 - `FXMLs`: the folder that contains FXMLs files
 - `data`: the folder that contains images 
 
-> Don't forget to import the JavaFX path here, just open `.vscode/settings.json`.
+> Don't forget to write the JavaFX library path here, just open `.vscode/launch.json`.
 
 ## Login UI
 <table>
@@ -267,7 +267,7 @@ public boolean isTradingSessionOpen() {
 
 ![Admin Features](Stock/src/data/AdminFeatuersPage.png)
 
-## Regular User Class: Key Features and Methods
+## Key RegularUser Features and Methods
 
 The `RegularUser` class extends from the `User` class, adding functionalities specific to regular users of the stock exchange platform. Here are the essential features and methods for the `RegularUser` class:
 
@@ -308,33 +308,6 @@ public List<Transaction> getPendingTransactions() {
 
 ![Deposit and Withdrawal](Stock/src/data/DepositPage.png)
 
-#### Get Financial Transactions
-```java
-public List<Transaction> getFinancialTransactions() {
-    return financialTransactions;
-}
-```
-
-#### Remove Pending Transaction
-```java
-public void removePendingTransaction(Transaction transaction) {
-    pendingTransactions.remove(transaction);
-}
-```
-
-#### Mark Deposit Approval
-```java
-public void markDepositApproval() {
-    this.isDepositApproved = true;
-}
-```
-
-#### Mark Withdrawal Approval
-```java
-public void markWithdrawalApproval() {
-    this.isWithdrawalApproved = true;
-}
-```
 
 ### 2. Stock Orders
 
@@ -345,61 +318,6 @@ public void buyStockOrder(String label, String company, double maxPrice, int amo
         System.out.println("Invalid data.");
         return;
     }
-
-    Stock stockToBuy = null;
-    for (Stock stock : Stocks) {
-        if (stock.getLabel().equals(label) && stock.getCompany().equals(company)) {
-            stockToBuy = stock;
-            break;
-        }
-    }
-
-    if (stockToBuy == null) {
-        System.out.println("There's no such stock with the provided data.");
-        return;
-    }
-
-    if (maxPrice * amount > getAccountBalance()) {
-        System.out.println("The requested budget exceeds your current limit.");
-        return;
-    }
-
-    int stockCounter = 0;
-    for (Stock stock : Stocks) {
-        if (stock == stockToBuy) {
-            stockCounter++;
-        }
-    }
-
-    if (amount > stockCounter) {
-        System.out.println("Sorry, this stock is not available in the required amount.");
-        System.out.println("The available amount of this stock = " + stockCounter);
-        System.out.println("Do you want to proceed with the available amount?");
-        String decision = input.nextLine();
-        if (decision.equalsIgnoreCase("yes")) {
-            amount = stockCounter;
-        } else {
-            return;
-        }
-    }
-
-    Transaction transaction = new Transaction(getID(), label, Operation.buy, amount, stockToBuy.getTradingPrice());
-    listStockOrders(label, transaction);
-
-    if (stockToBuy.getTradingPrice() <= maxPrice) {
-        double totalPrice = maxPrice * amount;
-        setAccountBalance(getAccountBalance() - totalPrice);
-        haveStocks.add(stockToBuy);
-        Stocks.remove(stockToBuy);
-        System.out.println("Stock bought successfully.");
-
-        LocalDateTime currentTime = LocalDateTime.now();
-        stockToBuy.updateStockPrice(maxPrice, maxPrice, maxPrice, maxPrice, 0.0, 0.0, 0.0, currentTime);
-        listOrderTransactions(label, transaction);
-    } else {
-        System.out.println("Stock is not available at or below the requested price.");
-    }
-}
 ```
 
 #### Sell Stock Order
@@ -409,46 +327,6 @@ public void sellStockOrder(String label, String company, double minPrice, int am
         System.out.println("Invalid data.");
         return;
     }
-
-    if (haveStocks.isEmpty()) {
-        System.out.println("No stocks to be sold.");
-        return;
-    }
-
-    Stock stockToSell = null;
-    for (Stock stock : haveStocks) {
-        if (stock.getLabel().equals(label) && stock.getCompany().equals(company)) {
-            stockToSell = stock;
-            break;
-        }
-    }
-
-    if (stockToSell == null) {
-        System.out.println("There's no such stock with the provided data.");
-        return;
-    }
-
-    Transaction transaction = new Transaction(getID(), label, Operation.sell, amount, stockToSell.getTradingPrice());
-    listStockOrders(label, transaction);
-
-    if (stockToSell.getTradingPrice() >= minPrice) {
-        double totalPrice = stockToSell.getTradingPrice() * amount;
-        setAccountBalance(getAccountBalance() + totalPrice);
-        haveStocks.remove(stockToSell);
-        Stocks.add(stockToSell);
-        System.out.println("Stock sold successfully.");
-
-        LocalDateTime currentTime = LocalDateTime.now();
-        stockToSell.updateStockPrice(minPrice, minPrice, minPrice, minPrice, 0.0, 0.0, 0.0, currentTime);
-        listOrderTransactions(label, transaction);
-    }
-}
-```
-
-#### Get Stocks in Portfolio
-```java
-public int getStocksinPortfolio() {
-    return haveStocks.size();
 }
 ```
 
@@ -476,25 +354,6 @@ public void listAllTransactions() {
     }
 }
 ```
-
-#### List Stock Orders
-```java
-public void listStockOrders(String label, Transaction transaction) {
-    List<Transaction> stockOrders = orderedTransactions.getOrDefault(label, new ArrayList<>());
-    stockOrders.add(transaction);
-    orderedTransactions.put(label, stockOrders);
-}
-```
-
-#### List Order Transactions
-```java
-public void listOrderTransactions(String label, Transaction transaction) {
-    List<Transaction> transactions = orderTransactions.getOrDefault(label, new ArrayList<>());
-    transactions.add(transaction);
-    orderTransactions.put(label, transactions);
-}
-```
-
 ### 4. Portfolio Performance
 
 #### Calculate Portfolio Performance
@@ -510,15 +369,17 @@ public double calcPortfolioPerformance() {
 
 These methods enable the regular user to manage financial transactions, buy and sell stocks, track transaction history, and evaluate portfolio performance efficiently.
 
-# PremiumUser Class
+![UserFeauters ](Stock/src/data/UserFeauterspage.png)
+
+## Key PremiumUser Features and Methods
 
 The `PremiumUser` class extends the `RegularUser` class and implements the `Observer` interface. This class provides additional functionalities for premium users in a stock trading system.
 
 ![Premium User](Stock/src/data/PremiumUserPage.png)
 
-## Key Methods
+### Key Methods
 
-### `update(User user)`
+#### `update(User user)`
 This method is called when there is an update to a user's information. It prints a message indicating the user being updated.
 
 ```java
@@ -528,7 +389,7 @@ This method is called when there is an update to a user's information. It prints
     }
 ```
 
-### `subscribeForNotifications()`
+#### `subscribeForNotifications()`
 This method allows the premium user to subscribe to notifications for stock price changes. It subscribes the user to the `MarketPerformanceTracker` and prints a confirmation message.
 
 ```java
@@ -537,8 +398,9 @@ public void subscribeForNotifications() {
     System.out.println("Subscribed for notifications on stock price changes.");
 }
 ```
+![Premium User](Stock/src/data/NotificationPage.png)
 
-### `unsubscribeFromNotifications()`
+#### `unsubscribeFromNotifications()`
 This method allows the premium user to unsubscribe from notifications for stock price changes. It unsubscribes the user from the `MarketPerformanceTracker` and prints a confirmation message.
 
 ```java
@@ -548,7 +410,7 @@ public void unsubscribeFromNotifications() {
 }
 ```
 
-### `showLineChart(String stockLabel, Map<String, List<StockPrice>> stockPrices)`
+#### `showLineChart(String stockLabel, Map<String, List<StockPrice>> stockPrices)`
 This method displays a simple line chart for a specific stock. It retrieves the price history for the given stock label and prints the price data in a line chart format.
 
 ```java
@@ -568,17 +430,17 @@ public void showLineChart(String stockLabel, Map<String, List<StockPrice>> stock
 }
 ```
 ![Line Charts](Stock/src/data/ChartsPage.png)
-## Summary
+### Summary
 The `PremiumUser` class enhances the functionalities provided to regular users by including the ability to subscribe and unsubscribe from stock price change notifications and view line charts for specific stocks. These features are designed to give premium users more control and information in their trading activities.
 
-# Stock Class
+## Key Stock Features and Methods
 
 The `Stock` class extends the `Security` class and manages the details and functionalities of a stock, including its price history and available quantity.
 
-## Key Methods
+### Key Methods
 
 
-### `updateStockPrice(double initialPrice, double openingPrice, double finalPrice, double closingPrice, double tradingPrice, double dividends, double profitPercentage, LocalDateTime dateTime)`
+#### `updateStockPrice(double initialPrice, double openingPrice, double finalPrice, double closingPrice, double tradingPrice, double dividends, double profitPercentage, LocalDateTime dateTime)`
 Updates the stock price and adds it to the price history.
 
 ```java
@@ -595,7 +457,7 @@ public void updateStockPrice(double initialPrice, double openingPrice, double fi
 ```
 
 ![CreateStock](Stock/src/data/CreateStockPage.png)
-### `placeOrder(Transaction transaction)`
+#### `placeOrder(Transaction transaction)`
 Places an order (buy or sell) for the stock.
 
 ```java
@@ -619,7 +481,7 @@ public void placeOrder(Transaction transaction) {
 }
 ```
 
-## Summary
+### Summary
 The `Stock` class encapsulates the key properties and methods related to a stock, including its price history, available quantity, and methods to place orders and update prices. This class provides essential functionalities to manage and track stocks in a trading system.
 
 ## UML diagram 
