@@ -4,7 +4,7 @@
 
 Welcome to StockPioneers your favorite Stock Exchange Manager Desktop Application! In this endeavor, you will design and implement a comprehensive Stock Exchange Manager using Java, with a strong emphasis on applying the principles of Object-Oriented Programming (OOP). We used JavaFX GUI to implement the User interface for the application. This system will serve as a simulated stock exchange platform, where traders can buy and sell stocks, manage their portfolios, and analyze market data.
 
-![StockPioneers Welcome ](src/data/LoginPage.png)
+![StockPioneers Welcome ](Stock/src/data/LoginPage.png)
 
 
 This project will provide a robust learning experience in Java programming and OOP principles, offering a realistic simulation of stock exchange operations. We look forward to your innovative solutions and collaborative efforts in bringing this Stock Exchange Manager to life.
@@ -31,8 +31,8 @@ The workspace contains folders as shown:
 ## Login UI
 <table>
   <tr>
-    <td><img src="src/data/AdminLoginPage.png" alt="AdminLoginUI" width="300"/></td>
-    <td><img src="src/data/UserLoginPage.png" alt="UserLoginUI" width="300"/></td>
+    <td><img src="Stock/src/data/AdminLoginPage.png" alt="AdminLoginUI" width="300"/></td>
+    <td><img src="Stock/src/data/UserLoginPage.png" alt="UserLoginUI" width="300"/></td>
   </tr>
 </table>
 
@@ -57,7 +57,7 @@ public void createUser(User user) {
     }
 }
 ```
-![Create User](src/data/CreatePage.png)
+![Create User](Stock/src/data/CreatePage.png)
 #### Delete User
 ```java
 public void deleteUser(User user) {
@@ -104,7 +104,7 @@ public User accessUser(int ID) {
     return null;
 }
 ```
-![Retrive User](src/data/RetriveUserPage.png)
+![Retrive User](Stock/src/data/RetriveUserPage.png)
 
 ### 2. Stock Management
 
@@ -261,11 +261,11 @@ public boolean isTradingSessionOpen() {
     return tradingmanager.isTradingSessionOpen();
 }
 ```
-![Trading Sessions](src/data/SessionPage.png)
+![Trading Sessions](Stock/src/data/SessionPage.png)
 
 ``These methods enable the admin to manage users, stocks, stock prices, and trading sessions efficiently, ensuring a robust and reliable stock exchange system.``
 
-![Admin Features](src/data/AdminFeatuersPage.png)
+![Admin Features](Stock/src/data/AdminFeatuersPage.png)
 
 ## Regular User Class: Key Features and Methods
 
@@ -306,7 +306,7 @@ public List<Transaction> getPendingTransactions() {
 }
 ```
 
-![Deposit and Withdrawal](src/data/DepositPage.png)
+![Deposit and Withdrawal](Stock/src/data/DepositPage.png)
 
 #### Get Financial Transactions
 ```java
@@ -514,7 +514,7 @@ These methods enable the regular user to manage financial transactions, buy and 
 
 The `PremiumUser` class extends the `RegularUser` class and implements the `Observer` interface. This class provides additional functionalities for premium users in a stock trading system.
 
-![Premium User](src/data/PremiumUserPage.png)
+![Premium User](Stock/src/data/PremiumUserPage.png)
 
 ## Key Methods
 
@@ -567,7 +567,7 @@ public void showLineChart(String stockLabel, Map<String, List<StockPrice>> stock
     }
 }
 ```
-![Line Charts](src/data/ChartsPage.png)
+![Line Charts](Stock/src/data/ChartsPage.png)
 ## Summary
 The `PremiumUser` class enhances the functionalities provided to regular users by including the ability to subscribe and unsubscribe from stock price change notifications and view line charts for specific stocks. These features are designed to give premium users more control and information in their trading activities.
 
@@ -594,7 +594,7 @@ public void updateStockPrice(double initialPrice, double openingPrice, double fi
 }
 ```
 
-![CreateStock](src/data/CreateStockPage.png)
+![CreateStock](Stock/src/data/CreateStockPage.png)
 ### `placeOrder(Transaction transaction)`
 Places an order (buy or sell) for the stock.
 
@@ -635,4 +635,4 @@ The `Stock` class encapsulates the key properties and methods related to a stock
 - [Mostafa Ashraf](https://github.com/Nagafa007)
 
 ## Thankyou for using our STOCKPIONEERS APPLICATION!!
-![Thankyou](src/data/ThankyouPage'.png)
+![Thankyou](Stock/src/data/ThankyouPage'.png)
