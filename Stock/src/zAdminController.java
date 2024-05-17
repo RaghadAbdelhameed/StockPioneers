@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public class zAdminController extends MainController {
     private TradingManager tradingManager;
+    private Admin admin;
 
     // Admin Login
     @FXML
@@ -39,7 +40,7 @@ public class zAdminController extends MainController {
     void adminLoginButtonClicked(ActionEvent event) {
         String password = adminPasswordField.getText();
         String username = adminUsernameField.getText();
-        String[][] data = CSV.readData("Stock\\src\\csvfiles\\AdminCredentials.csv");
+        String[][] data = CSV.readData("csv files/AdminCredentials.csv");
         if (username.equals(data[1][0]) && password.equals(data[1][1])) {
             loadFXML("AdminUI.fxml", adminLoginButton, "Admin Dashboard");
         } else {
@@ -120,10 +121,17 @@ public class zAdminController extends MainController {
 
     @FXML
     void sessionsButtonClicked(ActionEvent event) {
-        if (!tradingManager.isTradingSessionOpen()) {
-            loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions Intiate");
-        }
-        loadFXML("TradingSessionsClose.fxml", sessionsButton, "Trading Sessions Close");
+        // admin = new Admin("gfd", "dfggfd", gender.male);
+        tradingManager = new TradingManager();
+        admin = Admin.getInstance("", "", gender.female);
+        if (!admin.isTradingSessionOpen()) {
+            loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions");
+            // admin.initiateTradingSession();
+
+        } else
+            loadFXML("TradingSessionsClose.fxml", sessionsButton, "Trading Sessions");
+        // admin.closeTradingSession();
+
     }
 
     @FXML
