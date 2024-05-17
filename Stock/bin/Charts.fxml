@@ -17,31 +17,26 @@
             <Image url="@data/UserUI.png" />
          </image>
       </ImageView>
-      <Label layoutX="100.0" layoutY="183.0" text="Which chart do you want to see?" textFill="#0a64b8">
+      <Label layoutX="100.0" layoutY="183.0" text="Which chart do you want to see?" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="candlestickChartsButton" alignment="CENTER" layoutX="290.0" layoutY="280.0" mnemonicParsing="false" onAction="#candlestickChartsClicked" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #7DD3FC;" text="Candlestick charts" textFill="#09090b">
+      <Button fx:id="candlestickChartsButton" alignment="CENTER" layoutX="290.0" layoutY="280.0" mnemonicParsing="false" onAction="#candlestickChartsClicked" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #FDC82A;" text="Candlestick charts" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="lineChartsButton" alignment="CENTER" layoutX="60.0" layoutY="280.0" mnemonicParsing="false" onAction="#lineChartsClicked" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #7DD3FC;" text="Line Charts" textFill="#09090b">
+      <Button fx:id="lineChartsButton" alignment="CENTER" layoutX="60.0" layoutY="280.0" mnemonicParsing="false" onAction="#lineChartsClicked" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #FDC82A;" text="Line Charts" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Label layoutX="314.0" layoutY="29.0" text="Charting Options" textFill="#0a64b8">
+      <Label layoutX="314.0" layoutY="29.0" text="Charting Options" textFill="#ff9910">
          <font>
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="UPHBackButton" layoutX="786.0" layoutY="6.0" mnemonicParsing="false" onAction="#UPHBackButtonClicked" prefHeight="30.0" prefWidth="49.0" text="Back">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <ChoiceBox layoutX="200.0" layoutY="220.0" prefHeight="26.0" prefWidth="180.0" />
       <Label layoutX="105.0" layoutY="84.0" text="Stock Label:" textFill="#09090b">
          <font>
@@ -49,7 +44,7 @@
          </font>
       </Label>
       <TextField fx:id="stockLabelField" layoutX="200.0" layoutY="82.0" prefHeight="26.0" prefWidth="180.0" promptText="label" />
-      <Button fx:id="searchButton" layoutX="212.0" layoutY="123.0" mnemonicParsing="false" onAction="#searchClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+      <Button fx:id="searchButton" layoutX="212.0" layoutY="123.0" mnemonicParsing="false" onAction="#searchClicked" style="-fx-background-color: #ff9910;" text="Search" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
@@ -59,5 +54,10 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
+      <Button fx:id="pBackButton" layoutX="778.0" layoutY="12.0" mnemonicParsing="false" onAction="#pBackButtonClicked" prefHeight="30.0" prefWidth="49.0" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -14,7 +14,7 @@
             <Image url="@data/Charts.png" />
          </image>
       </ImageView>
-      <Label layoutX="285.0" layoutY="14.0" text="CandleStick Charts" textFill="#0a64b8">
+      <Label layoutX="285.0" layoutY="14.0" text="CandleStick Charts" textFill="#ff9910">
          <font>
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>

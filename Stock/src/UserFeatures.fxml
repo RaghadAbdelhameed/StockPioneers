@@ -39,12 +39,12 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="TransactionHistoryButton" alignment="CENTER" layoutX="295.0" layoutY="290.0" mnemonicParsing="false" onAction="#TransactionHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Transaction History" textFill="#09090b">
+      <Button fx:id="TransactionHistoryButton" alignment="CENTER" layoutX="295.0" layoutY="240.0" mnemonicParsing="false" onAction="#TransactionHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Transaction History" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userPriceHistoryButton" layoutX="295.0" layoutY="240.0" mnemonicParsing="false" onAction="#userPriceHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
+      <Button fx:id="userPriceHistoryButton" layoutX="295.0" layoutY="190.0" mnemonicParsing="false" onAction="#userPriceHistoryClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Price History" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
@@ -54,22 +54,17 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="logoutUserButton" layoutX="760.0" layoutY="7.0" mnemonicParsing="false" onAction="#logoutUserClicked" prefHeight="27.0" prefWidth="75.0" text="Logout">
+      <Button fx:id="logoutUserButton" layoutX="760.0" layoutY="7.0" mnemonicParsing="false" onAction="#logoutUserClicked" prefHeight="27.0" prefWidth="75.0" style="-fx-background-color: #B91C1C;" text="Logout" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="chartingButton" alignment="CENTER" layoutX="295.0" layoutY="190.0" mnemonicParsing="false" onAction="#chartingClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text="Charting Options" textFill="#09090b">
+      <Button fx:id="marketButton" alignment="CENTER" layoutX="295.0" layoutY="140.0" mnemonicParsing="false" onAction="#marketClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text=" Market Performance Tracking" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="295.0" layoutY="140.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #7DD3FC;" text=" Market Performance Tracking" textFill="#09090b">
-         <font>
-            <Font name="Microsoft YaHei UI" size="16.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" layoutX="158.0" layoutY="350.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #FDC82A;" text="Premium Features" textFill="#09090b">
+      <Button fx:id="premiumButton" alignment="CENTER" layoutX="295.0" layoutY="290.0" mnemonicParsing="false" onAction="#premiumClicked" prefHeight="38.0" prefWidth="255.0" style="-fx-background-color: #FDC82A;" text="Premium Features" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>

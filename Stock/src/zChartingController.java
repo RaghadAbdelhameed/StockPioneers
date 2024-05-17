@@ -14,6 +14,13 @@ import javafx.scene.control.TextField;
 public class zChartingController extends MainController implements Initializable {
     private Admin admin;
     private Stock stock;
+    @FXML
+    private Button pBackButton;
+
+    @FXML
+    void pBackButtonClicked(ActionEvent event) {
+        loadFXML("PremiumUser2.fxml", pBackButton, "Premium User");
+    }
 
     @FXML
     private Button candlestickChartsButton;
@@ -52,6 +59,7 @@ public class zChartingController extends MainController implements Initializable
     void backClicked(ActionEvent event) {
         loadFXML("Charts.fxml", backButton, "Charting Options");
     }
+
     @FXML
     private LineChart<String, Double> lineChart;
     @FXML
@@ -59,22 +67,21 @@ public class zChartingController extends MainController implements Initializable
     @FXML
     private NumberAxis priceAxis;
 
-    private static final String[] MONTHS = {"jan", "feb", "mar", "apr", "may", "june", "jule", "aug", "sep"};
-    private static final double[] PRICES = {50.0, 100.0, 10.0, 50.0, 50.0, 90.0, 50.0, 50.0, 50.0};
+    private static final String[] MONTHS = { "jan", "feb", "mar", "apr", "may", "june", "jule", "aug", "sep" };
+    private static final double[] PRICES = { 50.0, 100.0, 10.0, 50.0, 50.0, 90.0, 50.0, 50.0, 50.0 };
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-      try {
-    		XYChart.Series<String, Double> priceHistorySeries = new XYChart.Series<>();
-    		priceHistorySeries.setName("Price History");
-    		for (int i = 0; i < MONTHS.length; i++) {
-    			priceHistorySeries.getData().add(new XYChart.Data<>(MONTHS[i], PRICES[i]));
-    		}
-    		lineChart.getData().add(priceHistorySeries);
-    	}
-      catch(Exception e) {
-    	  System.out.println(e);
-      }
-   }
+        try {
+            XYChart.Series<String, Double> priceHistorySeries = new XYChart.Series<>();
+            priceHistorySeries.setName("Price History");
+            for (int i = 0; i < MONTHS.length; i++) {
+                priceHistorySeries.getData().add(new XYChart.Data<>(MONTHS[i], PRICES[i]));
+            }
+            lineChart.getData().add(priceHistorySeries);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
 }

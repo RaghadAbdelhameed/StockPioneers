@@ -54,7 +54,7 @@
                 <Font name="Microsoft YaHei UI" size="16.0" />
             </font>
         </Button>
-        <Button fx:id="adminLogoutButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLogoutButtonClicked" prefHeight="32.0" prefWidth="80.0" text="Logout">
+        <Button fx:id="adminLogoutButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLogoutButtonClicked" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #B91C1C;" text="Logout" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei UI" size="14.0" />
             </font>

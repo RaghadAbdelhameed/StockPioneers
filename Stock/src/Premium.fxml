@@ -5,8 +5,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zPremiumController">
    <children>
@@ -25,5 +25,31 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Label layoutX="402.0" layoutY="122.0" text="Only for our PREMIUM USERS:" textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="380.0" layoutY="202.0" text="● Show line charts for specific stocks." textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="339.0" layoutY="173.0" text="● Subscribe for notifications on stock price changes." textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="153.4000244140625" endY="-1.0000152587890625" layoutX="511.0" layoutY="155.0" startX="-109.00003051757812" startY="-1.0000152587890625" />
+      <Button fx:id="subscribeButton" layoutX="507.0" layoutY="290.0" mnemonicParsing="false" onAction="#subscribeClicked" style="-fx-background-color: #ff9910;" text="Subscribe" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="390.0" layoutY="259.0" text="SUBSCRIBE NOW for only 20$ per month." textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
