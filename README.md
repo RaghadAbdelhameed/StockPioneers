@@ -6,15 +6,6 @@ Welcome to StockPioneers your favorite Stock Exchange Manager Desktop Applicatio
 
 ![StockPioneers Welcome ](src/data/LoginPage.png)
 
-## Project Objectives
-
-1. **Modular and Extensible Architecture**: Develop a system architecture that encapsulates the key components of a stock exchange, including stocks, traders, transactions, and market data.
-2. **User-Friendly Interface**: Implement an interface for traders to place orders, monitor portfolios, and access real-time market information.
-3. **Inheritance and Polymorphism**: Represent different types of securities (e.g., stocks, bonds, options) and enable flexible trading strategies and portfolio management techniques.
-4. **Abstraction**: Provide clear and intuitive interfaces for common operations such as buying and selling securities, retrieving market data, and analyzing portfolio performance.
-5. **Robustness and Reliability**: Implement exception handling mechanisms to gracefully handle errors and unexpected situations during runtime.
-6. **Design Patterns**: Incorporate design patterns such as Singleton, Observer, and Factory to address common challenges encountered in developing a stock exchange manager.
-7. **Documentation**: Document the design decisions, implementation details, and testing procedures in a well-structured manner to facilitate understanding and maintenance.
 
 This project will provide a robust learning experience in Java programming and OOP principles, offering a realistic simulation of stock exchange operations. We look forward to your innovative solutions and collaborative efforts in bringing this Stock Exchange Manager to life.
 
@@ -631,6 +622,17 @@ public void placeOrder(Transaction transaction) {
 ## Summary
 The `Stock` class encapsulates the key properties and methods related to a stock, including its price history, available quantity, and methods to place orders and update prices. This class provides essential functionalities to manage and track stocks in a trading system.
 
+## UML diagram 
+
+## diagram 
+
+## Collaborators 
+
+- [Raghad Abdelhameed](https://github.com/RaghadAbdelhameed)
+- [Rawan Mohammed](https://github.com/rawan-mohamed-n)
+- [Zeyad Ashraf Nassar](https://github.com/ZEY0D)
+- [Ahmed Loay](https://github.com/Ahmedloay2)
+- [Mostafa Ashraf](https://github.com/Nagafa007)
 
 ## Thankyou for using our STOCKPIONEERS APPLICATION!!
 ![Thankyou](src/data/ThankyouPage'.png)
