@@ -434,7 +434,7 @@ public void showLineChart(String stockLabel, Map<String, List<StockPrice>> stock
 }
 ```
 ![Line Charts](Stock/src/data/ChartsPage.png)
-### Summary
+
 The `PremiumUser` class enhances the functionalities provided to regular users by including the ability to subscribe and unsubscribe from stock price change notifications and view line charts for specific stocks. These features are designed to give premium users more control and information in their trading activities.
 
 ## Key Stock Features and Methods
