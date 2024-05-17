@@ -32,10 +32,10 @@ The workspace contains folders as shown:
 <table style="width:100%;">
   <tr>
     <td style="text-align:center;">
-      <img src="Stock/src/data/AdminLoginPage.png" alt="AdminLoginUI" style="width:100%; max-width:700px; height:350px;"/>
+      <img src="Stock/src/data/AdminLoginPage.png" alt="AdminLoginUI" style="width:100%; max-width:600px; height:auto;"/>
     </td>
     <td style="text-align:center;">
-      <img src="Stock/src/data/UserLoginPage.png" alt="UserLoginUI" style="width:100%; max-width:700px; height:350px;"/>
+      <img src="Stock/src/data/UserLoginPage.png" alt="UserLoginUI" style="width:100%; max-width:600px; height:auto;"/>
     </td>
   </tr>
 </table>
