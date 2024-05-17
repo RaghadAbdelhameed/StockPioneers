@@ -29,10 +29,14 @@ The workspace contains folders as shown:
 > Don't forget to write the JavaFX library path here, just open `.vscode/launch.json`.
 
 ## Login UI
-<table>
+<table style="width:100%;">
   <tr>
-    <td><img src="Stock/src/data/AdminLoginPage.png" alt="AdminLoginUI" width="300"/></td>
-    <td><img src="Stock/src/data/UserLoginPage.png" alt="UserLoginUI" width="300"/></td>
+    <td style="text-align:center;">
+      <img src="Stock/src/data/AdminLoginPage.png" alt="AdminLoginUI" style="width:100%; max-width:700px; height:350px;"/>
+    </td>
+    <td style="text-align:center;">
+      <img src="Stock/src/data/UserLoginPage.png" alt="UserLoginUI" style="width:100%; max-width:700px; height:350px;"/>
+    </td>
   </tr>
 </table>
 
