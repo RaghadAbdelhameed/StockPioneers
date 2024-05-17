@@ -11,7 +11,8 @@ public class zStockManageController extends MainController {
     private Admin admin;
     // private RegularUser currentUser;
     private Stock stock;
-    
+    private StockPrice stockprice;
+
     // Stock Management
     @FXML
     private Button createStockButton;
@@ -73,7 +74,7 @@ public class zStockManageController extends MainController {
 
     @FXML
     void stockCreateClicked(ActionEvent event) {
-    	
+
         String label = createStockLabelField.getText();
         String company = createStockCompanyField.getText();
         double initialPrice = Double.parseDouble(createInitialPriceField.getText());
@@ -81,16 +82,16 @@ public class zStockManageController extends MainController {
         double dividends = Double.parseDouble(createDividendsField.getText());
         double profitPercentage = Double.parseDouble(createProfitPercentageField.getText());
         int availableStocks = Integer.parseInt(createAvailableStocksField.getText());
-        
+
         stock.setLabel(label);
         stock.setCompany(company);
-        stock.setInitialPrice(initialPrice);
-        stock.setTradingPrice(tradingPrice);
-        stock.setDividends(dividends);
-        stock.setProfitPercentage(profitPercentage);
+        stockprice.setInitialPrice(initialPrice);
+        stockprice.setTradingPrice(tradingPrice);
+        stockprice.setDividends(dividends);
+        stockprice.setProfitPercentage(profitPercentage);
         stock.setAvailableStocks(availableStocks);
         admin.createStock(stock);
-        
+
     }
 
     // Update Stock
@@ -101,19 +102,22 @@ public class zStockManageController extends MainController {
     private Button stockUpdateButton;
 
     @FXML
-    private TextField updateAvailableStocksField;
+    private TextField updateClosePriceField;
 
     @FXML
     private TextField updateDividendsField;
 
     @FXML
+    private TextField updateFinalPriceField;
+
+    @FXML
     private TextField updateInitialPriceField;
 
     @FXML
-    private TextField updateProfitPercentageField;
+    private TextField updateOpeningPriceField;
 
     @FXML
-    private TextField updateStockCompanyField;
+    private TextField updateProfitPercentageField;
 
     @FXML
     private TextField updateStockLabelField;
@@ -128,20 +132,24 @@ public class zStockManageController extends MainController {
     @FXML
     void stockUpdateClicked(ActionEvent event) {
         String label = createStockLabelField.getText();
-        String company = createStockCompanyField.getText();
+        double openingPrice = Double.parseDouble(updateOpeningPriceField.getText());
+        double closingPrice = Double.parseDouble(updateClosePriceField.getText());
+        double finalPrice = Double.parseDouble(updateFinalPriceField.getText());
         double initialPrice = Double.parseDouble(createInitialPriceField.getText());
         double tradingPrice = Double.parseDouble(createTradingPriceField.getText());
         double dividends = Double.parseDouble(createDividendsField.getText());
         double profitPercentage = Double.parseDouble(createProfitPercentageField.getText());
-        int availableStocks = Integer.parseInt(createAvailableStocksField.getText());
         stock.setLabel(label);
-        stock.setCompany(company);
-        stock.setInitialPrice(initialPrice);
-        stock.setTradingPrice(tradingPrice);
-        stock.setDividends(dividends);
-        stock.setProfitPercentage(profitPercentage);
-        stock.setAvailableStocks(availableStocks);
-        admin.updateStock(stock);
+        stockprice.setOpeningPrice(openingPrice);
+        stockprice.setClosingPrice(closingPrice);
+        stockprice.setFinalPrice(finalPrice);
+        stockprice.setInitialPrice(initialPrice);
+        stockprice.setTradingPrice(tradingPrice);
+        stockprice.setDividends(dividends);
+        stockprice.setProfitPercentage(profitPercentage);
+        admin.updateStock(stock, initialPrice, openingPrice, finalPrice,
+                closingPrice, tradingPrice, dividends,
+                profitPercentage);
     }
 
     // Delete Stock

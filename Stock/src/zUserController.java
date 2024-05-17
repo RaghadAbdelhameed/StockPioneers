@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 
 public class zUserController extends MainController {
     private RegularUser currentUser;
+    private Admin admin;
 
     // User Login
     @FXML
@@ -50,6 +51,31 @@ public class zUserController extends MainController {
             System.out.println("wrong input");
         }
     }
+
+    @FXML
+    private TextField signupusername;
+    @FXML
+    private PasswordField signuppassword;
+    @FXML
+    void signubloginclicked(ActionEvent event) {
+     try { 
+        String [][]data=CSV.readData("csv files/UserData.csv");
+        	admin=new Admin("ahmed","ahmed","male");	
+             String username = signupusername.getText();
+             String password = signuppassword.getText();
+             int counter=data.length;
+             String gender=genderChoicebox.getValue();
+             currentUser = new RegularUser(username,password,gender);
+             currentUser.setID(counter++);
+             admin.createUser(currentUser);                    
+             System.out.println(username + "  " + password );
+             loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
+        	}
+        	catch(Exception e) {
+        		System.out.println(e);
+         }
+    }
+    
 
     @FXML
     void handleSignupClicked(ActionEvent event) {

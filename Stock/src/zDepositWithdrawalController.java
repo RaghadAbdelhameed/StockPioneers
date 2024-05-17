@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class zDepositWithdrawalController extends MainController {
+    private RegularUser regularUser;
 
     // Diposit & Withdrawal
     @FXML
@@ -26,19 +27,17 @@ public class zDepositWithdrawalController extends MainController {
 
     @FXML
     private Button DepositButton;
-
+    
+    
     @FXML
     void DepositButtonClicked(ActionEvent event) {
-        // add account balance
-        double newbalance = Double.parseDouble(DTextField.getText());
-        BalanceLabel.setText(String.valueOf(newbalance));
+        double amount = Double.parseDouble(DTextField.getText());
+        regularUser.deposit(amount);
     }
 
     @FXML
     void WithdrawalButtonClicked(ActionEvent event) {
-        // add account balance and conditions
-        // double balance-=Double.parseDouble(DTextField.getText());
-        double newbalance = -Double.parseDouble(DTextField.getText());
-        BalanceLabel.setText(String.valueOf(newbalance));
-    }
+        double amount = Double.parseDouble(DTextField.getText());
+        regularUser.withdrawal(amount);
+}
 }

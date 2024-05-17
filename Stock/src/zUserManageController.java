@@ -85,13 +85,10 @@ public class zUserManageController extends MainController {
     // Update User
 
     @FXML
-    private TextField UpdateAccountBalancefield;
-
-    @FXML
     private TextField UpdateIDfield;
 
     @FXML
-    private PasswordField UpdatePasswordfield;
+    private TextField UpdatePasswordfield;
 
     @FXML
     private TextField UpdateUsernsamefield;
@@ -103,15 +100,13 @@ public class zUserManageController extends MainController {
     void updateClicked(ActionEvent event) {
         {
             String username = UpdateUsernsamefield.getText();
-            double accountBalance = Double.parseDouble(UpdateAccountBalancefield.getText());
+            String password = UpdatePasswordfield.getText();
             int id = Integer.parseInt(UpdateIDfield.getText());
-            // gender gender = currentUser.gender();
-
             currentUser.setID(id);
             currentUser.setUserName(username);
-            currentUser.setAccountBalance(accountBalance);
+            currentUser.setPassword(password);
             admin.updateUser(currentUser);
-            System.out.println(id + "  " + username + "  " + accountBalance);
+            System.out.println(id + "  " + username + "  " + password);
         }
     }
 

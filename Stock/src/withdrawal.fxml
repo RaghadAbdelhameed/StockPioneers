@@ -29,7 +29,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="DTextField" layoutX="175.0" layoutY="175.0" prefHeight="26.0" prefWidth="183.0" />
+      <TextField fx:id="DTextField" layoutX="175.0" layoutY="175.0" prefHeight="26.0" prefWidth="183.0" promptText="amount" />
       <Label layoutX="100.0" layoutY="178.0" text="Amount:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
