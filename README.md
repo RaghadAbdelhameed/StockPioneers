@@ -14,19 +14,19 @@ This project will provide a robust learning experience in Java programming and O
 StockPioneers uses JavaFX for its Graphical User Interface (GUI). JavaFX provides a rich set of graphics and media packages to create modern, visually appealing user interfaces. This enhances the user experience by making the application more interactive and user-friendly.
 
 
-## Folder Structure
+## Installation 
 
-The workspace contains two folders by default, where:
+Clone our repository and import the JavaFX library.
+
+The workspace contains folders as shown:
 
 - `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `lib`: the folder to maintain dependencies.
 - `csv files`: the folder that contains data
 - `FXMLs`: the folder that contains FXMLs files
 - `data`: the folder that contains images 
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+> Don't forget to import the JavaFX path here, just open `.vscode/settings.json`.
 
 ## Login UI
 <table>
