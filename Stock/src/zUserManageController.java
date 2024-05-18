@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 
 public class zUserManageController extends MainController {
 
-//    private User user;
+	// private User user;
 	// private RegularUser regularUser;
 	private Admin admin;
 	private RegularUser currentUser;

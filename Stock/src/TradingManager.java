@@ -17,7 +17,7 @@ public class TradingManager {
 		if (!isOpen) {
 			this.openTime = LocalDateTime.now(); // opening trading session
 			isOpen = true;
-			System.out.println(" Trading session is opened at " + openTime );
+			System.out.println(" Trading session is opened at " + openTime);
 		} else {
 			System.out.println(" Trading session is already opened ");
 		}
@@ -28,7 +28,7 @@ public class TradingManager {
 		if (isOpen) {
 			this.closeTime = LocalDateTime.now(); // closing trading session
 			isOpen = false;
-			System.out.println("Trading session closed at " + closeTime );
+			System.out.println("Trading session closed at " + closeTime);
 		} else {
 			System.out.println(" No trading sessions are currently opened ");
 		}

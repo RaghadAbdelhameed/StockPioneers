@@ -27,12 +27,11 @@ public class zDepositWithdrawalController extends MainController {
 
     @FXML
     private Button DepositButton;
-    
-    
+
     @FXML
     void DepositButtonClicked(ActionEvent event) {
         double amount = Double.parseDouble(DTextField.getText());
-        regularUser=new RegularUser("","","");
+        regularUser = new RegularUser("", "", "");
         regularUser.deposit(amount);
     }
 
@@ -40,5 +39,5 @@ public class zDepositWithdrawalController extends MainController {
     void WithdrawalButtonClicked(ActionEvent event) {
         double amount = Double.parseDouble(DTextField.getText());
         regularUser.withdrawal(amount);
-}
+    }
 }

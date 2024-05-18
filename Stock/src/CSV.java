@@ -38,7 +38,7 @@ public class CSV {
 			writer.println("transactionId,userID,stockLabel,opType,amount,price,Transactiontime");
 			for (int i = 0; i < trnsaction.size(); i++) {
 				Transaction transactionData = trnsaction.get(i);
-//				writer.println(); // Add a blank line between stock and stock price data
+				// writer.println(); // Add a blank line between stock and stock price data
 				writer.println(String.format("%d,%d,%s,%s,%f,%f,%s", transactionData.getTransactionId(),
 						transactionData.getUserId(), transactionData.getLabel(), transactionData.getOpType(),
 						transactionData.getAmount(), transactionData.getPrice(), transactionData.getTransactionTime()));
@@ -81,15 +81,16 @@ public class CSV {
 		}
 		return result;
 	}
+
 	public static List<RegularUser> getUsers() {
-	    List<RegularUser> users = new ArrayList<>();
-	    String[][] data = CSV.readData("src/csv files/UserData.csv");
-	    for (int i = 1; i < data.length; i++) {
-	        RegularUser user = new RegularUser(data[i][0], data[i][1], Integer.parseInt(data[i][2]),
-	                Double.parseDouble(data[i][3]), data[i][4]);
-	        users.add(user);
-	    }
-	    return users;
+		List<RegularUser> users = new ArrayList<>();
+		String[][] data = CSV.readData("src/csv files/UserData.csv");
+		for (int i = 1; i < data.length; i++) {
+			RegularUser user = new RegularUser(data[i][0], data[i][1], Integer.parseInt(data[i][2]),
+					Double.parseDouble(data[i][3]), data[i][4]);
+			users.add(user);
+		}
+		return users;
 	}
 
 	public static void writeData(List<RegularUser> users) {
@@ -212,8 +213,8 @@ public class CSV {
 		String[][] data = readTransactions();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
 		for (int i = 1; i < data.length; i++) {
-			Transaction transaction = new Transaction(Integer.parseInt(data[i][0]),Integer.parseInt(data[i][1]) 
-					,data[i][2],Operation.valueOf(data[i][3]),
+			Transaction transaction = new Transaction(Integer.parseInt(data[i][0]), Integer.parseInt(data[i][1]),
+					data[i][2], Operation.valueOf(data[i][3]),
 					Double.parseDouble(data[i][4]),
 					Double.parseDouble(data[i][5]), LocalDateTime.parse(data[i][6], formatter));
 			transactions.add(transaction);

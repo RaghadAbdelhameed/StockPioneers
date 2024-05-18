@@ -44,6 +44,7 @@ public class zPremiumController extends MainController {
                     root = loader.load();
                     Scene scene = new Scene(root);
                     notificationStage.setScene(scene);
+                    notificationStage.setTitle("Notifications");
                     notificationStage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -60,6 +61,4 @@ public class zPremiumController extends MainController {
         loadFXML("UserFeatures.fxml", BackButton, "User Features");
     }
 
-
-   
 }

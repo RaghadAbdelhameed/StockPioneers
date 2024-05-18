@@ -178,7 +178,7 @@ public class zUserController extends MainController {
 	void TransactionHistoryClicked(ActionEvent event) {
 		try {
 			loadFXML("TransactionHistory.fxml", financialButton, "Transaction History");
-//		currentUser.listAllTransactions();
+			// currentUser.listAllTransactions();
 		} catch (Exception e) {
 			System.out.println(e);
 		}

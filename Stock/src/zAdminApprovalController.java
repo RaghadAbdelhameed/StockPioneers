@@ -7,7 +7,7 @@ public class zAdminApprovalController extends MainController {
     private Admin admin;
     private RegularUser regularUser;
     private Transaction transaction;
-    
+
     @FXML
     private Button SOBackButton;
 
@@ -33,7 +33,7 @@ public class zAdminApprovalController extends MainController {
 
     @FXML
     void approveRow1Clicked(ActionEvent event) {
-        String name= userName1Label.getText();
+        String name = userName1Label.getText();
         double account = Double.parseDouble(Account1Label.getText());
         int amount = Integer.parseInt(amount1Label.getText());
         Operation operation = Operation.valueOf(operation1Label.getText());
@@ -64,7 +64,7 @@ public class zAdminApprovalController extends MainController {
 
     @FXML
     void approveRow2Clicked(ActionEvent event) {
-        String name= userName2Label.getText();
+        String name = userName2Label.getText();
         double account = Double.parseDouble(Account2Label.getText());
         int amount = Integer.parseInt(amount2Label.getText());
         Operation operation = Operation.valueOf(operation2Label.getText());
@@ -95,7 +95,7 @@ public class zAdminApprovalController extends MainController {
 
     @FXML
     void approveRow3Clicked(ActionEvent event) {
-        String name= userName3Label.getText();
+        String name = userName3Label.getText();
         double account = Double.parseDouble(Account3Label.getText());
         int amount = Integer.parseInt(amount3Label.getText());
         Operation operation = Operation.valueOf(operation3Label.getText());
@@ -108,6 +108,5 @@ public class zAdminApprovalController extends MainController {
             admin.approveWithdrawal(regularUser, amount, transaction);
         }
     }
-
 
 }

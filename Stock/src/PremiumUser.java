@@ -2,17 +2,14 @@ import java.util.*;
 
 public class PremiumUser extends RegularUser implements Observer {
 
-	
-	public PremiumUser(String username, String password, String gender) {
+    public PremiumUser(String username, String password, String gender) {
         super(username, password, gender);
     }
 
-	
     @Override
     public void update(User user) {
         System.out.println(" Updating user: " + user.getUserName());
     }
-
 
     // Method to show line charts for specific stocks
     public void showLineChart(String stockLabel, Map<String, List<StockPrice>> stockPrices) {
@@ -30,5 +27,4 @@ public class PremiumUser extends RegularUser implements Observer {
         }
     }
 
-    
 }

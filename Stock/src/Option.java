@@ -11,7 +11,8 @@ public class Option extends Security {
     private String underlyingAssetSymbol;
 
     // Constructor
-    public Option(double price, OptionType optionType, double strikePrice, LocalDate expirationDate, String underlyingAssetSymbol) {
+    public Option(double price, OptionType optionType, double strikePrice, LocalDate expirationDate,
+            String underlyingAssetSymbol) {
         super(price);
         this.optionType = optionType;
         this.strikePrice = strikePrice;
@@ -61,7 +62,8 @@ public class Option extends Security {
     // Implementation of abstract method to place an order
     @Override
     public void placeOrder(Transaction transaction) {
-        // Implementation specific to placing orders for options can be added here if needed
+        // Implementation specific to placing orders for options can be added here if
+        // needed
         // For example, validation of option-specific transaction details
         System.out.println("Placing order for option: " + transaction.toString());
     }
@@ -69,10 +71,12 @@ public class Option extends Security {
     // Implementation of abstract method to calculate profit percentage
     @Override
     public double calculateProfitPercentage() {
-        // Profit/Loss calculation for options depends on various factors including the option type, strike price, and market price of the underlying asset
-        // We can implement a simplified version considering only the difference between the strike price and the current price of the underlying asset
+        // Profit/Loss calculation for options depends on various factors including the
+        // option type, strike price, and market price of the underlying asset
+        // We can implement a simplified version considering only the difference between
+        // the strike price and the current price of the underlying asset
         return (getPrice() - strikePrice) / strikePrice * 100;
-    
-}
+
+    }
 
 }

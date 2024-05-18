@@ -34,7 +34,7 @@ public class StockPrice {
 	}
 
 	public StockPrice() {
-		this.dateTime=LocalDateTime.now();
+		this.dateTime = LocalDateTime.now();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -104,9 +104,9 @@ public class StockPrice {
 		this.dateTime = dateTime;
 	}
 
-//    public List<StockPrice> getPriceHistory() {
-//        return priceHistory;
-//    }
+	// public List<StockPrice> getPriceHistory() {
+	// return priceHistory;
+	// }
 
 	@Override
 	public String toString() {

@@ -47,7 +47,8 @@ public class Bond extends Security {
     // Implementation of abstract method to place an order
     @Override
     public void placeOrder(Transaction transaction) {
-        // Implementation specific to placing orders for bonds can be added here if needed
+        // Implementation specific to placing orders for bonds can be added here if
+        // needed
         // For example, validation of bond-specific transaction details
         System.out.println("Placing order for bond: " + transaction.toString());
     }
@@ -55,9 +56,11 @@ public class Bond extends Security {
     // Implementation of abstract method to calculate profit percentage
     @Override
     public double calculateProfitPercentage() {
-        // For bonds, profit/loss calculation may be complex and depends on various factors such as current market interest rates
-        // Here, we can implement a simplified version considering only the difference between face value and current price
+        // For bonds, profit/loss calculation may be complex and depends on various
+        // factors such as current market interest rates
+        // Here, we can implement a simplified version considering only the difference
+        // between face value and current price
         return (getPrice() - faceValue) / faceValue * 100;
     }
-    
+
 }

@@ -105,7 +105,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-	protected ChoiceBox<String> genderChoicebox;
+    protected ChoiceBox<String> genderChoicebox;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

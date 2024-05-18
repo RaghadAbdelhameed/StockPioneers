@@ -12,19 +12,19 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class zAdminPriceController extends MainController {
-    
+
     private User user;
     // private StockPrice stockPrice;
     // private RegularUser regularUser;
-    // private Admin admin; 
-    // private RegularUser currentUser; 
-    // private Stock stock; 
-    
+    // private Admin admin;
+    // private RegularUser currentUser;
+    // private Stock stock;
+
     // public void setStockPrice(StockPrice stockPrice) {
-    //     this.stockPrice = stockPrice; // Reference to the Admin instance
+    // this.stockPrice = stockPrice; // Reference to the Admin instance
     // }
 
-     // Price History
+    // Price History
     @FXML
     private Button searchAdminPriceLabelButton;
 

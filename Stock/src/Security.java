@@ -5,7 +5,7 @@ public abstract class Security {
     private LocalDateTime lastUpdate;
 
     // Constructor
-    public Security( double price) {
+    public Security(double price) {
         this.price = price;
         this.lastUpdate = LocalDateTime.now();
     }
@@ -35,6 +35,7 @@ public abstract class Security {
     public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
+
     // abstract methods to be implemented in all subclasses , each subclass has its
     // own implementation for them
     public abstract double getCurrentPrice();
