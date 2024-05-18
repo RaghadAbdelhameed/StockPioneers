@@ -21,7 +21,7 @@ public class Execute {
 //		transactions.add(new Transaction(4, 2, "ss", Operation.sell, 22.0, 200.0, dateTime));
 //		transactions.add(new Transaction(5, 8, "ss", Operation.sell, 24.0, 100.0, dateTime));
 
-//		CSV.writeTransactionHistory(transactions);
+		
 
 		System.out.println(transactions);
 

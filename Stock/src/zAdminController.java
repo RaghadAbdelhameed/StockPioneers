@@ -40,7 +40,7 @@ public class zAdminController extends MainController {
     void adminLoginButtonClicked(ActionEvent event) {
         String password = adminPasswordField.getText();
         String username = adminUsernameField.getText();
-        String[][] data = CSV.readData("csv files/AdminCredentials.csv");
+        String[][] data = CSV.readData("src/csv files/AdminCredentials.csv");
         if (username.equals(data[1][0]) && password.equals(data[1][1])) {
             loadFXML("AdminUI.fxml", adminLoginButton, "Admin Dashboard");
         } else {
@@ -123,7 +123,7 @@ public class zAdminController extends MainController {
     void sessionsButtonClicked(ActionEvent event) {
         // admin = new Admin("gfd", "dfggfd", gender.male);
         tradingManager = new TradingManager();
-        admin = Admin.getInstance("", "", gender.female);
+        admin = Admin.getInstance("", "");
         if (!admin.isTradingSessionOpen()) {
             loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions");
             // admin.initiateTradingSession();

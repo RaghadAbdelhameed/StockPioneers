@@ -1,8 +1,12 @@
 
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class zStockManageController extends MainController {
 
@@ -74,7 +78,10 @@ public class zStockManageController extends MainController {
 
     @FXML
     void stockCreateClicked(ActionEvent event) {
-        String label = createStockLabelField.getText();
+    	stock=new Stock();
+    	admin=Admin.getInstance("", "");
+    	stockprice=new StockPrice();
+    	String label = createStockLabelField.getText();
         String company = createStockCompanyField.getText();
         double initialPrice = Double.parseDouble(createInitialPriceField.getText());
         double tradingPrice = Double.parseDouble(createTradingPriceField.getText());
@@ -88,8 +95,7 @@ public class zStockManageController extends MainController {
         stockprice.setDividends(dividends);
         stockprice.setProfitPercentage(profitPercentage);
         stock.setAvailableStocks(availableStocks);
-        admin.createStock(stock,stockprice);
-
+        admin.createStock(stock,stockprice);	
     }
 
     // Update Stock
@@ -122,14 +128,32 @@ public class zStockManageController extends MainController {
 
     @FXML
     private TextField updateTradingPriceField;
+    @FXML
+    private Label deleteStockCompany;
 
     @FXML
-    void searchStockClicked(ActionEvent event) {
+    private Label deleteStockLabel;
+
+    @FXML
+    private Label deleteStockPrice;
+    @FXML
+    void searchDeleteStockClicked(ActionEvent event) {
+    	int index= searchID(searchLabelfield,deleteStockLabel);
+		List<Stock>stocks=CSV.getStocks();
+		List<StockPrice> stockprices= CSV.getStockPrices();
+		if (index>=0) {
+			deleteStockLabel.setTextFill(Color.BLACK);
+			deleteStockCompany.setText("Company: " +stocks.get(index).getCompany());
+			deleteStockPrice.setText("Price :"+ stockprices.get(index).getTradingPrice());
+		} 
     }
 
     @FXML
     void stockUpdateClicked(ActionEvent event) {
-        String label = createStockLabelField.getText();
+    	stock=new Stock();
+    	admin=Admin.getInstance("", "");
+    	stockprice=new StockPrice();
+    	String label = createStockLabelField.getText();
         double openingPrice = Double.parseDouble(updateOpeningPriceField.getText());
         double closingPrice = Double.parseDouble(updateClosePriceField.getText());
         double finalPrice = Double.parseDouble(updateFinalPriceField.getText());
@@ -149,7 +173,17 @@ public class zStockManageController extends MainController {
                 closingPrice, tradingPrice, dividends,
                 profitPercentage);
     }
-
+    @FXML
+    private Label stocksearchlabel;
+    @FXML
+    void searchUpdateStockClicked(ActionEvent event) {
+    	int index=searchID(updateStockLabelField,stocksearchlabel);
+    	if(index>0) {
+    		stocksearchlabel.setOpacity(1);
+    		stocksearchlabel.setTextFill(Color.BLACK);
+    		stocksearchlabel.setText("Found");
+    	}
+    }
     // Delete Stock
     @FXML
     private Button stockDeleteButton;
@@ -159,9 +193,15 @@ public class zStockManageController extends MainController {
 
     @FXML
     void stockDeleteClicked(ActionEvent event) {
-        String label = searchLabelfield.getText();
-        stock.setLabel(label);
-        admin.deleteStock(stock);
+    	stock=new Stock();
+    	admin=Admin.getInstance("", "");
+    	stockprice=new StockPrice();
+    	List<Stock>stocks=CSV.getStocks();
+		List<StockPrice> stockprices= CSV.getStockPrices();
+		int index= searchID(searchLabelfield,deleteStockLabel);
+    //stock.setLabel(label);
+       if(index>=0)
+		admin.deleteStock(stocks.get(index),stockprices.get(index),index);
     }
 
     // Retrieve Stock
@@ -174,7 +214,42 @@ public class zStockManageController extends MainController {
     @FXML
     void searchRetriveStockClicked(ActionEvent event) {
         String label = searchRetrieveLabelfield.getText();
-        stock.setLabel(label);
-        admin.accessStock(label);
+     /*   int index= searchID(searchLabelfield,deleteStockLabel);
+		List<Stock>stocks=CSV.getStocks();
+		List<StockPrice> stockprices= CSV.getStockPrices();
+		if (index>=0) {
+			deleteStockLabel.setTextFill(Color.BLACK);
+			deleteStockCompany.setText("Company: " +stocks.get(index).getCompany());
+			deleteStockPrice.setText("Price :"+ stockprices.get(index).getTradingPrice());
+		} */
     }
+    int searchID(TextField stocklabel, Label label) {
+		try {
+			String stockLabel = stocklabel.getText();		
+			boolean found = false;
+			List<Stock> stocks= CSV.getStocks();
+			for (int i = 1; i < stocks.size(); i++) {
+				if (stockLabel.equals(stocks.get(i).getLabel())) {
+					label.setOpacity(0);
+					found = true;
+					return i;
+				}
+
+			}
+			if (!stockLabel.matches("\\d+")) {
+				throw new Exception();
+			}
+			if (!found) {
+				label.setTextFill(Color.RED);
+				label.setOpacity(1);
+				label.setText("Not Found");
+			}
+		} catch (Exception e) {
+			label.setTextFill(Color.RED);
+			label.setOpacity(1);
+			label.setText("Invalid Input");
+			System.out.println(e);
+		}
+		return -1;
+	}
 }

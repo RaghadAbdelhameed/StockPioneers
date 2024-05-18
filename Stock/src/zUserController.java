@@ -161,7 +161,7 @@ public class zUserController extends MainController {
 	@FXML
 	void financialClicked(ActionEvent event) {
 		loadFXML("FinancialActions.fxml", financialButton, "Financial Actions");
-		currentUser.getFinancialTransactions();
+	//	currentUser.getFinancialTransactions();
 	}
 
 	@FXML

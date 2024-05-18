@@ -67,27 +67,27 @@ public class zTransactionHistoryController extends MainController implements Ini
 
 		opLabel1.setText(String.valueOf(transactions.get(0).getOpType()));
 		opLabel2.setText(String.valueOf(transactions.get(1).getOpType()));
-//		opLabel3.setText(String.valueOf(transactions.get(2).getOpType()));
+		opLabel3.setText(String.valueOf(transactions.get(2).getOpType()));
 
 		tranIDLabel1.setText(String.valueOf(transactions.get(0).getTransactionId()));
 		tranIDLabel2.setText(String.valueOf(transactions.get(1).getTransactionId()));
-//		tranIDLabel3.setText(String.valueOf(transactions.get(2).getTransactionId()));
+		tranIDLabel3.setText(String.valueOf(transactions.get(2).getTransactionId()));
 
 		tranTimeLabel1.setText(String.valueOf(transactions.get(0).getTransactionTime()));
 		tranTimeLabel2.setText(String.valueOf(transactions.get(1).getTransactionTime()));
-//		tranTimeLabel3.setText(String.valueOf(transactions.get(2).getTransactionTime()));
+		tranTimeLabel3.setText(String.valueOf(transactions.get(2).getTransactionTime()));
 
 		stockLabel1.setText(String.valueOf(CSV.getStocks().get(0).getLabel()));
 		stockLabel2.setText(String.valueOf(CSV.getStocks().get(1).getLabel()));
-//		stockLabel3.setText(String.valueOf(CSV.getStocks().get(2).getLabel()));
+		stockLabel3.setText(String.valueOf(CSV.getStocks().get(2).getLabel()));
 
 		priceLabel1.setText(String.valueOf(CSV.getStockPrices().get(0).getTradingPrice()));
 		priceLabel2.setText(String.valueOf(CSV.getStockPrices().get(1).getTradingPrice()));
-//		priceLabel3.setText(String.valueOf(CSV.getStockPrices().get(2).getTradingPrice()));
+		priceLabel3.setText(String.valueOf(CSV.getStockPrices().get(2).getTradingPrice()));
 
 		amountLabel1.setText(String.valueOf(transactions.get(0).getAmount()));
 		amountLabel2.setText(String.valueOf(transactions.get(1).getAmount()));
-//		amountLabel3.setText(String.valueOf(transactions.get(2).getAmount()));
+		amountLabel3.setText(String.valueOf(transactions.get(2).getAmount()));
 
 	}
 

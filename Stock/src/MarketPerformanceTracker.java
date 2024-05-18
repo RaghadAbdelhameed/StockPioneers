@@ -46,7 +46,7 @@ public class MarketPerformanceTracker {
 
 // calculate aggregate profit/loss percentage of all stocks in the market
 public static double calculateAggregateMarketPerformance() {
-   List<Stock> stocks = User.getStocks();
+   List<Stock> stocks = CSV.getStocks();
    double totalProfitLoss = 0.0;
    for (Stock stock : stocks) {
        totalProfitLoss += stock.calculateProfitPercentage();

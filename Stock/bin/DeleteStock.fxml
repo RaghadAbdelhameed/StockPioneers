@@ -21,7 +21,7 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="116.0" layoutY="221.0" text="Company:" textFill="#09090b">
+      <Label fx:id="deleteStockCompany" layoutX="116.0" layoutY="221.0" text="Company:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
@@ -31,22 +31,22 @@
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="150.0" layoutY="117.0" prefHeight="22.0" prefWidth="48.0" text="Label:" textFill="#09090b">
+      <Label layoutX="145.0" layoutY="115.0" prefHeight="22.0" prefWidth="48.0" text="Label:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="270.0" text="Trading Price:" textFill="#09090b">
+      <Label fx:id="deleteStockPrice" layoutX="93.0" layoutY="270.0" text="Trading Price:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="searchLabelfield" layoutX="200.0" layoutY="115.0" prefHeight="26.0" prefWidth="238.0" promptText="label">
+      <TextField fx:id="searchLabelfield" layoutX="198.0" layoutY="113.0" prefHeight="26.0" prefWidth="238.0" promptText="label">
          <padding>
             <Insets bottom="4.0" left="7.0" right="7.0" top="4.0" />
          </padding>
       </TextField>
-      <Button fx:id="searchStockButton" layoutX="240.0" layoutY="152.0" mnemonicParsing="false" onAction="#searchStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+      <Button fx:id="searchStockButton" layoutX="240.0" layoutY="152.0" mnemonicParsing="false" onAction="#searchDeleteStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
@@ -55,5 +55,6 @@
          <font>
             <Font size="14.0" />
          </font></Button>
+      <Label fx:id="deleteStockLabel" layoutX="198.0" layoutY="137.0" opacity="0.0" prefHeight="18.0" prefWidth="238.0" text="Label" />
    </children>
 </AnchorPane>

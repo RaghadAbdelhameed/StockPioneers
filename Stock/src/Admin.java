@@ -50,7 +50,7 @@ public class Admin extends User{
 	public void createUser(RegularUser user)
 	{
 		try {
-		String [][]data=CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
+		String [][]data=CSV.readData("src\\csvfiles\\UserData.csv");
 		for(int i=1;i<data.length;i++) {
 			try {
 				RegularUser user1= new RegularUser(data[i][0],data[i][1]/*,Integer.parseInt(data[i][2])
@@ -93,35 +93,20 @@ public class Admin extends User{
         }
         return false;
     }
-		public void deleteUser(RegularUser user){		
-			try {	
-			String [][]data=CSV.readData("Stock\\src\\csvfiles\\UserData.csv");
-				for(int i=1;i<data.length;i++) {
-					
-						RegularUser user1= new RegularUser(data[i][0],data[i][1],Integer.parseInt(data[i][2])
-								,Double.parseDouble(data[i][3]),data[i][4]);
-						Users.add(user1);
-					}
+		public void deleteUser(RegularUser user,int index){		
+			try {
+			List<RegularUser> users = CSV.getUsers();		
+				 if (user != null) {
+				        	users.remove((index));
+				            System.out.println(users.get(index).getUserName());
+				            CSV.writeData(users);
+				            System.out.println(" User deleted successfully ");			        
+				    } 
 			}
-				catch (NumberFormatException e) {
-						System.out.println("Error reading data from CSV file: " + e.getMessage());
-					}
-			 if (user != null) { // user account cannot be null
-			        if (checkUserExists(user.getUserName(), user.getPassword())) { // check that it's not already added before
-			            Users.remove(user);
-			            System.out.println(Users.get(user.getID()).getUserName());
-			            
-			            CSV.writeData(Users);
-			            System.out.println(" User deleted successfully ");
-			        } else {
-			            System.out.println(" This User " + "( " + user.getUserName() + " ) does not exist ");
-			        }
-			    } else {
-			        System.out.println(" Invalid user provided "); // null user
-			    }
-
+			catch(Exception e) {
+				System.out.println(e);
+			}
 		}
-	
 		// retrieving user is to access a specific User
 		public User accessUser(int ID){
 			for(User user : Users){
@@ -154,11 +139,13 @@ public class Admin extends User{
 
 	// create a new stock to be traded in the market
 	public void createStock(Stock stock,StockPrice stockp) {
+		List<StockPrice> stockprices = CSV.getStockPrices();
+    	List<Stock> stocks = CSV.getStocks();
 		if (stock != null) {
-			if (!Stocks.contains(stock)) { // check thats its not already added before
-				Stocks.add(stock);
-				 stockPrices.add("",stockp);
-				CSV.writeStockHistory(Stocks,stockPrices.get(stockp));
+			if (!stocks.contains(stock)) { // check thats its not already added before
+				stocks.add(stock);
+				 stockprices.add(stockp);
+				CSV.writeStockHistory(stocks,stockprices);
 				System.out.println(" Stock created successfully ");
 				//getPrices().get(stock.getLabel()).add(stock.getTradingPrice()); // Store the price of the stock in a list
 
@@ -177,14 +164,18 @@ public class Admin extends User{
 	 	}
 	
 		// Delete stock from market
-		public void deleteStock(Stock stock){	
+		public void deleteStock(Stock stock,StockPrice stockprice,int index){	
+			List<StockPrice> stockprices = CSV.getStockPrices();
+	    	List<Stock> stocks = CSV.getStocks();
 			if(stock != null){ // stock cannot be null
-				if(Stocks.contains(stock)) { // check thats its not already added before
-			Stocks.remove(stock);
+				//if(stocks.contains(stock)) { // check thats its not already added before
+					stocks.remove(index);
+					stockprices.remove(index);
+					CSV.writeStockHistory(stocks,stockprices);
 			System.out.println(" stock deleted successfully ");
-			}
-				else{
-					System.out.println(" This Stock " + "( " + stock.getLabel() + " ) does not exist ");}
+		//	}
+		//		else{
+			//		System.out.println(" This Stock " + "( " + stock.getLabel() + " ) does not exist ");}
 			}
 			else {
 			System.out.println(" Invalid Stock provided "); // null stock 
@@ -210,24 +201,25 @@ public class Admin extends User{
 		                        double profitPercentage) {
 		    // Get the current timestamp
 		    LocalDateTime dateTime = LocalDateTime.now();
-
+		    List<StockPrice> stockprices = CSV.getStockPrices();
+	    	List<Stock> stocks = CSV.getStocks();
 		    // Flag to indicate if the stock is found
 		    boolean stockFound = false;
 
 		    // Iterate over the list of stocks
-		    for (Stock s : Stocks) {
+		    for (Stock s : stocks) {
 		        if (s.getLabel().equals(stock.getLabel())) {
 		            // Update the stock with the provided data and timestamp
 		            s.updateStockPrice(initialPrice, openingPrice, finalPrice, closingPrice, tradingPrice,
 		                               dividends, profitPercentage, dateTime);
 		            // Set the flag to true
 		            stockFound = true;
+		            CSV.writeStockHistory(stocks,stockprices);
 		            // Print a success message
 		            System.out.println("Stock updated successfully.");
 		            break; // No need to continue iterating
 		        }
 		    }
-
 		    // If the stock is not found, print an error message
 		    if (!stockFound) {
 		        System.out.println("Stock not found.");

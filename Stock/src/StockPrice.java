@@ -33,6 +33,11 @@ public class StockPrice {
 		this.profitPercentage = profitPercentage;
 	}
 
+	public StockPrice() {
+		this.dateTime=LocalDateTime.now();
+		// TODO Auto-generated constructor stub
+	}
+
 	public double getInitialPrice() {
 		return initialPrice;
 	}

@@ -29,5 +29,9 @@
             <Font name="Microsoft YaHei UI" size="20.0" />
          </font>
       </Label>
+      <Label fx:id="marketprefLabel" layoutX="155.0" layoutY="160.0" prefHeight="27.0" prefWidth="134.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

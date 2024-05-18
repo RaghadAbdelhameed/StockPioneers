@@ -81,6 +81,16 @@ public class CSV {
 		}
 		return result;
 	}
+	public static List<RegularUser> getUsers() {
+	    List<RegularUser> users = new ArrayList<>();
+	    String[][] data = CSV.readData("src/csv files/UserData.csv");
+	    for (int i = 1; i < data.length; i++) {
+	        RegularUser user = new RegularUser(data[i][0], data[i][1], Integer.parseInt(data[i][2]),
+	                Double.parseDouble(data[i][3]), data[i][4]);
+	        users.add(user);
+	    }
+	    return users;
+	}
 
 	public static void writeData(List<RegularUser> users) {
 		try (PrintWriter writer = new PrintWriter(new FileWriter("src/csv files/UserData.csv"))) {
@@ -121,7 +131,7 @@ public class CSV {
 		}
 		// Convert the list to a 2D array and return it
 		int rows = dataList.size();
-		String[][] result = new String[rows][10];
+		String[][] result = new String[rows][12];
 		for (int i = 0; i < rows; i++) {
 			result[i] = dataList.get(i);
 		}
@@ -146,7 +156,7 @@ public class CSV {
 			StockPrice stockPrice = new StockPrice(Double.parseDouble(data[i][3]), Double.parseDouble(data[i][4]),
 					Double.parseDouble(data[i][5]), Double.parseDouble(data[i][6]), Double.parseDouble(data[i][7]),
 					Double.parseDouble(data[i][8]), Double.parseDouble(data[i][9]),
-					LocalDateTime.parse(data[i][11], formatter));
+					LocalDateTime.parse(data[i][10], formatter));
 			stocks.add(stockPrice);
 		}
 		return stocks;
@@ -202,8 +212,10 @@ public class CSV {
 		String[][] data = readTransactions();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
 		for (int i = 1; i < data.length; i++) {
-			Transaction transaction = new Transaction(Integer.parseInt(data[i][0]), Operation.valueOf(data[i][3]),
-					Double.parseDouble(data[i][4]), LocalDateTime.parse(data[i][6], formatter));
+			Transaction transaction = new Transaction(Integer.parseInt(data[i][0]),Integer.parseInt(data[i][1]) 
+					,data[i][2],Operation.valueOf(data[i][3]),
+					Double.parseDouble(data[i][4]),
+					Double.parseDouble(data[i][5]), LocalDateTime.parse(data[i][6], formatter));
 			transactions.add(transaction);
 		}
 		return transactions;

@@ -1,3 +1,5 @@
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -140,18 +142,20 @@ public class zUserManageController extends MainController {
 
 	@FXML
 	void deleteClicked(ActionEvent event) {
-		try {
-			int searchid = searchID(searchIDfield, deleteUserLabel);
-			Admin admin = Admin.getInstance("ahmed", "ahmed45");
-			String[][] data = (CSV.readData("src/csv files/UserData.csv"));
-			if (searchid > 0) {
-				currentUser = new RegularUser(data[searchid][0], data[searchid][1], Integer.parseInt(data[searchid][2]),
-						Double.parseDouble(data[searchid][3]), data[searchid][4]);
-				admin.deleteUser(currentUser);
-			}
-		} catch (NumberFormatException e) {
-			System.out.println("Invalid Input. You must enter a digit.");
-		}
+		  try {
+		        int searchid = searchID(searchIDfield, deleteUserLabel);
+		        Admin admin = Admin.getInstance("ahmed", "");
+		        List<RegularUser>users = CSV.getUsers();
+		   //     String[][] data = (CSV.readData("src/csv files/UserData.csv"));
+		        if (searchid > 0) {
+		  //      RegularUser user = new RegularUser(data[searchid][0], data[searchid][1], Integer.parseInt(data[searchid][2]),
+		 //               Double.parseDouble(data[searchid][3]), data[searchid][4]);
+		            admin.deleteUser(users.get(searchid-1),searchid-1);
+		        }
+		    } catch (NumberFormatException e) {
+		    	System.out.println(e);
+		        System.out.println("Invalid Input. You must enter a digit.");
+		    }
 	}
 
 	@FXML
@@ -202,33 +206,38 @@ public class zUserManageController extends MainController {
 	}
 
 	int searchID(TextField id, Label label) {
-		try {
-			int searchid = Integer.parseInt(id.getText());
-			System.out.println(searchid);
-			boolean found = false;
-			String[][] data = CSV.readData("src/csv files/UserData.csv");
-			for (int i = 1; i < data.length; i++) {
-				if (searchid == Integer.parseInt(data[i][2])) {
-					label.setOpacity(0);
-					found = true;
-					return searchid;
-				}
-
-			}
-			if (searchid <= 0) {
-				throw new Exception();
-			}
-			if (!found) {
-				label.setTextFill(Color.RED);
-				label.setOpacity(1);
-				label.setText("Not Found");
-			}
-		} catch (Exception e) {
-			label.setTextFill(Color.RED);
-			label.setOpacity(1);
-			label.setText("Invalid Input");
-			System.out.println(e);
-		}
-		return 0;
+	    try {
+	        int searchid = Integer.parseInt(id.getText());
+	        System.out.println(searchid);
+	        boolean found = false;
+	        String[][] data = CSV.readData("src/csv files/UserData.csv");
+	        if (data.length == 0) {
+	            label.setTextFill(Color.RED);
+	            label.setOpacity(1);
+	            label.setText("No users found");
+	            return -1;
+	        }
+	        for (int i = 1; i < data.length; i++) {
+	            if (searchid == Integer.parseInt(data[i][2])) {
+	                label.setOpacity(0);
+	                found = true;
+	                return searchid;
+	            }
+	        }
+	        if (searchid <= 0) {
+	            throw new Exception();
+	        }
+	        if (!found) {
+	            label.setTextFill(Color.RED);
+	            label.setOpacity(1);
+	            label.setText("Not Found");
+	        }
+	    } catch (Exception e) {
+	        label.setTextFill(Color.RED);
+	        label.setOpacity(1);
+	        label.setText("Invalid Input");
+	        System.out.println(e);
+	    }
+	    return -1;
 	}
 }

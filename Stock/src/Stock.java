@@ -28,6 +28,10 @@ public class Stock extends Security {
 		priceHistory.add(initialStockPrice);
 	}
 
+	public Stock() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getLabel() {
 		return label;
 	}
@@ -107,6 +111,7 @@ public class Stock extends Security {
 	// Method to update stock price and add to price history
 	public void updateStockPrice(double initialPrice, double openingPrice, double finalPrice, double closingPrice,
 			double tradingPrice, double dividends, double profitPercentage, LocalDateTime dateTime) {
+		
 		// Create new StockPrice object with the provided data
 		StockPrice stockPrice = new StockPrice(initialPrice, openingPrice, finalPrice, closingPrice, tradingPrice,
 				dividends, profitPercentage, dateTime);
@@ -116,6 +121,7 @@ public class Stock extends Security {
 
 	// Method to calculate profit percentage
 	public double calculateProfitPercentage() {
+		List<StockPrice> priceHistory=CSV.getStockPrices();
 		if (!priceHistory.isEmpty()) {
 			return priceHistory.get(priceHistory.size() - 1).getProfitPercentage();
 		}
