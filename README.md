@@ -177,6 +177,7 @@ public Stock accessStock(String label) {
     return null;
 }
 ```
+![CreateStock](Stock/src/data/CreateStockPage.png)
 
 ### 3. Stock Price Management
 
@@ -402,7 +403,7 @@ public void subscribeForNotifications() {
     System.out.println("Subscribed for notifications on stock price changes.");
 }
 ```
-![Premium User](Stock/src/data/NotificationPage.png)
+![Premium User](Stock/src/data/NotificationsPage.png)
 
 #### `unsubscribeFromNotifications()`
 This method allows the premium user to unsubscribe from notifications for stock price changes. It unsubscribes the user from the `MarketPerformanceTracker` and prints a confirmation message.
@@ -433,60 +434,19 @@ public void showLineChart(String stockLabel, Map<String, List<StockPrice>> stock
     }
 }
 ```
-![Line Charts](Stock/src/data/ChartsPage.png)
+<table style="width:100%;">
+  <tr>
+    <td style="text-align:center;">
+      <img src="Stock/src/data/MonthsChartsPage.png" alt="AdminLoginUI" style="width:100%; max-width:600px; height:auto;"/>
+    </td>
+    <td style="text-align:center;">
+      <img src="Stock/src/data/YearsChartsPage.png" alt="UserLoginUI" style="width:100%; max-width:600px; height:auto;"/>
+    </td>
+  </tr>
+</table>
 
 The `PremiumUser` class enhances the functionalities provided to regular users by including the ability to subscribe and unsubscribe from stock price change notifications and view line charts for specific stocks. These features are designed to give premium users more control and information in their trading activities.
 
-## Key Stock Features and Methods
-
-The `Stock` class extends the `Security` class and manages the details and functionalities of a stock, including its price history and available quantity.
-
-### Key Methods
-
-
-#### `updateStockPrice(double initialPrice, double openingPrice, double finalPrice, double closingPrice, double tradingPrice, double dividends, double profitPercentage, LocalDateTime dateTime)`
-Updates the stock price and adds it to the price history.
-
-```java
-public void updateStockPrice(double initialPrice, double openingPrice, double finalPrice,
-                             double closingPrice, double tradingPrice, double dividends,
-                             double profitPercentage, LocalDateTime dateTime) {
-    // Create new StockPrice object with the provided data
-    StockPrice stockPrice = new StockPrice(initialPrice, openingPrice, finalPrice,
-                                           closingPrice, tradingPrice, dividends,
-                                           profitPercentage, dateTime);
-    priceHistory.add(stockPrice); // Add StockPrice object to price history
-    setPrice(tradingPrice);       // Update current price in the Security superclass
-}
-```
-
-![CreateStock](Stock/src/data/CreateStockPage.png)
-#### `placeOrder(Transaction transaction)`
-Places an order (buy or sell) for the stock.
-
-```java
-@Override
-public void placeOrder(Transaction transaction) {
-    if (transaction.getOpType() == Operation.buy) {
-        int quantity = (int) transaction.getAmount();
-        if (quantity <= availableStocks) {
-            availableStocks -= quantity;
-            System.out.println("Buy order placed successfully for " + quantity + " stocks of " + label);
-        } else {
-            System.out.println("Insufficient stocks available for purchase.");
-        }
-    } else if (transaction.getOpType() == Operation.sell) {
-        int quantity = (int) transaction.getAmount();
-        availableStocks += quantity;
-        System.out.println("Sell order placed successfully for " + quantity + " stocks of " + label);
-    } else {
-        System.out.println("Unsupported operation type for stock transaction.");
-    }
-}
-```
-
-### Summary
-The `Stock` class encapsulates the key properties and methods related to a stock, including its price history, available quantity, and methods to place orders and update prices. This class provides essential functionalities to manage and track stocks in a trading system.
 
 ## UML diagram 
 
