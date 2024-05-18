@@ -39,7 +39,7 @@ public class zUserController extends MainController {
 	void loginUserClicked(ActionEvent event) {
 		String password = userPasswordField.getText();
 		String username = userUsernameField.getText();
-		String[][] data = (CSV.readData("src/csv files/UserData.csv"));
+		String[][] data = (CSV.readData("csv files/UserData.csv"));
 		boolean found = false;
 		for (int i = 1; i < data.length; i++) {
 			if (username.equals(data[i][0]) && password.equals(data[i][1])) {
@@ -61,7 +61,7 @@ public class zUserController extends MainController {
 	@FXML
 	void signubloginclicked(ActionEvent event) {
 		try {
-			String[][] data = CSV.readData("src/csv files/UserData.csv");
+			String[][] data = CSV.readData("csv files/UserData.csv");
 			// admin=new Admin("ahmed","ahmed");
 			Admin admin = Admin.getInstance("ahmed", "ahmed45");
 			String username = signupusername.getText();
@@ -161,7 +161,7 @@ public class zUserController extends MainController {
 	@FXML
 	void financialClicked(ActionEvent event) {
 		loadFXML("FinancialActions.fxml", financialButton, "Financial Actions");
-	//	currentUser.getFinancialTransactions();
+		currentUser.getFinancialTransactions();
 	}
 
 	@FXML

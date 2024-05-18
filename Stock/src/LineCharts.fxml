@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zChartingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zChartYearController">
    <children> 
       <ImageView fitHeight="585.0" fitWidth="850.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,14 +22,14 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#backClicked" text="Back">
+      <Button fx:id="lineBackButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#lineBackClicked" text="Back">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
        <LineChart fx:id="lineChart" layoutX="337.0" layoutY="46.0" title="price history">
         <xAxis>
-          <CategoryAxis fx:id="monthAxis" label="month" side="BOTTOM" />
+          <CategoryAxis fx:id="monthAxis" side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis fx:id="priceAxis" label="price" side="LEFT" />

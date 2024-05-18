@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -38,17 +37,6 @@
          </font>
       </Label>
       <ChoiceBox fx:id="periodChoicebox" layoutX="200.0" layoutY="220.0" prefHeight="26.0" prefWidth="180.0" />
-      <Label layoutX="105.0" layoutY="84.0" text="Stock Label:" textFill="#09090b">
-         <font>
-            <Font name="Microsoft YaHei UI" size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="stockLabelField" layoutX="200.0" layoutY="82.0" prefHeight="26.0" prefWidth="180.0" promptText="label" />
-      <Button fx:id="searchButton" layoutX="212.0" layoutY="123.0" mnemonicParsing="false" onAction="#searchClicked" style="-fx-background-color: #ff9910;" text="Search" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei UI" size="14.0" />
-         </font>
-      </Button>
       <Label layoutX="150.0" layoutY="223.0" text="Type:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />

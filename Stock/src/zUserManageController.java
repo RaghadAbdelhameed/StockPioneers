@@ -1,5 +1,3 @@
-import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -71,7 +69,7 @@ public class zUserManageController extends MainController {
 	@FXML
 	void saveCreateClicked(ActionEvent event) {
 		try {
-			String[][] data = CSV.readData("src/csv files/UserData.csv");
+			String[][] data = CSV.readData("csv files/UserData.csv");
 			Admin admin = Admin.getInstance("ahmed", "ahmed45");
 			String username = createUsernamefiled.getText();
 			String password = createPasswordfiled.getText();
@@ -107,7 +105,7 @@ public class zUserManageController extends MainController {
 			Admin admin = Admin.getInstance("ahmed", "ahmed45");
 			String username = UpdateUsernsamefield.getText();
 			String password = UpdatePasswordfield.getText();
-			String[][] data = CSV.readData("src/csv files/UserData.csv");
+			String[][] data = CSV.readData("csv files/UserData.csv");
 			currentUser = new RegularUser(username, password, Integer.parseInt(data[searchid][2]),
 					Double.parseDouble(data[searchid][3]), data[searchid][4]);
 			admin.updateUser(currentUser);
@@ -142,20 +140,18 @@ public class zUserManageController extends MainController {
 
 	@FXML
 	void deleteClicked(ActionEvent event) {
-		  try {
-		        int searchid = searchID(searchIDfield, deleteUserLabel);
-		        Admin admin = Admin.getInstance("ahmed", "");
-		        List<RegularUser>users = CSV.getUsers();
-		   //     String[][] data = (CSV.readData("src/csv files/UserData.csv"));
-		        if (searchid > 0) {
-		  //      RegularUser user = new RegularUser(data[searchid][0], data[searchid][1], Integer.parseInt(data[searchid][2]),
-		 //               Double.parseDouble(data[searchid][3]), data[searchid][4]);
-		            admin.deleteUser(users.get(searchid-1),searchid-1);
-		        }
-		    } catch (NumberFormatException e) {
-		    	System.out.println(e);
-		        System.out.println("Invalid Input. You must enter a digit.");
-		    }
+		try {
+			int searchid = searchID(searchIDfield, deleteUserLabel);
+			Admin admin = Admin.getInstance("ahmed", "ahmed45");
+			String[][] data = (CSV.readData("csv files/UserData.csv"));
+			if (searchid > 0) {
+				currentUser = new RegularUser(data[searchid][0], data[searchid][1], Integer.parseInt(data[searchid][2]),
+						Double.parseDouble(data[searchid][3]), data[searchid][4]);
+				admin.deleteUser(currentUser);
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Invalid Input. You must enter a digit.");
+		}
 	}
 
 	@FXML
@@ -168,7 +164,7 @@ public class zUserManageController extends MainController {
 	@FXML
 	void searchClicked(ActionEvent event) {
 		int searchid = searchID(searchIDfield, deleteUserLabel);
-		String[][] data = (CSV.readData("src/csv files/UserData.csv"));
+		String[][] data = (CSV.readData("csv files/UserData.csv"));
 		if (searchid > 0) {
 			deleteuserusernamelabel.setTextFill(Color.BLACK);
 			deleteuserusernamelabel.setText("username: " + data[searchid][0]);
@@ -196,7 +192,7 @@ public class zUserManageController extends MainController {
 	@FXML
 	void searchRetrieveClicked(ActionEvent event) {
 		int searchid = searchID(searchRetriveIDfield, retriveUserLabel);
-		String[][] data = (CSV.readData("src/csv files/UserData.csv"));
+		String[][] data = (CSV.readData("csv files/UserData.csv"));
 		if (searchid > 0) {
 			retriveUserUNLabel.setText("UserName: " + data[searchid][0]);
 			retriveUserABLabel.setText("Account Balance: " + data[searchid][3]);
@@ -206,38 +202,33 @@ public class zUserManageController extends MainController {
 	}
 
 	int searchID(TextField id, Label label) {
-	    try {
-	        int searchid = Integer.parseInt(id.getText());
-	        System.out.println(searchid);
-	        boolean found = false;
-	        String[][] data = CSV.readData("src/csv files/UserData.csv");
-	        if (data.length == 0) {
-	            label.setTextFill(Color.RED);
-	            label.setOpacity(1);
-	            label.setText("No users found");
-	            return -1;
-	        }
-	        for (int i = 1; i < data.length; i++) {
-	            if (searchid == Integer.parseInt(data[i][2])) {
-	                label.setOpacity(0);
-	                found = true;
-	                return searchid;
-	            }
-	        }
-	        if (searchid <= 0) {
-	            throw new Exception();
-	        }
-	        if (!found) {
-	            label.setTextFill(Color.RED);
-	            label.setOpacity(1);
-	            label.setText("Not Found");
-	        }
-	    } catch (Exception e) {
-	        label.setTextFill(Color.RED);
-	        label.setOpacity(1);
-	        label.setText("Invalid Input");
-	        System.out.println(e);
-	    }
-	    return -1;
+		try {
+			int searchid = Integer.parseInt(id.getText());
+			System.out.println(searchid);
+			boolean found = false;
+			String[][] data = CSV.readData("csv files/UserData.csv");
+			for (int i = 1; i < data.length; i++) {
+				if (searchid == Integer.parseInt(data[i][2])) {
+					label.setOpacity(0);
+					found = true;
+					return searchid;
+				}
+
+			}
+			if (searchid <= 0) {
+				throw new Exception();
+			}
+			if (!found) {
+				label.setTextFill(Color.RED);
+				label.setOpacity(1);
+				label.setText("Not Found");
+			}
+		} catch (Exception e) {
+			label.setTextFill(Color.RED);
+			label.setOpacity(1);
+			label.setText("Invalid Input");
+			System.out.println(e);
+		}
+		return 0;
 	}
 }
