@@ -1,93 +1,74 @@
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ButtonType;
 
-public class zChartingController extends MainController implements Initializable {
-	private Admin admin;
-	private Stock stock;
-	@FXML
-	private Button pBackButton;
+public class zChartingController extends MainController  {
 
 	@FXML
-	void pBackButtonClicked(ActionEvent event) {
-		loadFXML("PremiumUser2.fxml", pBackButton, "Premium User");
-	}
+	private Button BackButton;
 
 	@FXML
-	private Button candlestickChartsButton;
+	private Button dayButton;
 
 	@FXML
-	private Button lineChartsButton;
+	private Button monthButton;
 
 	@FXML
-	private Button searchButton;
+	private Button weekButton;
 
 	@FXML
-	private TextField stockLabelField;
+	private Button yearButton;
 
 	@FXML
-	void candlestickChartsClicked(ActionEvent event) {
-		loadFXML("CandleStickCharts.fxml", candlestickChartsButton, "CandleStick Charts ");
-	}
+	private Button unsubscribeButton;
 
 	@FXML
-	void lineChartsClicked(ActionEvent event) {
-		loadFXML("LineCharts.fxml", lineChartsButton, "Line Charts");
-	}
+	void unsubscribeClicked(ActionEvent event) {
+		// observer.update(user);
+		// marketPerformanceTracker.unsubscribe(observer);
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Confirm Unsubscription");
+		alert.setHeaderText(null);
+		alert.setContentText("Are you sure you want to unsubscribe?");
 
-	@FXML
-	void searchClicked(ActionEvent event) {
-		String label = stockLabelField.getText();
-		stock.setLabel(label);
-		admin.accessStock(label);
-	}
+		// Define actions for Yes and No buttons
+		ButtonType buttonTypeYes = new ButtonType("Yes");
+		ButtonType buttonTypeNo = new ButtonType("No");
+		alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
 
-	// Line Charts NOTE: back button is the same for both
-	@FXML
-	private Button backButton;
-
-	@FXML
-	void backClicked(ActionEvent event) {
-		loadFXML("Charts.fxml", backButton, "Charting Options");
-	}
-
-	@FXML
-	private LineChart<String, Double> lineChart;
-	@FXML
-	private CategoryAxis monthAxis;
-	@FXML
-	private NumberAxis priceAxis;
-	@FXML
-	private ChoiceBox<String> periodChoicebox;
-	private static final String[] MONTHS = { "jan", "feb", "mar", "apr", "may", "june", "jule", "aug", "sep" };
-	private static final double[] PRICES = { 50.0, 100.0, 10.0, 50.0, 50.0, 90.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0 };
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		try {
-			if (periodChoicebox == null) {
-				periodChoicebox = new ChoiceBox<>();
+		// Handle user's choice
+		alert.showAndWait().ifPresent(buttonType -> {
+			if (buttonType == buttonTypeYes) {
+				loadFXML("Premium.fxml", unsubscribeButton, "Premium");
 			}
-			periodChoicebox.getItems().addAll("Day", "Week", "Month", "Year");
-			XYChart.Series<String, Double> priceHistorySeries = new XYChart.Series<>();
-			priceHistorySeries.setName("Price History");
-			for (int i = 0; i < MONTHS.length; i++) {
-				priceHistorySeries.getData().add(new XYChart.Data<>(MONTHS[i], PRICES[i]));
-			}
-			lineChart.getData().add(priceHistorySeries);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		});
+	}
+
+	@FXML
+	void BackButtonClicked(ActionEvent event) {
+		loadFXML("UserFeatures.fxml", BackButton, "Premium User");
+	}
+
+	@FXML
+	void dayClicked(ActionEvent event) {
+		loadFXML("LineChartsDay.fxml", dayButton, "Line Charts");
+	}
+
+	@FXML
+	void weekClicked(ActionEvent event) {
+		loadFXML("LineChartsWeek.fxml", weekButton, "Line Charts");
+	}
+
+	@FXML
+	void monthClicked(ActionEvent event) {
+		loadFXML("LineChartsMonth.fxml", monthButton, "Line Charts");
+	}
+
+	@FXML
+	void yearClicked(ActionEvent event) {
+		loadFXML("LineChartsYear.fxml", yearButton, "Line Charts");
 	}
 
 }

@@ -9,61 +9,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0"
-   prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="zUserManageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="850.0" prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zStockManageController">
    <children>
-      <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0"
-         pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="481.0" fitWidth="1130.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@data/UserTemplet.png" />
          </image>
       </ImageView>
-      <Label layoutX="351.0" layoutY="24.0" text="Retrieve User" textFill="#0a64b8">
+      <Label layoutX="351.0" layoutY="24.0" text="Retrieve Stock" textFill="#0a64b8">
          <font>
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="retriveUserUNLabel" layoutX="397.0" layoutY="228.0" text="Username:"
-         textFill="#09090b">
+      <Label layoutX="426.0" layoutY="228.0" text="Company:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="405.0" layoutY="92.0" prefHeight="22.0" prefWidth="25.0" text="ID:"
-         textFill="#09090b">
+      <Label layoutX="387.0" layoutY="92.0" prefHeight="22.0" prefWidth="50.0" text="Label:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="retriveUserABLabel" layoutX="352.0" layoutY="268.0" text="Account Balance:"
-         textFill="#09090b">
+      <Label layoutX="401.0" layoutY="268.0" text="Trading Price:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="searchRetriveIDfield" layoutX="438.0" layoutY="90.0" prefHeight="26.0"
-         prefWidth="238.0" promptText="id">
+      <TextField fx:id="searchRetrieveLabelfield" layoutX="438.0" layoutY="90.0" prefHeight="26.0" prefWidth="238.0" promptText="label">
          <padding>
             <Insets bottom="4.0" left="7.0" right="7.0" top="4.0" />
          </padding>
       </TextField>
-      <Button fx:id="searhRetrieveButton" layoutX="502.0" layoutY="152.0" mnemonicParsing="false"
-         onAction="#searchRetrieveClicked" style="-fx-background-color: #093fff;" text="Search"
-         textFill="WHITE">
+      <Button fx:id="searchRetrieveStockButton" layoutX="502.0" layoutY="152.0" mnemonicParsing="false" onAction="#searchRetriveStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="retriveUserGenderLabel" layoutX="425.0" layoutY="308.0" text="Gender:"
-         textFill="#09090b">
+      <Label layoutX="381.0" layoutY="308.0" text="Available Stocks:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="RUBackButton" layoutY="2.0" mnemonicParsing="false"
-         onAction="#RUBackButtonClicked" text="Back" />
-      <Label fx:id="retriveUserLabel" layoutX="438.0" layoutY="116.0" opacity="0.0"
-         prefHeight="18.0" prefWidth="238.0" text="Label" />
+      <Button fx:id="USBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#USBackButtonClicked" text="Back" />
+      <Label layoutX="438.0" layoutY="116.0" opacity="0.0" prefHeight="18.0" prefWidth="238.0" text="Label" />
    </children>
 </AnchorPane>
