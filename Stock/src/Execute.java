@@ -1,35 +1,30 @@
 import java.time.LocalDateTime;
-import java.util.*;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Execute {
-    public static void main(String[] args) {
-    	Admin admin = Admin.getInstance("ahmed", "ahmed54");
-    	RegularUser user1 = new RegularUser("mostafa" , "fdhfds" , "male");
-    	admin.createUser(user1);
-    	admin.createUser(user1);
-    	admin.deleteUser(user1);
-    	admin.initiateTradingSession();
-    	admin.initiateTradingSession();
+	public static void main(String[] args) {
+//    	Admin admin = Admin.getInstance("ahmed", "ahmed54");
+//    	RegularUser user1 = new RegularUser("mostafa" , "fdhfds" , "male");
+//    	admin.createUser(user1);
+//    	admin.createUser(user1);
+//    	admin.deleteUser(user1);
+//    	admin.initiateTradingSession();
+//    	admin.initiateTradingSession();
+		String dateTimeString = "2024-05-17T17:17:37.686268500";
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
+		LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
 
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
+		List<Transaction> transactions = new ArrayList<>();
+		transactions = CSV.getTransactionHistory();
+//		transactions.add(new Transaction(4, 2, "ss", Operation.sell, 22.0, 200.0, dateTime));
+//		transactions.add(new Transaction(5, 8, "ss", Operation.sell, 24.0, 100.0, dateTime));
+
+//		CSV.writeTransactionHistory(transactions);
+
+		System.out.println(transactions);
+
 //        // Create a MarketPerformanceTracker
 //        MarketPerformanceTracker marketTracker = new MarketPerformanceTracker();
 //
@@ -47,10 +42,9 @@ public class Execute {
 //
 //        // Unsubscribe premiumUser
 //        marketTracker.unsubscribe(premiumUser);
-    }
+	}
 }
 
-    	
 //        // Create some sample stock data
 //       // List<Stock> Stocks = new ArrayList<>();
 //        TradingManager td = new TradingManager();
@@ -73,11 +67,8 @@ public class Execute {
 //        admin.createStock(appleStock);
 //        admin.updateStock(appleStock, 30, 0, 0, 0, 0, 0, 0);
 //        admin.displayPriceHistory(appleStock);
-        
-       
-      //  System.out.println(admin.getStocks());
-        
-        
+
+// System.out.println(admin.getStocks());
 
 //        // Add price history for the stock
 //        appleStock.updateStockPrice(150.0, 150.0, 160.0, 145.0, 155.0, 0.0, 0.0, LocalDateTime.now());
@@ -86,8 +77,7 @@ public class Execute {
 //        // Add the stock to the Stocks list
 //        // Create a new Admin object
 //        // Display price history for the stock with label "AAPL"
-      //  admin.displayPriceHistory("AAPL");
-
+// admin.displayPriceHistory("AAPL");
 
 //import java.time.LocalDateTime;
 //
@@ -124,8 +114,6 @@ public class Execute {
 //        admin.displayPriceHistory("AAPL");
 //    }
 //}
-
-
 
 //
 //public class Execute {

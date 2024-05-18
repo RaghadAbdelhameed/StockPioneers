@@ -29,7 +29,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="DTextField" layoutX="175.0" layoutY="175.0" prefHeight="26.0" prefWidth="183.0" />
+      <TextField fx:id="DTextField" layoutX="175.0" layoutY="175.0" prefHeight="26.0" prefWidth="183.0" promptText="amount" />
       <Label layoutX="100.0" layoutY="178.0" text="Amount:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
@@ -39,7 +39,7 @@
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font></Button>
-      <Label layoutX="306.0" layoutY="29.0" text="Deposite/Withdraw" textFill="#0a64b8">
+      <Label layoutX="306.0" layoutY="29.0" text="Deposit/Withdrawal" textFill="#0a64b8">
          <font>
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -20,17 +21,17 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="406.0" layoutY="206.0" text="Transaction ID:" textFill="#09090b">
+      <Label layoutX="406.0" layoutY="242.0" text="Transaction ID:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="385.0" layoutY="242.0" text="Transaction Time:" textFill="#09090b">
+      <Label layoutX="385.0" layoutY="278.0" text="Transaction Time:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="458.0" layoutY="105.0" text="Label:" textFill="#09090b">
+      <Label layoutX="459.0" layoutY="105.0" text="Label:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
@@ -46,12 +47,12 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="434.0" layoutY="278.0" text="Operation:" textFill="#09090b">
+      <Label layoutX="424.0" layoutY="150.0" text="Operation:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="searchLabelButton" layoutX="581.0" layoutY="147.0" mnemonicParsing="false" onAction="#searchLabelClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+      <Button fx:id="searchLabelButton" layoutX="579.0" layoutY="196.0" mnemonicParsing="false" onAction="#searchLabelClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
@@ -60,5 +61,6 @@
          <font>
             <Font size="14.0" />
          </font></Button>
+      <ChoiceBox fx:id="operationChoiceBox" layoutX="510.0" layoutY="149.0" prefHeight="26.0" prefWidth="238.0" />
    </children>
 </AnchorPane>

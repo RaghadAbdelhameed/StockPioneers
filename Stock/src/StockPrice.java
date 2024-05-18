@@ -1,108 +1,112 @@
 import java.time.LocalDateTime;
-import java.util.*;
+import java.time.format.DateTimeFormatter;
 
 public class StockPrice {
-	
-	 private double initialPrice;
-	    private double openingPrice;
-	    private double finalPrice;
-	    private double closingPrice;
-	    private double tradingPrice;
-	    private double dividends;
-	    private double profitPercentage;
-	    private LocalDateTime dateTime;
 
-	    public StockPrice(double initialPrice, double openingPrice, double finalPrice, double closingPrice, double tradingPrice, double dividends, double profitPercentage, LocalDateTime dateTime) {
-	        this.initialPrice = initialPrice;
-	        this.openingPrice = openingPrice;
-	        this.finalPrice = finalPrice;
-	        this.closingPrice = closingPrice;
-	        this.tradingPrice = tradingPrice;
-	        this.dividends = dividends;
-	        this.profitPercentage = profitPercentage;
-	        this.dateTime = dateTime;
-	    } 
+	private double initialPrice;
+	private double openingPrice;
+	private double finalPrice;
+	private double closingPrice;
+	private double tradingPrice;
+	private double dividends;
+	private double profitPercentage;
+	private LocalDateTime dateTime;
 
-	    public double getInitialPrice() {
-	        return initialPrice;
-	    }
+	public StockPrice(double initialPrice, double openingPrice, double finalPrice, double closingPrice,
+			double tradingPrice, double dividends, double profitPercentage, LocalDateTime dateTime) {
+		this.initialPrice = initialPrice;
+		this.openingPrice = openingPrice;
+		this.finalPrice = finalPrice;
+		this.closingPrice = closingPrice;
+		this.tradingPrice = tradingPrice;
+		this.dividends = dividends;
+		this.profitPercentage = profitPercentage;
+		this.dateTime = dateTime;
+	}
 
-	    public void setInitialPrice(double initialPrice) {
-	        this.initialPrice = initialPrice;
-	    }
-	    
-	    public double getProfitPercentage() {
-	        return profitPercentage;
-	    }
+	public StockPrice(double tradingPrice, LocalDateTime dateTime) {
+		this.tradingPrice = tradingPrice;
+		this.dateTime = dateTime;
+	}
 
-	    public void setProfitPercentage(double profitPercentage) {
-	        this.profitPercentage = profitPercentage;
-	    }
-	    
-	    
-    public double getOpeningPrice() {
-        return openingPrice;
-    }
+	public StockPrice(double profitPercentage) {
+		this.profitPercentage = profitPercentage;
+	}
 
-    public void setOpeningPrice(double openingPrice) {
-        this.openingPrice = openingPrice;
-    }
+	public double getInitialPrice() {
+		return initialPrice;
+	}
 
-    public double getFinalPrice() {
-        return finalPrice;
-    }
+	public void setInitialPrice(double initialPrice) {
+		this.initialPrice = initialPrice;
+	}
 
-    public void setFinalPrice(double finalPrice) {
-        this.finalPrice = finalPrice;
-    }
+	public double getProfitPercentage() {
+		return profitPercentage;
+	}
 
-    public double getClosingPrice() {
-        return closingPrice;
-    }
+	public void setProfitPercentage(double profitPercentage) {
+		this.profitPercentage = profitPercentage;
+	}
 
-    public void setClosingPrice(double closingPrice) {
-        this.closingPrice = closingPrice;
-    }
+	public double getOpeningPrice() {
+		return openingPrice;
+	}
 
-    public double getTradingPrice() {
-        return tradingPrice;
-    }
+	public void setOpeningPrice(double openingPrice) {
+		this.openingPrice = openingPrice;
+	}
 
-    public void setTradingPrice(double tradingPrice) {
-        this.tradingPrice = tradingPrice;
-    }
+	public double getFinalPrice() {
+		return finalPrice;
+	}
 
-    public double getDividends() {
-        return dividends;
-    }
+	public void setFinalPrice(double finalPrice) {
+		this.finalPrice = finalPrice;
+	}
 
-    public void setDividends(double dividends) {
-        this.dividends = dividends;
-    }
+	public double getClosingPrice() {
+		return closingPrice;
+	}
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
+	public void setClosingPrice(double closingPrice) {
+		this.closingPrice = closingPrice;
+	}
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-    
+	public double getTradingPrice() {
+		return tradingPrice;
+	}
+
+	public void setTradingPrice(double tradingPrice) {
+		this.tradingPrice = tradingPrice;
+	}
+
+	public double getDividends() {
+		return dividends;
+	}
+
+	public void setDividends(double dividends) {
+		this.dividends = dividends;
+	}
+
+	public String getDateTime() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
+		String formattedDateTime = dateTime.format(formatter);
+		return formattedDateTime;
+	}
+
+	public void setDateTime(LocalDateTime dateTime) {
+		this.dateTime = dateTime;
+	}
+
 //    public List<StockPrice> getPriceHistory() {
 //        return priceHistory;
 //    }
 
-    @Override
-    public String toString() {
-        return " StockPrice{" +
-                "initialPrice=" + initialPrice +
-                ", openingPrice=" + openingPrice +
-                ", finalPrice=" + finalPrice +
-                ", closingPrice=" + closingPrice +
-                ", tradingPrice=" + tradingPrice +
-                ", dividends=" + dividends +
-                ", profitPercentage=" + profitPercentage +
-                ", dateTime=" + dateTime +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return " StockPrice{" + "initialPrice=" + initialPrice + ", openingPrice=" + openingPrice + ", finalPrice="
+				+ finalPrice + ", closingPrice=" + closingPrice + ", tradingPrice=" + tradingPrice + ", dividends="
+				+ dividends + ", profitPercentage=" + profitPercentage + ", dateTime=" + dateTime + '}';
+	}
 }
