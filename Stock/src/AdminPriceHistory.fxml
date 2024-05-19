@@ -34,11 +34,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="UPHBackButton" mnemonicParsing="false" onAction="#UPHBackButtonClicked" prefHeight="30.0" prefWidth="49.0" text="Back">
+            <Button fx:id="APHBackButton" mnemonicParsing="false" onAction="#APHBackButtonClicked" prefHeight="30.0" prefWidth="49.0" text="Back">
                <font>
                   <Font size="14.0" />
-               </font>
-            </Button>
+               </font></Button>
          </children>
       </GridPane>
       <Line endX="256.4000244140625" endY="7.62939453125E-6" layoutX="519.0" layoutY="150.0" startX="-100.0" />
@@ -56,7 +55,7 @@
             <Font name="Microsoft YaHei UI" size="19.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="649.0" layoutY="152.0" prefHeight="46.0" prefWidth="126.0" text="Price Time" textFill="#09090b">
+      <Label alignment="CENTER" layoutX="649.0" layoutY="152.0" prefHeight="46.0" prefWidth="126.0" text="Time" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="19.0" />
          </font>
@@ -90,5 +89,14 @@
             <Font name="Microsoft YaHei UI" size="12.0" />
          </font>
       </Label>
+      <Label fx:id="stocklabel1" layoutX="419.0" layoutY="202.0" prefHeight="46.0" prefWidth="134.0" text="Label" />
+      <Label fx:id="stocklabel2" layoutX="419.0" layoutY="252.0" prefHeight="46.0" prefWidth="134.0" text="Label" />
+      <Label fx:id="stocklabel3" layoutX="419.0" layoutY="302.0" prefHeight="46.0" prefWidth="134.0" text="Label" />
+      <Label fx:id="pricelabel1" layoutX="549.0" layoutY="202.0" prefHeight="46.0" prefWidth="99.0" text="Label" />
+      <Label fx:id="pricelabel3" layoutX="551.0" layoutY="302.0" prefHeight="46.0" prefWidth="99.0" text="Label" />
+      <Label fx:id="pricelabel2" layoutX="549.0" layoutY="252.0" prefHeight="46.0" prefWidth="99.0" text="Label" />
+      <Label fx:id="timelabel1" layoutX="650.0" layoutY="200.0" prefHeight="46.0" prefWidth="126.0" text="Label" />
+      <Label fx:id="timelabel2" layoutX="650.0" layoutY="252.0" prefHeight="46.0" prefWidth="126.0" text="Label" />
+      <Label fx:id="timelabel3" layoutX="649.0" layoutY="302.0" prefHeight="46.0" prefWidth="126.0" text="Label" />
    </children>
 </AnchorPane>

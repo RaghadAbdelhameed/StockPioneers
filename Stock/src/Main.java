@@ -6,10 +6,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
+import java.util.List;
 import java.util.Optional;
 
 public class Main extends Application {
-
+	 public static List<RegularUser> users= CSV.getUsers();
+	 public static List<Transaction>transactions= CSV.getTransactionHistory() ;
+	 public static List<StockPrice> stockprices = CSV.getStockPrices();
+	 public static List<Stock> stocks= CSV.getStocks();
+	 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("NewLogin.fxml"));

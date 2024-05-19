@@ -1,72 +1,69 @@
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.ResourceBundle;
+
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class zAdminPriceController extends MainController {
+public class zAdminPriceController extends MainController implements Initializable {
 
-    private User user;
-    // private StockPrice stockPrice;
-    // private RegularUser regularUser;
-    // private Admin admin;
-    // private RegularUser currentUser;
-    // private Stock stock;
+	@FXML
+	private Label pricelabel1;
 
-    // public void setStockPrice(StockPrice stockPrice) {
-    // this.stockPrice = stockPrice; // Reference to the Admin instance
-    // }
+	@FXML
+	private Label pricelabel2;
 
-    // Price History
-    @FXML
-    private Button searchAdminPriceLabelButton;
+	@FXML
+	private Label pricelabel3;
 
-    @FXML
-    private TextField searchAdminPriceLabelField;
+	@FXML
+	private Label stocklabel1;
 
-    @FXML
-    private TableView<StockPrice> adminPriceTableView;
+	@FXML
+	private Label stocklabel2;
 
-    @FXML
-    private TableColumn<StockPrice, Double> priceColumn;
+	@FXML
+	private Label stocklabel3;
 
-    @FXML
-    private TableColumn<StockPrice, LocalDateTime> priceTimeColumn;
+	@FXML
+	private Label timelabel1;
 
-    public void admininitialize() {
-        // Bind columns to corresponding properties
-        priceColumn
-                .setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getPrice()).asObject());
-        priceTimeColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPriceTime()));
-    }
+	@FXML
+	private Label timelabel2;
 
-    @FXML
-    void searchAdminPriceLabelClicked(ActionEvent event) {
-        String priceLabel = searchAdminPriceLabelField.getText();
-        if (priceLabel == null || priceLabel.isEmpty()) {
-            // Show an error message if the label is empty
-            showErrorDialog("Error", "Please enter a valid stock label.");
-            return;
-        }
+	@FXML
+	private Label timelabel3;
+	@FXML
+	private Button APHBackButton;
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		List<StockPrice> stockprices = CSV.getStockPrices();
+		List<Stock> stocks = CSV.getStocks();
+		stocklabel1.setText(String.valueOf(stocks.get(0).getLabel()));
+		stocklabel2.setText(String.valueOf(stocks.get(1).getLabel()));
+		stocklabel3.setText(String.valueOf(stocks.get(2).getLabel()));
 
-        // Assuming stockPrice is set properly before invoking this method
-        List<StockPrice> priceHistory = user.retrieveStockPriceHistory(priceLabel);
-        if (priceHistory == null || priceHistory.isEmpty()) {
-            // Show a message if no price history is found
-            showErrorDialog("Error", "No price history found for label: " + priceLabel);
-            return;
-        }
+		pricelabel1.setText(String.valueOf(stockprices.get(0).getTradingPrice()));
+		pricelabel2.setText(String.valueOf(stockprices.get(1).getTradingPrice()));
+		pricelabel3.setText(String.valueOf(stockprices.get(2).getTradingPrice()));
 
-        // Set the items of the TableView
-        ObservableList<StockPrice> data = FXCollections.observableArrayList(priceHistory);
-        adminPriceTableView.setItems(data);
-    }
-
+		timelabel1.setText(String.valueOf(stockprices.get(0).getDateTime()));
+		timelabel2.setText(String.valueOf(stockprices.get(1).getDateTime()));
+		timelabel3.setText(String.valueOf(stockprices.get(2).getDateTime()));
+	}
+	@FXML
+	public void APHBackButtonClicked() {
+		loadFXML("AdminUI.fxml",APHBackButton,"Admin Dashboard");
+	}
 }

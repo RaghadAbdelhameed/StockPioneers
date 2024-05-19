@@ -21,7 +21,7 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="426.0" layoutY="228.0" text="Company:" textFill="#09090b">
+      <Label fx:id="RetriveStockCompany" layoutX="426.0" layoutY="228.0" text="Company:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
@@ -31,7 +31,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="401.0" layoutY="268.0" text="Trading Price:" textFill="#09090b">
+      <Label fx:id="RetriveStockPrice" layoutX="401.0" layoutY="268.0" text="Trading Price:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
@@ -46,12 +46,13 @@
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="381.0" layoutY="308.0" text="Available Stocks:" textFill="#09090b">
+      <Label fx:id="RetiveStockAvailable" layoutX="381.0" layoutY="308.0" text="Available Stocks:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
       <Button fx:id="USBackButton" layoutY="2.0" mnemonicParsing="false" onAction="#USBackButtonClicked" text="Back" />
       <Label layoutX="438.0" layoutY="116.0" opacity="0.0" prefHeight="18.0" prefWidth="238.0" text="Label" />
+      <Label fx:id="RetriveStockLabel" layoutX="439.0" layoutY="117.0" opacity="0.0" prefHeight="18.0" prefWidth="238.0" text="Label" />
    </children>
 </AnchorPane>

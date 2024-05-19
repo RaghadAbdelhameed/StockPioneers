@@ -1,7 +1,1 @@
 transactionId,userID,stockLabel,opType,amount,price,Transactiontime
-1,1,apple,sell,22,400,2024-06-08T15:15:32.682666900
-2,11,sony,deposit,24,399,2024-05-08T15:20:34.220268500
-3,12,samsung,buy,13,1254,2024-05-08T15:31:37.686266380
-4,1,apple,deposit,22,400,2024-05-09T15:49:10.222268700
-5,11,sony,withdrawal,24,399,2024-05-09T16:17:37.686268500
-6,12,samsung,deposit,13,1254,2024-05-10T16:22:37.686255700

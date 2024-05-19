@@ -34,7 +34,7 @@ public class zUserController extends MainController {
 	private PasswordField userPasswordField;
 	@FXML
 	private TextField userUsernameField;
-
+	public static int index; 
 	@FXML
 	void loginUserClicked(ActionEvent event) {
 		String password = userPasswordField.getText();
@@ -45,6 +45,7 @@ public class zUserController extends MainController {
 			if (username.equals(data[i][0]) && password.equals(data[i][1])) {
 				loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
 				found = true;
+				index=i;
 				break;
 			}
 		}
@@ -72,8 +73,10 @@ public class zUserController extends MainController {
 			currentUser.setID(counter++);
 			admin.createUser(currentUser);
 			System.out.println(username + "  " + password);
+			if(!currentUser.getUserName().equals("")) {
 			loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
-		} catch (Exception e) {
+		} 
+			}catch (Exception e) {
 			System.out.println(e);
 		}
 	}
@@ -161,7 +164,7 @@ public class zUserController extends MainController {
 	@FXML
 	void financialClicked(ActionEvent event) {
 		loadFXML("FinancialActions.fxml", financialButton, "Financial Actions");
-		currentUser.getFinancialTransactions();
+		//currentUser.getFinancialTransactions();
 	}
 
 	@FXML

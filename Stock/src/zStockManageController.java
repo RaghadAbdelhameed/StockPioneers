@@ -145,7 +145,7 @@ public class zStockManageController extends MainController {
         if (index >= 0) {
             deleteStockLabel.setTextFill(Color.BLACK);
             deleteStockCompany.setText("Company: " + stocks.get(index).getCompany());
-            deleteStockPrice.setText("Price :" + stockprices.get(index).getTradingPrice());
+            deleteStockPrice.setText("Stock Price :" + stockprices.get(index).getTradingPrice());
         }
     }
 
@@ -154,14 +154,14 @@ public class zStockManageController extends MainController {
         stock = new Stock();
         admin = Admin.getInstance("", "");
         stockprice = new StockPrice();
-        String label = createStockLabelField.getText();
+        String label = updateStockLabelField.getText();
         double openingPrice = Double.parseDouble(updateOpeningPriceField.getText());
         double closingPrice = Double.parseDouble(updateClosePriceField.getText());
         double finalPrice = Double.parseDouble(updateFinalPriceField.getText());
-        double initialPrice = Double.parseDouble(createInitialPriceField.getText());
-        double tradingPrice = Double.parseDouble(createTradingPriceField.getText());
-        double dividends = Double.parseDouble(createDividendsField.getText());
-        double profitPercentage = Double.parseDouble(createProfitPercentageField.getText());
+        double initialPrice = Double.parseDouble(updateInitialPriceField.getText());
+        double tradingPrice = Double.parseDouble(updateTradingPriceField.getText());
+        double dividends = Double.parseDouble(updateDividendsField.getText());
+        double profitPercentage = Double.parseDouble(updateProfitPercentageField.getText());
         stock.setLabel(label);
         stockprice.setOpeningPrice(openingPrice);
         stockprice.setClosingPrice(closingPrice);
@@ -197,9 +197,7 @@ public class zStockManageController extends MainController {
 
     @FXML
     void stockDeleteClicked(ActionEvent event) {
-        stock = new Stock();
         admin = Admin.getInstance("", "");
-        stockprice = new StockPrice();
         List<Stock> stocks = CSV.getStocks();
         List<StockPrice> stockprices = CSV.getStockPrices();
         int index = searchID(searchLabelfield, deleteStockLabel);
@@ -216,19 +214,27 @@ public class zStockManageController extends MainController {
     private Button searchRetrieveStockButton;
 
     @FXML
+    private Label RetiveStockAvailable;
+
+    @FXML
+    private Label RetriveStockCompany;
+
+    @FXML
+    private Label RetriveStockLabel;
+
+    @FXML
+    private Label RetriveStockPrice;
+    @FXML
     void searchRetriveStockClicked(ActionEvent event) {
-        String label = searchRetrieveLabelfield.getText();
-        /*
-         * int index= searchID(searchLabelfield,deleteStockLabel);
-         * List<Stock>stocks=CSV.getStocks();
-         * List<StockPrice> stockprices= CSV.getStockPrices();
-         * if (index>=0) {
-         * deleteStockLabel.setTextFill(Color.BLACK);
-         * deleteStockCompany.setText("Company: " +stocks.get(index).getCompany());
-         * deleteStockPrice.setText("Price :"+
-         * stockprices.get(index).getTradingPrice());
-         * }
-         */
+          int index= searchID(searchRetrieveLabelfield,RetriveStockLabel);
+          List<Stock>stocks=CSV.getStocks();
+          List<StockPrice> stockprices= CSV.getStockPrices();
+          if (index>=0) {
+          RetriveStockLabel.setTextFill(Color.BLACK);
+          RetriveStockCompany.setText("Company: " +stocks.get(index).getCompany());
+          RetriveStockPrice.setText("Stock Price :"+ stockprices.get(index).getTradingPrice());
+          RetiveStockAvailable.setText("Available Stocks: "+ stocks.get(index).getAvailableStocks() );
+          }     
     }
 
     int searchID(TextField stocklabel, Label label) {
@@ -242,7 +248,6 @@ public class zStockManageController extends MainController {
                     found = true;
                     return i;
                 }
-
             }
             if (!stockLabel.matches("\\d+")) {
                 throw new Exception();

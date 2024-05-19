@@ -106,10 +106,12 @@ public class zUserManageController extends MainController {
 			String username = UpdateUsernsamefield.getText();
 			String password = UpdatePasswordfield.getText();
 			String[][] data = CSV.readData("csv files/UserData.csv");
+			if(searchid>0) {
 			currentUser = new RegularUser(username, password, Integer.parseInt(data[searchid][2]),
-					Double.parseDouble(data[searchid][3]), data[searchid][4]);
+					Double.parseDouble(data[searchid][3]), data[searchid][4]);			
 			admin.updateUser(currentUser);
 			System.out.println(username + "  " + password);
+			}
 		} catch (Exception e) {
 
 		}
@@ -147,7 +149,7 @@ public class zUserManageController extends MainController {
 			if (searchid > 0) {
 				currentUser = new RegularUser(data[searchid][0], data[searchid][1], Integer.parseInt(data[searchid][2]),
 						Double.parseDouble(data[searchid][3]), data[searchid][4]);
-				admin.deleteUser(currentUser);
+				admin.deleteUser(currentUser,(searchid-1));
 			}
 		} catch (NumberFormatException e) {
 			System.out.println("Invalid Input. You must enter a digit.");
@@ -211,9 +213,8 @@ public class zUserManageController extends MainController {
 				if (searchid == Integer.parseInt(data[i][2])) {
 					label.setOpacity(0);
 					found = true;
-					return searchid;
+					return i;
 				}
-
 			}
 			if (searchid <= 0) {
 				throw new Exception();
@@ -229,6 +230,6 @@ public class zUserManageController extends MainController {
 			label.setText("Invalid Input");
 			System.out.println(e);
 		}
-		return 0;
+		return -1;
 	}
 }

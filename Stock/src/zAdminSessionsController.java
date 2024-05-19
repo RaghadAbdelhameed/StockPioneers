@@ -16,7 +16,7 @@ public class zAdminSessionsController extends MainController {
     @FXML
     void closeClicked(ActionEvent event) {
         // tradingManager = new TradingManager();
-        admin = Admin.getInstance("rawan", "rawan55", gender.female);
+        admin = Admin.getInstance("rawan", "rawan55");
         admin.closeTradingSession();
         loadFXML("Thankyou.fxml", closeButton, "THANK YOU!!!!!");
 
@@ -37,7 +37,7 @@ public class zAdminSessionsController extends MainController {
     void intiateClicked(ActionEvent event) {
         // admin.getInstance("skaf", "faf", gender.male, tradingManager);
         tradingManager = new TradingManager();
-        admin = Admin.getInstance("", "", gender.female);
+        admin = Admin.getInstance("", "");
         admin.initiateTradingSession();
         loadFXML("TradingSessionsClose.fxml", initiateButton, "Trading Sessions");
 

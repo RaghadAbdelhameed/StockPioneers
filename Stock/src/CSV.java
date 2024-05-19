@@ -11,7 +11,7 @@ import java.util.List;
 public class CSV {
 
 	public static void writeStockHistory(List<Stock> stock, List<StockPrice> stockp) {
-		try (PrintWriter writer = new PrintWriter(new FileWriter("src/csv files/StockHistory.csv"))) {
+		try (PrintWriter writer = new PrintWriter(new FileWriter("csv files/StockHistory.csv"))) {
 			// Write stock header
 
 			writer.println(
@@ -29,10 +29,24 @@ public class CSV {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-	}
+	}/*
+	public static void writeAvaliableStocks(List<Stock> stock,List<User> user) {
+		try (PrintWriter writer = new PrintWriter(new FileWriter("csv files/HaveStocks.csv"))) {
+			// Write stock header
 
+			writer.println(
+					"UserID,StockLabel,Amount");
+			for (int i = 0; i < stock.size(); i++) {
+				Stock stockData = stock.get(i);
+				writer.println(String.format("%s,%s,%d", stockData.getLabel(),
+						 stockData.getAvailableStocks());
+					
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}*/
 	public static void writeTransactionHistory(List<Transaction> trnsaction) { // Nagafa
-		try (PrintWriter writer = new PrintWriter(new FileWriter("src/csv files/TranscationHistory.csv"))) {
+		try (PrintWriter writer = new PrintWriter(new FileWriter("csv files/TranscationHistory.csv"))) {
 			// Write stock header
 
 			writer.println("transactionId,userID,stockLabel,opType,amount,price,Transactiontime");
@@ -84,8 +98,8 @@ public class CSV {
 
 	public static List<RegularUser> getUsers() {
 		List<RegularUser> users = new ArrayList<>();
-		String[][] data = CSV.readData("src/csv files/UserData.csv");
-		for (int i = 1; i < data.length; i++) {
+		String[][] data = CSV.readData("csv files/UserData.csv");
+		for (int i = 1; i <data.length; i++) {
 			RegularUser user = new RegularUser(data[i][0], data[i][1], Integer.parseInt(data[i][2]),
 					Double.parseDouble(data[i][3]), data[i][4]);
 			users.add(user);
@@ -94,7 +108,7 @@ public class CSV {
 	}
 
 	public static void writeData(List<RegularUser> users) {
-		try (PrintWriter writer = new PrintWriter(new FileWriter("src/csv files/UserData.csv"))) {
+		try (PrintWriter writer = new PrintWriter(new FileWriter("csv files/UserData.csv"))) {
 			writer.println("UserName,Password,ID,AccountBalance,gender");
 			for (RegularUser user : users) {
 				writer.println(String.format("%s,%s,%d,%.2f,%s", user.getUserName(), user.getPassword(), user.getID(),
@@ -106,7 +120,7 @@ public class CSV {
 	}
 
 	public static String[][] readStocks() {
-		String filePath = "src/csv files/StockHistory.csv";
+		String filePath = "csv files/StockHistory.csv";
 		BufferedReader reader = null;
 		List<String[]> dataList = new ArrayList<>(); // Use a List to store the data from all lines
 		try {
@@ -175,7 +189,7 @@ public class CSV {
 
 	public static String[][] readTransactions() {
 
-		String filePath = "src/csv files/TranscationHistory.csv";
+		String filePath = "csv files/TranscationHistory.csv";
 		BufferedReader reader = null;
 		List<String[]> dataList = new ArrayList<>(); // Use a List to store the data from all lines
 		try {
@@ -221,5 +235,64 @@ public class CSV {
 		}
 		return transactions;
 	}
+	public static void writePendingTransactions(List<Transaction> trnsactions) { // Nagafa
+		try (PrintWriter writer = new PrintWriter(new FileWriter("csv files/PendingTransactions.csv"))) {
+			// Write stock header
+			writer.println("userID,opType,amount");
+			for (int i = 0; i < trnsactions.size(); i++) {
+				Transaction transactionData = trnsactions.get(i);
+				// writer.println(); // Add a blank line between stock and stock price data
+				writer.println(String.format("%d,%s,%f", 
+						transactionData.getUserId(),transactionData.getOpType(),
+						transactionData.getAmount()));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static String[][] readPendingTransactions() {
+		
+		String filePath = "csv files/PendingTransactions.csv";
+		BufferedReader reader = null;
+		List<String[]> dataList = new ArrayList<>(); // Use a List to store the data from all lines
+		try {
+			reader = new BufferedReader(new FileReader(filePath));
+			String line = "";
+			while ((line = reader.readLine()) != null) {
+				// Split by comma
+				String[] data = line.split(",");
 
+				// Add the data to the list
+				dataList.add(data);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		// Convert the list to a 2D array and return it
+		int rows = dataList.size();
+		String[][] result = new String[rows][3];
+		for (int i = 0; i < rows; i++) {
+			result[i] = dataList.get(i);
+		}
+		return result;
+	}
+	public static List<Transaction> getPendingTransaction() {
+		List<Transaction> transactions = new ArrayList<>();
+		String[][] data = readPendingTransactions();
+		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
+		for (int i = 1; i < data.length; i++) {
+			Transaction transaction = new Transaction(Integer.parseInt(data[i][0]),Double.parseDouble(data[i][2]),
+					 Operation.valueOf(data[i][1]));
+			transactions.add(transaction);
+		}
+		return transactions;
+	}
 }

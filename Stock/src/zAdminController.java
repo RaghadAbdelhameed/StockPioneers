@@ -118,17 +118,17 @@ public class zAdminController extends MainController {
     void priceHistoryClicked(ActionEvent event) {
         loadFXML("AdminPriceHistory.fxml", priceHistoryButton, "Price History");
     }
-
+    static boolean started=false;
     @FXML
     void sessionsButtonClicked(ActionEvent event) {
         // admin = new Admin("gfd", "dfggfd", gender.male);
         tradingManager = new TradingManager();
         admin = Admin.getInstance("", "");
-        if (!admin.isTradingSessionOpen()) {
+        if (!admin.isTradingSessionOpen()&&!started) {
             loadFXML("TradingSessions.fxml", sessionsButton, "Trading Sessions");
             // admin.initiateTradingSession();
-
-        } else
+            started=true;
+        } else if(started)
             loadFXML("TradingSessionsClose.fxml", sessionsButton, "Trading Sessions");
         // admin.closeTradingSession();
 

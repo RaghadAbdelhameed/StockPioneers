@@ -5,9 +5,13 @@ public class RegularUser extends User {
 	Scanner input = new Scanner(System.in);
 	private boolean isDepositApproved;
 	private boolean isWithdrawalApproved;
-	private List<Transaction> pendingTransactions; // List to store pending deposit and withdrawal requests
+	private List<Transaction> pendingTransactions=CSV.getPendingTransaction(); // List to store pending deposit and withdrawal requests
 	private List<Transaction> financialTransactions;
 	private List<Stock> haveStocks;
+	
+	
+	
+	
 
 	public RegularUser(String username, String password, String gender) {
 		super(username, password, gender);
@@ -31,12 +35,13 @@ public class RegularUser extends User {
 	}
 
 	// financial actions
-
 	public void deposit(double amount) {
 		if (amount > 0) {
-			Transaction depositTransaction = new Transaction(Operation.deposit, amount);
+			pendingTransactions=CSV.getPendingTransaction();
+			Transaction depositTransaction = new Transaction(this.ID, amount,Operation.deposit);
 			pendingTransactions.add(depositTransaction);
 			System.out.println("Deposit request submitted for approval.");
+			CSV.writePendingTransactions(pendingTransactions);
 			// wait for transaction to be approved
 			while (!this.isDepositApproved) {
 				try {
@@ -61,8 +66,10 @@ public class RegularUser extends User {
 	// Method to withdraw funds (pending admin approval)
 	public void withdrawal(double amount) {
 		if (amount > 0 && amount <= accountbalance) {
-			Transaction withdrawalTransaction = new Transaction(Operation.withdrawal, amount);
+			pendingTransactions=CSV.getPendingTransaction();
+			Transaction withdrawalTransaction = new Transaction(getID(),amount,Operation.withdrawal);
 			pendingTransactions.add(withdrawalTransaction);
+			CSV.writePendingTransactions(pendingTransactions);
 			System.out.println(" Withdrawal request submitted for approval ");
 		} else {
 			System.out.println(" Invalid withdrawal amount or insufficient funds ");
@@ -92,6 +99,14 @@ public class RegularUser extends User {
 	// Method to mark the withdrawal request as approved
 	public void markWithdrawalApproval() {
 		this.isWithdrawalApproved = true;
+	}
+	
+	public boolean getDepositApproved() {
+		return isDepositApproved;
+	}
+	
+	public boolean getWithdrawalApproved() {
+		return isWithdrawalApproved;
 	}
 
 	// Order management
@@ -152,9 +167,13 @@ public class RegularUser extends User {
 				double totalPrice = maxPrice * amount;
 				setAccountBalance(getAccountBalance() - totalPrice);
 				haveStocks.add(stockToBuy);
-				Stocks.remove(stockToBuy);
+
 				// updating the available stocks in the market
 				stockToBuy.setAvailableStocks(stockToBuy.getAvailableStocks() - amount);
+				if(stockToBuy.getAvailableStocks() == 0)
+				{
+				Stocks.remove(stockToBuy);
+				}
 				System.out.println(" Stock bought successfully ");
 				// Update stock price history
 				LocalDateTime currentTime = LocalDateTime.now();

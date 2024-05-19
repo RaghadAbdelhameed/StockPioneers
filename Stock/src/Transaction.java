@@ -58,6 +58,19 @@ public class Transaction {
 		this.Transactiontime = Transactiontime; // Set current timing
 	}
 
+	Transaction(int userID, double amount,Operation opType) {
+		this.userID = userID;
+		this.opType = opType;
+		this.amount=amount;
+		this.transactionId = nextId++;
+		this.Transactiontime = LocalDateTime.now();
+	}
+
+
+	public Transaction() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getUserId() {
 		return userID;
 	}

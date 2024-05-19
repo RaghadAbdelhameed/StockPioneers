@@ -1,7 +1,11 @@
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class zOrderManageController extends MainController {
     // private User user;
@@ -45,6 +49,8 @@ public class zOrderManageController extends MainController {
 
     @FXML
     void buyClicked(ActionEvent event) {
+    	List<RegularUser>users=CSV.getUsers();
+    	regularUser=users.get(zUserController.index);
         String label = stockBuyLabelField.getText();
         String company = stockBuyCompanyField.getText();
         int amount = Integer.parseInt(stockBuyAmountField.getText());
