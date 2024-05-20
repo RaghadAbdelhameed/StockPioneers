@@ -14,7 +14,7 @@
             <Image url="@data/Sessions.png" />
          </image>
       </ImageView>
-      <Label layoutX="155.0" layoutY="110.0" prefHeight="24.0" prefWidth="365.0" text="This Session opened at" textFill="#09090b">
+      <Label fx:id="closeSessionLabel" layoutX="109.0" layoutY="99.0" prefHeight="24.0" prefWidth="570.0" text="This Session opened at" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font>
