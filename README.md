@@ -23,7 +23,6 @@ The workspace contains folders as shown:
 - `src`: the folder to maintain sources
 - `lib`: the folder to maintain dependencies.
 - `csv files`: the folder that contains data
-- `FXMLs`: the folder that contains FXMLs files
 - `data`: the folder that contains images 
 
 > Don't forget to write the JavaFX library path here, just open `.vscode/launch.json`.
@@ -454,11 +453,11 @@ The `PremiumUser` class enhances the functionalities provided to regular users b
 
 ## Collaborators 
 
-- [Raghad Abdelhameed](https://github.com/RaghadAbdelhameed)
-- [Rawan Mohammed](https://github.com/rawan-mohamed-n)
-- [Zeyad Ashraf Nassar](https://github.com/ZEY0D)
-- [Ahmed Loay](https://github.com/Ahmedloay2)
-- [Mostafa Ashraf](https://github.com/Nagafa007)
+- [Raghad Abdelhameed](https://github.com/RaghadAbdelhameed) UI Design and Writing README
+- [Zeyad Ashraf Nassar](https://github.com/ZEY0D) Backend , Testing and Debbuging
+-  [Rawan Mohammed](https://github.com/rawan-mohamed-n) Merging Backend to Frontend and making some modifications to UI Design
+- [Ahmed Loay](https://github.com/Ahmedloay2) Merging CSV File and Tables
+- [Mostafa Ashraf](https://github.com/Nagafa007) Tables
 
 ## Thankyou for using our STOCKPIONEERS APPLICATION!!
 ![Thankyou](Stock/src/data/ThankyouPage'.png)
