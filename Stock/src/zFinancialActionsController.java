@@ -66,7 +66,7 @@ public class zFinancialActionsController extends MainController implements Initi
 		int counter = 1;
 		for (int i = 0; i < transactions.size(); i++) {
 			if ((transactions.get(i).getOpType().equals(Operation.deposit) ||
-					transactions.get(i).getOpType().equals(Operation.deposit)) &&
+					transactions.get(i).getOpType().equals(Operation.withdrawal)) &&
 					transactions.get(i).getUserId() == (zUserController.index + 1)) {
 				Transaction transaction = transactions.get(i);
 				switch (counter) {
