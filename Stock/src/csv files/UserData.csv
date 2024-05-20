@@ -1,6 +1,6 @@
 UserName,Password,ID,AccountBalance,gender
-ahmed,ahmed,1,0,Male
-mostafa,mostafa,2,3454515,Male
-mostafa4,mostafa,3,6446,Male
-ahmed2,ahmed,4,3000,Male
-ahmed3,ahmed,5,60,Male
+ahmed,ahmed,1,70.00,Male
+mostafa,mostafa,2,3454515.00,Male
+mostafa4,mostafa,3,6446.00,Male
+ahmed2,ahmed,4,3000.00,Male
+ahmed3,ahmed,5,60.00,Male

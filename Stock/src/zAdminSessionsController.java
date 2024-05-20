@@ -23,7 +23,7 @@ public class zAdminSessionsController extends MainController implements Initiali
         // tradingManager = new TradingManager();
         admin = Admin.getInstance("rawan", "rawan55");
         admin.closeTradingSession();
-        loadFXML("Thankyou.fxml", closeButton, "THANK YOU!!!!!");
+
         // if (isOpen) {
         // this.closeTime = LocalDateTime.now(); // closing trading session
         // isOpen = false;
@@ -32,8 +32,9 @@ public class zAdminSessionsController extends MainController implements Initiali
         // System.out.println(" No trading sessions are currently opened ");
         // }
     }
+
     @FXML
-    private Label closeSessionLabel= new Label();
+    private Label closeSessionLabel = new Label();
 
     @FXML
     protected Button initiateButton;
@@ -45,9 +46,9 @@ public class zAdminSessionsController extends MainController implements Initiali
         tradingManager = new TradingManager();
         admin = Admin.getInstance("", "");
         admin.initiateTradingSession();
-       // closeSessionLabel.setText(String.valueOf(LocalDateTime.now()));
+        // closeSessionLabel.setText(String.valueOf(LocalDateTime.now()));
         loadFXML("TradingSessionsClose.fxml", initiateButton, "Trading Sessions");
-       // closeSessionLabel.setText(String.valueOf(LocalDateTime.now()));
+        // closeSessionLabel.setText(String.valueOf(LocalDateTime.now()));
         // if (!isOpen) {
         // this.openTime = LocalDateTime.now(); // opening trading session
         // isOpen = true;
@@ -55,9 +56,10 @@ public class zAdminSessionsController extends MainController implements Initiali
         // } else {
         // System.out.println(" Trading session is already opened ");
     }
+
     @Override
-   	public void initialize(URL arg0, ResourceBundle arg1) {
-    	 closeSessionLabel.setText("This Session opened at "+String.valueOf(LocalDateTime.now()));
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        closeSessionLabel.setText("This Session opened at " + String.valueOf(LocalDateTime.now()));
     }
 
 }

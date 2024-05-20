@@ -63,31 +63,38 @@ public class zTransactionHistoryController extends MainController implements Ini
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		int counter = 0;
 		List<Transaction> transactions = CSV.getTransactionHistory();
-		if(transactions.size()>0) {
-			opLabel1.setText(String.valueOf(transactions.get(0).getOpType()));
-			tranIDLabel1.setText(String.valueOf(transactions.get(0).getTransactionId()));
-			tranTimeLabel1.setText(String.valueOf(transactions.get(0).getTransactionTime()));
-			stockLabel1.setText(String.valueOf(CSV.getStocks().get(0).getLabel()));
-			priceLabel1.setText(String.valueOf(CSV.getStockPrices().get(0).getTradingPrice()));
-			amountLabel1.setText(String.valueOf(transactions.get(0).getAmount()));
+		for (int i = 0; i < transactions.size(); i++) {
+			if (transactions.get(i).getUserId() == (zUserController.index + 1)) {
+				counter++;
+				switch (counter) {
+					case 1:
+						opLabel1.setText(String.valueOf(transactions.get(i).getOpType()));
+						tranIDLabel1.setText(String.valueOf(transactions.get(i).getTransactionId()));
+						tranTimeLabel1.setText(String.valueOf(transactions.get(i).getTransactionTime()));
+						stockLabel1.setText(String.valueOf(CSV.getStocks().get(i).getLabel()));
+						priceLabel1.setText(String.valueOf(CSV.getStockPrices().get(i).getTradingPrice()));
+						amountLabel1.setText(String.valueOf(transactions.get(i).getAmount()));
+						break;
+					case 2:
+						opLabel2.setText(String.valueOf(transactions.get(i).getOpType()));
+						tranIDLabel2.setText(String.valueOf(transactions.get(i).getTransactionId()));
+						tranTimeLabel2.setText(String.valueOf(transactions.get(i).getTransactionTime()));
+						stockLabel2.setText(String.valueOf(CSV.getStocks().get(i).getLabel()));
+						priceLabel2.setText(String.valueOf(CSV.getStockPrices().get(i).getTradingPrice()));
+						amountLabel2.setText(String.valueOf(transactions.get(i).getAmount()));
+						break;
+					case 3:
+						opLabel3.setText(String.valueOf(transactions.get(i).getOpType()));
+						tranIDLabel3.setText(String.valueOf(transactions.get(i).getTransactionId()));
+						tranTimeLabel3.setText(String.valueOf(transactions.get(i).getTransactionTime()));
+						stockLabel3.setText(String.valueOf(CSV.getStocks().get(i).getLabel()));
+						priceLabel3.setText(String.valueOf(CSV.getStockPrices().get(i).getTradingPrice()));
+						amountLabel3.setText(String.valueOf(transactions.get(i).getAmount()));
+						break;
+				}
 			}
-			if(transactions.size()>1) {
-			opLabel2.setText(String.valueOf(transactions.get(1).getOpType()));
-			tranIDLabel2.setText(String.valueOf(transactions.get(1).getTransactionId()));
-			tranTimeLabel2.setText(String.valueOf(transactions.get(1).getTransactionTime()));
-			stockLabel2.setText(String.valueOf(CSV.getStocks().get(1).getLabel()));
-			priceLabel2.setText(String.valueOf(CSV.getStockPrices().get(1).getTradingPrice()));
-			amountLabel2.setText(String.valueOf(transactions.get(1).getAmount()));
-			}
-			if(transactions.size()>2) {
-			opLabel3.setText(String.valueOf(transactions.get(2).getOpType()));
-			tranIDLabel3.setText(String.valueOf(transactions.get(2).getTransactionId()));
-			tranTimeLabel3.setText(String.valueOf(transactions.get(2).getTransactionTime()));
-			stockLabel3.setText(String.valueOf(CSV.getStocks().get(2).getLabel()));	
-			priceLabel3.setText(String.valueOf(CSV.getStockPrices().get(2).getTradingPrice()));
-			amountLabel3.setText(String.valueOf(transactions.get(2).getAmount()));
-			}
+		}
 	}
-
 }
