@@ -20,6 +20,7 @@ public class zAdminSessionsController extends MainController implements Initiali
 
     @FXML
     void closeClicked(ActionEvent event) {
+        loadFXML("Thankyou.fxml", closeButton, "THANKYOU!!!!!");
         admin = Admin.getInstance("rawan", "rawan55");
         admin.closeTradingSession();
 
