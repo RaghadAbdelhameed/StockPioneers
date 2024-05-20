@@ -26,7 +26,7 @@
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="buyButton" layoutX="246.0" layoutY="386.0" mnemonicParsing="false" onAction="#buyClicked" style="-fx-background-color: #093fff;" text="Buy" textFill="WHITE">
+      <Button fx:id="buyButton" layoutX="268.0" layoutY="386.0" mnemonicParsing="false" onAction="#buyClicked" style="-fx-background-color: #093fff;" text="Buy" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
@@ -50,7 +50,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label layoutX="138.0" layoutY="342.0" prefHeight="22.0" prefWidth="70.0" text="Amount:" textFill="#09090b">
+      <Label layoutX="130.0" layoutY="342.0" prefHeight="22.0" prefWidth="70.0" text="Amount:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
@@ -64,7 +64,7 @@
       <Label fx:id="availableStocks" layoutX="200.0" layoutY="288.0" prefHeight="26.0" prefWidth="178.0" />
       <Label fx:id="maxPriceLabel" layoutX="200.0" layoutY="243.0" prefHeight="26.0" prefWidth="178.0" />
       <Label fx:id="buyStockLabel" layoutX="202.0" layoutY="126.0" opacity="0.0" prefHeight="18.0" prefWidth="238.0" text="Label" />
-      <TextField fx:id="amountTextField" layoutX="203.0" layoutY="340.0" />
+      <TextField fx:id="amountTextField" layoutX="203.0" layoutY="340.0" prefHeight="26.0" prefWidth="238.0" />
       <Label layoutX="74.0" layoutY="290.0" prefHeight="22.0" prefWidth="126.0" text="AvailableStocks:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />

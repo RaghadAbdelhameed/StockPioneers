@@ -63,8 +63,8 @@
       <Label fx:id="companyLabel" layoutX="200.0" layoutY="198.0" prefHeight="26.0" prefWidth="178.0" />
       <Label fx:id="minPriceLabel" layoutX="200.0" layoutY="243.0" prefHeight="26.0" prefWidth="178.0" />
       <Label fx:id="availableStocks" layoutX="210.0" layoutY="288.0" prefHeight="26.0" prefWidth="178.0" />
-      <TextField fx:id="amountTextField" layoutX="225.0" layoutY="338.0" />
-      <Label layoutX="150.0" layoutY="339.0" prefHeight="22.0" prefWidth="87.0" text="Amount:" textFill="#09090b">
+      <TextField fx:id="amountTextField" layoutX="197.0" layoutY="338.0" prefHeight="26.0" prefWidth="238.0" promptText="amount" />
+      <Label layoutX="130.0" layoutY="339.0" prefHeight="22.0" prefWidth="87.0" text="Amount:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
