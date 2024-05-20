@@ -60,7 +60,7 @@ public void createUser(User user) {
     }
 }
 ```
-![Create User](Stock/src/data/CreatePage.png)
+![Create User](Stock/src/data/userssignuppage.png)
 #### Delete User
 ```java
 public void deleteUser(User user) {
@@ -321,7 +321,7 @@ public void buyStockOrder(String label, String company, double maxPrice, int amo
     if (label == null || label.isEmpty() || company == null || company.isEmpty() || maxPrice <= 0 || amount <= 0) {
         System.out.println("Invalid data.");
         return;
-    }
+    }}
 ```
 
 #### Sell Stock Order
@@ -447,17 +447,22 @@ public void showLineChart(String stockLabel, Map<String, List<StockPrice>> stock
 The `PremiumUser` class enhances the functionalities provided to regular users by including the ability to subscribe and unsubscribe from stock price change notifications and view line charts for specific stocks. These features are designed to give premium users more control and information in their trading activities.
 
 
-## UML diagram 
+## UML Diagram 
 
-## diagram 
+![UML ](Stock/src/data/uml.png)
 
-## Collaborators 
+
+## Sequence Diagram
+
+![sequence ](Stock/src/data/sequnce.png)
+
+## Contributors  
 
 - [Raghad Abdelhameed](https://github.com/RaghadAbdelhameed) UI Design and Writing README
 - [Zeyad Ashraf Nassar](https://github.com/ZEY0D) Backend , Testing and Debbuging
 -  [Rawan Mohammed](https://github.com/rawan-mohamed-n) Merging Backend to Frontend and making some modifications to UI Design
-- [Ahmed Loay](https://github.com/Ahmedloay2) Merging CSV File and Tables
-- [Mostafa Ashraf](https://github.com/Nagafa007) Tables
+- [Ahmed Loay](https://github.com/Ahmedloay2) Merging CSV File to Bakend and Tables
+- [Mostafa Ashraf](https://github.com/Nagafa007) Tables and helping in CSV
 
 ## Thankyou for using our STOCKPIONEERS APPLICATION!!
 ![Thankyou](Stock/src/data/ThankyouPage'.png)
