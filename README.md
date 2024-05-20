@@ -34,7 +34,7 @@ The workspace contains folders as shown:
       <img src="Stock/src/data/AdminLoginPage.png" alt="AdminLoginUI" style="width:100%; max-width:600px; height:auto;"/>
     </td>
     <td style="text-align:center;">
-      <img src="Stock/src/data/UserLoginPage.png" alt="UserLoginUI" style="width:100%; max-width:600px; height:auto;"/>
+      <img src="Stock/src/data/userlogin.png" alt="UserLoginUI" style="width:100%; max-width:600px; height:auto;"/>
     </td>
   </tr>
 </table>
@@ -206,6 +206,7 @@ public void displayPriceHistory(Stock stock) {
     }
 }
 ```
+![Create User](Stock/src/data/pricehistorypage.png)
 
 ### 4. Approval System
 
