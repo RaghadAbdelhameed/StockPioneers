@@ -21,33 +21,27 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="120.0" layoutY="190.0" text="Company:" textFill="#09090b">
+      <Label layoutX="120.0" layoutY="200.0" text="Company:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="stockBuyCompanyField" layoutX="200.0" layoutY="190.0" prefHeight="26.0" prefWidth="238.0" promptText="company">
-         <padding>
-            <Insets bottom="4.0" left="7.0" right="7.0" top="4.0" />
-         </padding>
-      </TextField>
-      <Button fx:id="buyButton" layoutX="240.0" layoutY="330.0" mnemonicParsing="false" onAction="#buyClicked" style="-fx-background-color: #093fff;" text="Buy" textFill="WHITE">
+      <Button fx:id="buyButton" layoutX="246.0" layoutY="386.0" mnemonicParsing="false" onAction="#buyClicked" style="-fx-background-color: #093fff;" text="Buy" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei UI" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="150.0" layoutY="140.0" prefHeight="22.0" prefWidth="47.0" text="Label:" textFill="#09090b">
+      <Label layoutX="150.0" layoutY="102.0" prefHeight="22.0" prefWidth="47.0" text="Label:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="110.0" layoutY="240.0" prefHeight="22.0" prefWidth="87.0" text="Max. Price:" textFill="#09090b">
+      <Label layoutX="113.0" layoutY="245.0" prefHeight="22.0" prefWidth="87.0" text="Max. Price:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="stockMaxPriceField" layoutX="200.0" layoutY="240.0" prefHeight="26.0" prefWidth="238.0" promptText="Write your max. price in $" />
-      <TextField fx:id="stockBuyLabelField" layoutX="200.0" layoutY="139.0" prefHeight="26.0" prefWidth="238.0" promptText="label">
+      <TextField fx:id="buyStockLabelField" layoutX="200.0" layoutY="100.0" prefHeight="26.0" prefWidth="238.0" promptText="label">
          <padding>
             <Insets bottom="4.0" left="7.0" right="7.0" top="4.0" />
          </padding>
@@ -56,11 +50,25 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label layoutX="128.0" layoutY="290.0" prefHeight="22.0" prefWidth="87.0" text="Amount:" textFill="#09090b">
+      <Label layoutX="138.0" layoutY="342.0" prefHeight="22.0" prefWidth="70.0" text="Amount:" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="stockBuyAmountField" layoutX="200.0" layoutY="290.0" prefHeight="26.0" prefWidth="238.0" promptText="amount" />
+      <Button fx:id="buySearchStockButton" layoutX="268.0" layoutY="145.0" mnemonicParsing="false" onAction="#buySearchStockClicked" style="-fx-background-color: #093fff;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei UI" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="companyLabel" layoutX="200.0" layoutY="198.0" prefHeight="26.0" prefWidth="178.0" />
+      <Label fx:id="availableStocks" layoutX="200.0" layoutY="288.0" prefHeight="26.0" prefWidth="178.0" />
+      <Label fx:id="maxPriceLabel" layoutX="200.0" layoutY="243.0" prefHeight="26.0" prefWidth="178.0" />
+      <Label fx:id="buyStockLabel" layoutX="202.0" layoutY="126.0" opacity="0.0" prefHeight="18.0" prefWidth="238.0" text="Label" />
+      <TextField fx:id="amountTextField" layoutX="203.0" layoutY="340.0" />
+      <Label layoutX="74.0" layoutY="290.0" prefHeight="22.0" prefWidth="126.0" text="AvailableStocks:" textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

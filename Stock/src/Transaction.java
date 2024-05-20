@@ -71,6 +71,16 @@ public class Transaction {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Transaction(int iD, String label, Operation op, int amount, double d, LocalDateTime now) {
+		this.userID =iD;
+		this.opType =op;
+		this.amount=amount;
+		this.price=d;
+		this.transactionId = nextId++;
+		this.Transactiontime = LocalDateTime.now();
+	}
+
+	
 	public int getUserId() {
 		return userID;
 	}

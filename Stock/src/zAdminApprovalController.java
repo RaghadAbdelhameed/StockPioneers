@@ -12,7 +12,8 @@ public class zAdminApprovalController extends MainController implements Initiali
     private Admin admin;
     private RegularUser regularUser;
     private Transaction transaction;
-
+ //  List<RegularUser> users=CSV.getUsers();
+//	private List<Transaction>pendingransactions=CSV.getPendingTransaction();
     @FXML
     private Button SOBackButton;
 
@@ -38,27 +39,30 @@ public class zAdminApprovalController extends MainController implements Initiali
 
     @FXML
     void approveRow1Clicked(ActionEvent event) {
-        admin=Admin.getInstance("ahmed","Ahmed");
-       List<RegularUser> users=CSV.getUsers();
-       List<Transaction>pendingransactions=CSV.getPendingTransaction();
-        regularUser=users.get(zUserController.index);
-        transaction=pendingransactions.get(0);
-    	String name = userName1Label.getText();
+        admin = Admin.getInstance("ahmed", "Ahmed");
+        List<RegularUser> users=CSV.getUsers();
+    	List<Transaction>pendingransactions=CSV.getPendingTransaction();
+        regularUser = users.get(zUserController.index);
+        transaction = pendingransactions.get(0);
+        String name = userName1Label.getText();
+        if (name == null || name.isEmpty()) {
+            return;
+        }
         double account = Double.parseDouble(Account1Label.getText());
         double amount = Double.parseDouble(amount1Label.getText());
         Operation operation = Operation.valueOf(operation1Label.getText());
         regularUser.setUserName(name);
         regularUser.setAccountBalance(account);
-       // transaction.setOpType(operation);
         if (operation == Operation.deposit) {
-            admin.approveDeposit(regularUser, amount, transaction,0);
+            admin.approveDeposit(regularUser, amount, transaction, 0);
         } else if (operation == Operation.withdrawal) {
-            admin.approveWithdrawal(regularUser, amount, transaction,0);
+            admin.approveWithdrawal(regularUser, amount, transaction, 0);
         }
         userName1Label.setText("");
     	Account1Label.setText("");
-    	amount1Label.setText("");
-    	operation1Label.setText("");
+      	amount1Label.setText("");
+      	operation1Label.setText("");
+ 
     }
     @FXML
     private Label Account2Label;
@@ -77,18 +81,34 @@ public class zAdminApprovalController extends MainController implements Initiali
 
     @FXML
     void approveRow2Clicked(ActionEvent event) {
-        String name = userName2Label.getText();
-        double account = Double.parseDouble(Account2Label.getText());
-        int amount = Integer.parseInt(amount2Label.getText());
-        Operation operation = Operation.valueOf(operation2Label.getText());
-        regularUser.setUserName(name);
-        regularUser.setAccountBalance(account);
-        transaction.setOpType(operation);
-        if (operation == Operation.deposit) {
-            admin.approveDeposit(regularUser, amount, transaction,1);
-        } else if (operation == Operation.withdrawal) {
-            admin.approveWithdrawal(regularUser, amount, transaction,1);
-        }
+    	 admin = Admin.getInstance("ahmed", "Ahmed");
+    	 List<RegularUser> users=CSV.getUsers();
+    	 List<Transaction>pendingransactions=CSV.getPendingTransaction();
+         regularUser = users.get(zUserController.index);
+         transaction = pendingransactions.get(1);
+         if(!(pendingransactions.size()<1)) {
+         String name = userName2Label.getText();
+         if (name == null || name.isEmpty()) {
+             return;
+         }
+         double account = Double.parseDouble(Account2Label.getText());
+         double amount = Double.parseDouble(amount2Label.getText());
+         Operation operation = Operation.valueOf(operation2Label.getText());
+         regularUser.setUserName(name);
+         regularUser.setAccountBalance(account);
+         if (operation == Operation.deposit) {
+             admin.approveDeposit(regularUser, amount, transaction, 1);
+         } else if (operation == Operation.withdrawal) {
+             admin.approveWithdrawal(regularUser, amount, transaction, 1);
+         }
+         userName2Label.setText("");
+     	Account2Label.setText("");
+       	amount2Label.setText("");
+       	operation2Label.setText("");
+         }
+         else {
+        	 approveRow1Clicked(event);
+         }    	 
     }
 
     @FXML
@@ -108,40 +128,64 @@ public class zAdminApprovalController extends MainController implements Initiali
 
     @FXML
     void approveRow3Clicked(ActionEvent event) {
-        String name = userName3Label.getText();
-        double account = Double.parseDouble(Account3Label.getText());
-        int amount = Integer.parseInt(amount3Label.getText());
-        Operation operation = Operation.valueOf(operation3Label.getText());
-        regularUser.setUserName(name);
-        regularUser.setAccountBalance(account);
-        transaction.setOpType(operation);
-        if (operation == Operation.deposit) {
-            admin.approveDeposit(regularUser, amount, transaction,2);
-        } else if (operation == Operation.withdrawal) {
-            admin.approveWithdrawal(regularUser, amount, transaction,2);
-        }
+    	 admin = Admin.getInstance("ahmed", "Ahmed");
+    	 List<RegularUser> users=CSV.getUsers();
+    	 List<Transaction>pendingransactions=CSV.getPendingTransaction();
+         regularUser = users.get(zUserController.index);
+         transaction = pendingransactions.get(2);
+         if(!(pendingransactions.size()<2)) {
+         String name = userName3Label.getText();
+         if (name == null || name.isEmpty()) {
+             return;
+         }
+         double account = Double.parseDouble(Account3Label.getText());
+         double amount = Double.parseDouble(amount3Label.getText());
+         Operation operation = Operation.valueOf(operation3Label.getText());
+         regularUser.setUserName(name);
+         regularUser.setAccountBalance(account);
+         if (operation == Operation.deposit) {
+             admin.approveDeposit(regularUser, amount, transaction, 2);
+         } else if (operation == Operation.withdrawal) {
+             admin.approveWithdrawal(regularUser, amount, transaction, 2);
+         }
+         userName3Label.setText("");
+     	Account3Label.setText("");
+       	amount3Label.setText("");
+       	operation3Label.setText("");
+         }
+         else {
+        	 approveRow2Clicked(event);
+         }    	 
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	List<Transaction> pendingransactions=CSV.getPendingTransaction();
-    	List<RegularUser>users=CSV.getUsers();
-    	if(pendingransactions.size()>0) {
-    	userName1Label.setText(users.get(pendingransactions.get(0).getUserId()-1).getUserName());
-    	Account1Label.setText(String.valueOf(users.get(pendingransactions.get(0).getUserId()-1).getAccountBalance()));
-    	amount1Label.setText(String.valueOf(pendingransactions.get(0).getAmount()));
-    	operation1Label.setText(String.valueOf(pendingransactions.get(0).getOpType()));
-    	}
-    	if(pendingransactions.size()>1) {
-    	userName2Label.setText(users.get(pendingransactions.get(1).getUserId()-1).getUserName());
-    	Account2Label.setText(String.valueOf(users.get(pendingransactions.get(1).getUserId()-1).getAccountBalance()));
-    	amount2Label.setText(String.valueOf(pendingransactions.get(1).getAmount()));
-    	operation2Label.setText(String.valueOf(pendingransactions.get(1).getOpType()));
-    	}
-    	if(pendingransactions.size()>2) {
-    	userName3Label.setText(users.get(pendingransactions.get(2).getUserId()-1).getUserName());
-    	Account3Label.setText(String.valueOf(users.get(pendingransactions.get(2).getUserId()-1).getAccountBalance()));
-    	amount3Label.setText(String.valueOf(pendingransactions.get(2).getAmount()));
-    	operation3Label.setText(String.valueOf(pendingransactions.get(2).getOpType()));
-    	}
+    	  List<RegularUser> users=CSV.getUsers();
+    	  List<Transaction>pendingransactions=CSV.getPendingTransaction();
+        for (int i = 0; i < pendingransactions.size(); i++) {
+            Transaction transaction = pendingransactions.get(i);
+            RegularUser user = users.get(transaction.getUserId() - 1);
+            switch (i + 1) {
+                case 1:
+                    userName1Label.setText(user.getUserName());
+                    Account1Label.setText(String.valueOf(user.getAccountBalance()));
+                    amount1Label.setText(String.valueOf(transaction.getAmount()));
+                    operation1Label.setText(String.valueOf(transaction.getOpType()));
+                    break;
+                case 2:
+                    userName2Label.setText(user.getUserName());
+                    Account2Label.setText(String.valueOf(user.getAccountBalance()));
+                    amount2Label.setText(String.valueOf(transaction.getAmount()));
+                    operation2Label.setText(String.valueOf(transaction.getOpType()));
+                    break;
+                case 3:
+                    userName3Label.setText(user.getUserName());
+                    Account3Label.setText(String.valueOf(user.getAccountBalance()));
+                    amount3Label.setText(String.valueOf(transaction.getAmount()));
+                    operation3Label.setText(String.valueOf(transaction.getOpType()));
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

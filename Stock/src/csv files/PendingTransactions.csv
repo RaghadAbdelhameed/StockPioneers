@@ -1,1 +1,5 @@
 userID,opType,amount
+5,withdrawal,20.000000
+5,withdrawal,40.000000
+1,deposit,50.000000
+1,deposit,500.000000

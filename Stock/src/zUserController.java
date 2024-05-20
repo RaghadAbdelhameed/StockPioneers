@@ -45,7 +45,7 @@ public class zUserController extends MainController {
 			if (username.equals(data[i][0]) && password.equals(data[i][1])) {
 				loadFXML("UserFeatures.fxml", loginUserButton, "User Dashboard");
 				found = true;
-				index=i;
+				index=i-1;
 				break;
 			}
 		}

@@ -221,22 +221,18 @@ public class Admin extends User {
 	public void approveDeposit(RegularUser user, double amount, Transaction transaction,int i) {
 		if (!zAdminController.started) {
 			double newAccountBalance = user.getAccountBalance() + amount; // setting the new budget
-			//user.setAccountBalance(newAccountBalance);
-			//user.markDepositApproval();
-			//user.removePendingTransaction(transaction); // the request is not pending anymore	
 			List<RegularUser>users=CSV.getUsers();
 			List<Transaction>transactions=CSV.getTransactionHistory();
 			List<Transaction>pendingtransactions=CSV.getPendingTransaction();
 			transactions.add(transaction);
 			users.get(zUserController.index).setAccountBalance(newAccountBalance);
-			users.add(users.get(zUserController.index));
+		//	users.add(users.get(zUserController.index));
 			pendingtransactions.remove(i);
 			CSV.writePendingTransactions(pendingtransactions);
 			CSV.writeTransactionHistory(pendingtransactions);
 			CSV.writeData(users);
 			System.out.println(" Deposit request approved for " + user.getUserName());
 			System.out.println(" " + user.getUserName() + "'s" + " Updated balance = " + user.getAccountBalance());
-
 		} else {
 			System.out.println(" Cannot approve deposit request while the session is running ");
 		}
@@ -254,8 +250,8 @@ public class Admin extends User {
 			List<Transaction>pendingtransactions=CSV.getPendingTransaction();
 			transactions.add(transaction);
 			users.get(zUserController.index).setAccountBalance(newAccountBalance);
-			users.add(users.get(zUserController.index));
-			pendingtransactions.remove(transaction);
+		//users.add(users.get(zUserController.index));
+			pendingtransactions.remove(i);
 			CSV.writePendingTransactions(pendingtransactions);
 			CSV.writeTransactionHistory(pendingtransactions);
 			CSV.writeData(users);

@@ -39,7 +39,7 @@ public class Stock extends Security {
 		this.label = label;
 	}
 
-	public int getAmount() {
+	public  int getAmount() {
 		return amount;
 	}
 

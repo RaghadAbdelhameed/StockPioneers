@@ -295,4 +295,65 @@ public class CSV {
 		}
 		return transactions;
 	}
+	public static void writeHaveStocks(List<BoughtStock> HaveStocks) { // Nagafa
+		try (PrintWriter writer = new PrintWriter(new FileWriter("csv files/HaveStocks.csv"))) {
+			// Write stock header
+			writer.println("userID,StockLabel,amount");
+			for (int i = 0; i < HaveStocks.size(); i++) {
+				BoughtStock stock = HaveStocks.get(i);
+				// writer.println(); // Add a blank line between stock and stock price data
+				writer.println(String.format("%d,%s,%f", 
+						stock.getUserID(),stock.getLabel(),
+						stock.getAmount()));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static String[][] readHaveStocks() {
+		
+		String filePath = "csv files/HaveStocks.csv";
+		BufferedReader reader = null;
+		List<String[]> dataList = new ArrayList<>(); // Use a List to store the data from all lines
+		try {
+			reader = new BufferedReader(new FileReader(filePath));
+			String line = "";
+			while ((line = reader.readLine()) != null) {
+				// Split by comma
+				String[] data = line.split(",");
+
+				// Add the data to the list
+				dataList.add(data);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		// Convert the list to a 2D array and return it
+		int rows = dataList.size();
+		String[][] result = new String[rows][3];
+		for (int i = 0; i < rows; i++) {
+			result[i] = dataList.get(i);
+		}
+		return result;
+	}
+	public static List<BoughtStock> getHaveStocks() {
+		List<BoughtStock> HaveStocks = new ArrayList<>();
+		String[][] data = readHaveStocks();
+		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
+		for (int i = 1; i < data.length; i++) {
+			BoughtStock stock = new BoughtStock(Integer.parseInt(data[i][0]),data[i][1],
+					Double.parseDouble(data[i][2]));
+			HaveStocks.add(stock);
+		}
+		return HaveStocks;
+	}
+	
 }

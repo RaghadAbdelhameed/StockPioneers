@@ -15,15 +15,10 @@
             <Image url="@data/Funds.png" />
          </image>
       </ImageView>
-      <Label layoutX="97.0" layoutY="119.0" prefHeight="24.0" prefWidth="225.0" text="Balance: balancenumber" textFill="#09090b">
+      <Label fx:id="BalanceLabel" layoutX="97.0" layoutY="119.0" prefHeight="24.0" prefWidth="225.0" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="18.0" />
          </font></Label>
-      <Button fx:id="DepositButton" alignment="CENTER" layoutX="80.0" layoutY="241.0" mnemonicParsing="false" onAction="#DepositButtonClicked" prefHeight="38.0" prefWidth="157.0" style="-fx-background-color: #7DD3FC;" text="Deposit" textFill="#09090b">
-         <font>
-            <Font name="Microsoft YaHei UI" size="16.0" />
-         </font>
-      </Button>
       <Button fx:id="WithdrawalButton" alignment="CENTER" layoutX="260.0" layoutY="241.0" mnemonicParsing="false" onAction="#WithdrawalButtonClicked" prefHeight="38.0" prefWidth="148.0" style="-fx-background-color: #7DD3FC;" text="Withdrawal" textFill="#09090b">
          <font>
             <Font name="Microsoft YaHei UI" size="16.0" />
@@ -44,5 +39,10 @@
             <Font name="Microsoft YaHei UI Bold" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="DepositButton" alignment="CENTER" layoutX="86.0" layoutY="244.0" mnemonicParsing="false" onAction="#DepositButtonClicked" prefHeight="38.0" prefWidth="148.0" style="-fx-background-color: #7DD3FC;" text="Deposit" textFill="#09090b">
+         <font>
+            <Font name="Microsoft YaHei UI" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,1 +1,3 @@
 transactionId,userID,stockLabel,opType,amount,price,Transactiontime
+238,5,null,withdrawal,20.000000,0.000000,2024-05-20T18:54:46.129970500
+239,5,null,withdrawal,40.000000,0.000000,2024-05-20T18:54:46.129970500

@@ -39,3 +39,6 @@
 /zUserController.class
 /zUserManageController.class
 /zUserPriceController.class
+/boughtstocks.class
+/boughtstock.class
+/BoughtStock.class
