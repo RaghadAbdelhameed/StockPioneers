@@ -1,5 +1,4 @@
 import java.util.*;
-import java.time.LocalDateTime; // for price history
 
 public abstract class User {
 
@@ -9,10 +8,11 @@ public abstract class User {
 	protected int ID;
 	protected double accountbalance;
 	private String gender;
-	
+
 	protected static List<RegularUser> Users;
 	protected static List<Stock> Stocks = new ArrayList<>();
-	protected static Map<String, List<StockPrice>> stockPrices = new HashMap<>(); // Map to store stock price by stock																	// label
+	protected static Map<String, List<StockPrice>> stockPrices = new HashMap<>(); // Map to store stock price by stock
+																					// // label
 	protected static Map<String, List<Stock>> Prices = new HashMap<>(); // Map to store stock price by stock label
 	protected static Map<String, List<Transaction>> orderedTransactions = new HashMap<>(); // for real orders that user
 																							// tries to make
@@ -124,17 +124,6 @@ public abstract class User {
 			}
 		}
 	}
-
-	// // Method to display the price history of a stock by its label
-	// public void displayPriceHistory(String label) {
-	// List<Stock> stockPrices = retrieveStockPriceHistory(label); // calling the
-	// method with the specified label
-	// System.out.println(" Price history for stock with label " + label + ": ");
-	// for (Stock price : stockPrices) {
-	// System.out.println(price.toString()); // Assuming Price class has a
-	// toString() method
-	// }
-	// }
 
 	// track market performance
 	public static void trackMarket() {

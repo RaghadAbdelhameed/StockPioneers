@@ -12,10 +12,10 @@ public class Admin extends User {
 
 	private Admin(String username, String password) {
 		super(username, password);
-		tradingmanager = new TradingManager(); // market is closed initialized 
+		tradingmanager = new TradingManager(); // market is closed initialized
 	}
 
-	// Singleton design pattern 
+	// Singleton design pattern
 	public static Admin getInstance(String username, String password) {
 		Admin result = Instance;
 		if (result == null) {
@@ -33,8 +33,9 @@ public class Admin extends User {
 	public void createUser(RegularUser user) {
 		try {
 			if (user != null) { // user account cannot be null
-				if (!checkUserExists(user.getUserName(), user.getPassword())) { // check thats its not already added before																			// before
-					Users.add(user); 
+				if (!checkUserExists(user.getUserName(), user.getPassword())) { // check thats its not already added
+																				// before // before
+					Users.add(user);
 					CSV.writeData(Users);
 					System.out.println(" User created successfully ");
 				} else {
@@ -44,8 +45,7 @@ public class Admin extends User {
 			} else {
 				System.out.println(" Invalid user provided "); // null user provided
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
@@ -68,15 +68,15 @@ public class Admin extends User {
 	// delete user
 	public void deleteUser(RegularUser user, int index) {
 		try {
-			Users=CSV.getUsers();
+			Users = CSV.getUsers();
 			if (user != null) {
-				 {
-				Users.remove((index));
-				System.out.println(Users.get(index).getUserName());
-				CSV.writeData(Users);
-				System.out.println(" User deleted successfully ");
-			}
+				{
+					Users.remove((index));
+					System.out.println(Users.get(index).getUserName());
+					CSV.writeData(Users);
+					System.out.println(" User deleted successfully ");
 				}
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -95,9 +95,10 @@ public class Admin extends User {
 	// Updating user data
 	public void updateUser(RegularUser updatedUser) { // new data to be updated
 		boolean userFound = false;
-		Users=CSV.getUsers();
+		Users = CSV.getUsers();
 		for (User user : Users) {
-			if (user.getID() == updatedUser.getID()) { // this guarantees that user will not be updated if entered wrong ID								// invalid ID
+			if (user.getID() == updatedUser.getID()) { // this guarantees that user will not be updated if entered wrong
+														// ID // invalid ID
 				user.setUserName(updatedUser.getUserName());
 				user.setPassword(updatedUser.getPassword());
 				CSV.writeData(Users);
@@ -107,8 +108,7 @@ public class Admin extends User {
 			}
 		}
 	}
-	
-	
+
 	// 2- Stock Management
 
 	// create a new stock to be traded in the market
@@ -121,8 +121,6 @@ public class Admin extends User {
 				stockprices.add(stockp);
 				CSV.writeStockHistory(stocks, stockprices);
 				System.out.println(" Stock created successfully ");
-				// getPrices().get(stock.getLabel()).add(stock.getTradingPrice()); // Store the
-				// price of the stock in a list
 			} else {
 				System.out.println(" Stock already exist ");
 			}
@@ -141,15 +139,10 @@ public class Admin extends User {
 		List<StockPrice> stockprices = CSV.getStockPrices();
 		List<Stock> stocks = CSV.getStocks();
 		if (stock != null) { // stock cannot be null
-			// if(stocks.contains(stock)) { // check thats its not already added before
 			stocks.remove(index);
 			stockprices.remove(index);
 			CSV.writeStockHistory(stocks, stockprices);
 			System.out.println(" stock deleted successfully ");
-			// }
-			// else{
-			// System.out.println(" This Stock " + "( " + stock.getLabel() + " ) does not
-			// exist ");}
 		} else {
 			System.out.println(" Invalid Stock provided "); // null stock
 		}
@@ -177,11 +170,9 @@ public class Admin extends User {
 		// Flag to indicate if the stock is found
 		boolean stockFound = false;
 		// Iterate over the list of stocks
-		for (int i=0 ; i<stocks.size();i++) {
+		for (int i = 0; i < stocks.size(); i++) {
 			if (stocks.get(i).getLabel().equals(stock.getLabel())) {
 				// Update the stock with the provided data and timestamp
-			//	s.updateStockPrice(initialPrice, openingPrice, finalPrice, closingPrice, tradingPrice,
-				//		dividends, profitPercentage, dateTime);
 				stockprices.get(i).setInitialPrice(initialPrice);
 				stockprices.get(i).setOpeningPrice(openingPrice);
 				stockprices.get(i).setFinalPrice(finalPrice);
@@ -190,7 +181,6 @@ public class Admin extends User {
 				stockprices.get(i).setDividends(dividends);
 				stockprices.get(i).setProfitPercentage(profitPercentage);
 				stockprices.get(i).setDateTime(dateTime);
-				//stocks.add(s);
 				// Set the flag to true
 				stockFound = true;
 				CSV.writeStockHistory(stocks, stockprices);
@@ -218,15 +208,14 @@ public class Admin extends User {
 	// Approval System --> this occurs only if the trading session is closed
 
 	// Deposit approval
-	public void approveDeposit(RegularUser user, double amount, Transaction transaction,int i) {
+	public void approveDeposit(RegularUser user, double amount, Transaction transaction, int i) {
 		if (!zAdminController.started) {
 			double newAccountBalance = user.getAccountBalance() + amount; // setting the new budget
-			List<RegularUser>users=CSV.getUsers();
-			List<Transaction>transactions=CSV.getTransactionHistory();
-			List<Transaction>pendingtransactions=CSV.getPendingTransaction();
+			List<RegularUser> users = CSV.getUsers();
+			List<Transaction> transactions = CSV.getTransactionHistory();
+			List<Transaction> pendingtransactions = CSV.getPendingTransaction();
 			transactions.add(transaction);
 			users.get(zUserController.index).setAccountBalance(newAccountBalance);
-		//	users.add(users.get(zUserController.index));
 			pendingtransactions.remove(i);
 			CSV.writePendingTransactions(pendingtransactions);
 			CSV.writeTransactionHistory(pendingtransactions);
@@ -237,20 +226,16 @@ public class Admin extends User {
 			System.out.println(" Cannot approve deposit request while the session is running ");
 		}
 	}
+
 	// Withdrawal approval
-	public void approveWithdrawal(RegularUser user, double amount, Transaction transaction,int i) {
+	public void approveWithdrawal(RegularUser user, double amount, Transaction transaction, int i) {
 		if (!zAdminController.started) {
 			double newAccountBalance = user.getAccountBalance() - amount;
-			//user.setAccountBalance(newAccountBalance);
-			//user.markWithdrawalApproval(); // Mark the deposit request as approved
-			//user.removePendingTransaction(transaction);
-			//user.addFinancialTransactions().add(transaction);
-			List<RegularUser>users=CSV.getUsers();
-			List<Transaction>transactions=CSV.getTransactionHistory();
-			List<Transaction>pendingtransactions=CSV.getPendingTransaction();
+			List<RegularUser> users = CSV.getUsers();
+			List<Transaction> transactions = CSV.getTransactionHistory();
+			List<Transaction> pendingtransactions = CSV.getPendingTransaction();
 			transactions.add(transaction);
 			users.get(zUserController.index).setAccountBalance(newAccountBalance);
-		//users.add(users.get(zUserController.index));
 			pendingtransactions.remove(i);
 			CSV.writePendingTransactions(pendingtransactions);
 			CSV.writeTransactionHistory(pendingtransactions);
@@ -261,6 +246,7 @@ public class Admin extends User {
 			System.out.println(" Cannot approve withdrawal request during a trading session ");
 		}
 	}
+
 	// Trading sessions management
 	// opening trading session
 	public void initiateTradingSession() {

@@ -58,29 +58,26 @@ public class Transaction {
 		this.Transactiontime = Transactiontime; // Set current timing
 	}
 
-	Transaction(int userID, double amount,Operation opType) {
+	Transaction(int userID, double amount, Operation opType) {
 		this.userID = userID;
 		this.opType = opType;
-		this.amount=amount;
+		this.amount = amount;
 		this.transactionId = nextId++;
 		this.Transactiontime = LocalDateTime.now();
 	}
 
-
 	public Transaction() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Transaction(int iD, String label, Operation op, int amount, double d, LocalDateTime now) {
-		this.userID =iD;
-		this.opType =op;
-		this.amount=amount;
-		this.price=d;
+		this.userID = iD;
+		this.opType = op;
+		this.amount = amount;
+		this.price = d;
 		this.transactionId = nextId++;
 		this.Transactiontime = LocalDateTime.now();
 	}
 
-	
 	public int getUserId() {
 		return userID;
 	}

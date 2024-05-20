@@ -10,9 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-//import java.lang.classfile.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -47,39 +45,6 @@ public class MainController implements Initializable {
         alert.showAndWait();
     }
 
-    // Trading Sessions Control
-    @FXML
-    private Button initiateButton;
-
-    @FXML
-    void intiateClicked(ActionEvent event) {
-
-    }
-
-    // // handle errors
-    // @FXML
-    // private Label balanceError;
-
-    // @FXML
-    // private Label emailError;
-
-    // @FXML
-    // private Label passwordError;
-
-    // void handleEmailInput() {
-    // String email = emailField.getText();
-    // if (!email.endsWith("@gmail.com") && !email.endsWith("@yahoo.com") &&
-    // !email.endsWith("@hotmail.com")
-    // && !email.endsWith("@outlook.com")) {
-    // ((Labeled) emailError).setText("Email invalid"); // Assuming emailError is a
-    // Label or Tooltip
-    // } else {
-    // ((Labeled) emailError).setText(""); // Clear the error message if the email
-    // is valid
-
-    // }
-    // }
-
     protected void loadFXML(String fxmlFileName, Hyperlink link, String title) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFileName));
@@ -109,7 +74,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // setLabelText();
         if (genderChoicebox == null) {
             genderChoicebox = new ChoiceBox<>();
         }

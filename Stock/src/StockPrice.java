@@ -35,7 +35,6 @@ public class StockPrice {
 
 	public StockPrice() {
 		this.dateTime = LocalDateTime.now();
-		// TODO Auto-generated constructor stub
 	}
 
 	public double getInitialPrice() {
@@ -103,10 +102,6 @@ public class StockPrice {
 	public void setDateTime(LocalDateTime dateTime) {
 		this.dateTime = dateTime;
 	}
-
-	// public List<StockPrice> getPriceHistory() {
-	// return priceHistory;
-	// }
 
 	@Override
 	public String toString() {

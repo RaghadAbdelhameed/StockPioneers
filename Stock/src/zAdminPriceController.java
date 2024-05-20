@@ -1,20 +1,10 @@
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 
 public class zAdminPriceController extends MainController implements Initializable {
 
@@ -46,6 +36,7 @@ public class zAdminPriceController extends MainController implements Initializab
 	private Label timelabel3;
 	@FXML
 	private Button APHBackButton;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		List<StockPrice> stockprices = CSV.getStockPrices();
@@ -62,8 +53,9 @@ public class zAdminPriceController extends MainController implements Initializab
 		timelabel2.setText(String.valueOf(stockprices.get(1).getDateTime()));
 		timelabel3.setText(String.valueOf(stockprices.get(2).getDateTime()));
 	}
+
 	@FXML
 	public void APHBackButtonClicked() {
-		loadFXML("AdminUI.fxml",APHBackButton,"Admin Dashboard");
+		loadFXML("AdminUI.fxml", APHBackButton, "Admin Dashboard");
 	}
 }

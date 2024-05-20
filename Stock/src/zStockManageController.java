@@ -1,6 +1,5 @@
 
 import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,10 +9,7 @@ import javafx.scene.paint.Color;
 
 public class zStockManageController extends MainController {
 
-    // private User user;
-    // private RegularUser regularUser;
     private Admin admin;
-    // private RegularUser currentUser;
     private Stock stock;
     private StockPrice stockprice;
 
@@ -224,17 +220,18 @@ public class zStockManageController extends MainController {
 
     @FXML
     private Label RetriveStockPrice;
+
     @FXML
     void searchRetriveStockClicked(ActionEvent event) {
-          int index= searchID(searchRetrieveLabelfield,RetriveStockLabel);
-          List<Stock>stocks=CSV.getStocks();
-          List<StockPrice> stockprices= CSV.getStockPrices();
-          if (index>=0) {
-          RetriveStockLabel.setTextFill(Color.BLACK);
-          RetriveStockCompany.setText("Company: " +stocks.get(index).getCompany());
-          RetriveStockPrice.setText("Stock Price :"+ stockprices.get(index).getTradingPrice());
-          RetiveStockAvailable.setText("Available Stocks: "+ stocks.get(index).getAvailableStocks() );
-          }     
+        int index = searchID(searchRetrieveLabelfield, RetriveStockLabel);
+        List<Stock> stocks = CSV.getStocks();
+        List<StockPrice> stockprices = CSV.getStockPrices();
+        if (index >= 0) {
+            RetriveStockLabel.setTextFill(Color.BLACK);
+            RetriveStockCompany.setText("Company: " + stocks.get(index).getCompany());
+            RetriveStockPrice.setText("Stock Price :" + stockprices.get(index).getTradingPrice());
+            RetiveStockAvailable.setText("Available Stocks: " + stocks.get(index).getAvailableStocks());
+        }
     }
 
     int searchID(TextField stocklabel, Label label) {

@@ -28,14 +28,6 @@ public class MarketPerformanceTracker {
         System.out.println(observer.getUserName() + " Unubscribed successfully ");
     }
 
-    // // notify observers of changes
-    // public static void notifyObservers() {
-    // System.out.println(" Notifying all subscribers about market updates...");
-    // for (Observer observer : observers) {
-    // observer.update();
-    // }
-    // }
-
     // Notify observers of changes
     public void notifyObservers() {
         System.out.println(" Notifying all subscribers about market updates...");

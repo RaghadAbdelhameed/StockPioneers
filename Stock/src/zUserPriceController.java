@@ -41,20 +41,20 @@ public class zUserPriceController extends MainController implements Initializabl
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		List<StockPrice> stockprices = CSV.getStockPrices();
 		List<Stock> stocks = CSV.getStocks();
-		if(stocks.size()>0) {
-		stocklabel1.setText(String.valueOf(stocks.get(0).getLabel()));
-		pricelabel1.setText(String.valueOf(stockprices.get(0).getTradingPrice()));
-		timelabel1.setText(String.valueOf(stockprices.get(0).getDateTime()));
-	}
-		if(stocks.size()>1) {
-		stocklabel2.setText(String.valueOf(stocks.get(1).getLabel()));
-		timelabel2.setText(String.valueOf(stockprices.get(1).getDateTime()));
-		pricelabel2.setText(String.valueOf(stockprices.get(1).getTradingPrice()));
+		if (stocks.size() > 0) {
+			stocklabel1.setText(String.valueOf(stocks.get(0).getLabel()));
+			pricelabel1.setText(String.valueOf(stockprices.get(0).getTradingPrice()));
+			timelabel1.setText(String.valueOf(stockprices.get(0).getDateTime()));
 		}
-		if(stocks.size()>2) {
-		pricelabel3.setText(String.valueOf(stockprices.get(2).getTradingPrice()));
-		stocklabel3.setText(String.valueOf(stocks.get(2).getLabel()));
-		timelabel3.setText(String.valueOf(stockprices.get(2).getDateTime()));
-	}
+		if (stocks.size() > 1) {
+			stocklabel2.setText(String.valueOf(stocks.get(1).getLabel()));
+			timelabel2.setText(String.valueOf(stockprices.get(1).getDateTime()));
+			pricelabel2.setText(String.valueOf(stockprices.get(1).getTradingPrice()));
+		}
+		if (stocks.size() > 2) {
+			pricelabel3.setText(String.valueOf(stockprices.get(2).getTradingPrice()));
+			stocklabel3.setText(String.valueOf(stocks.get(2).getLabel()));
+			timelabel3.setText(String.valueOf(stockprices.get(2).getDateTime()));
+		}
 	}
 }

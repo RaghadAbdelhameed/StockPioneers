@@ -16,9 +16,6 @@ public class zPremiumController extends MainController {
 
     @FXML
     void subscribeClicked(ActionEvent event) {
-        // observer.update(user);
-        // marketPerformanceTracker.subscribe(observer);
-
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Subscription");
         alert.setHeaderText(null);
@@ -33,11 +30,9 @@ public class zPremiumController extends MainController {
         alert.showAndWait().ifPresent(buttonType -> {
             if (buttonType == buttonTypeYes) {
                 loadFXML("PremiumCharts.fxml", subscribeButton, "Premium User");
-                // Show Notification.fxml over PremiumUser2.fxml
-                Stage notificationStage = new Stage();
-                // notificationStage.initStyle(StageStyle.UNDECORATED);
-                // notificationStage.initModality(Modality.APPLICATION_MODAL);
 
+                // Show Notifications when Subscribed is Confirmed
+                Stage notificationStage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Notification.fxml"));
                 Parent root;
                 try {

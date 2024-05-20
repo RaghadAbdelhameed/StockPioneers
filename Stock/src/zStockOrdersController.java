@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 
 public class zStockOrdersController extends MainController implements Initializable {
 
-    // private User user;
     private RegularUser regularUser;
     private Stock stock;
     private Transaction transaction;
@@ -36,7 +35,6 @@ public class zStockOrdersController extends MainController implements Initializa
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // setLabelText();
         if (operationChoiceBox == null) {
             operationChoiceBox = new ChoiceBox<>();
         }

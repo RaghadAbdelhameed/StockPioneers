@@ -25,13 +25,10 @@ public class TradingManager {
 
 	// close trading session
 	public void closeTradingSession() {
-		//if (isOpen) {
-			this.closeTime = LocalDateTime.now(); // closing trading session
-			isOpen = false;
-			System.out.println("Trading session closed at " + closeTime);
-		//} else {
-			//System.out.println(" No trading sessions are currently opened ");
-		//}
+		// if (isOpen) {
+		this.closeTime = LocalDateTime.now(); // closing trading session
+		isOpen = false;
+		System.out.println("Trading session closed at " + closeTime);
 	}
 
 	// Method to check if trading session is opened

@@ -20,17 +20,9 @@ public class zAdminSessionsController extends MainController implements Initiali
 
     @FXML
     void closeClicked(ActionEvent event) {
-        // tradingManager = new TradingManager();
         admin = Admin.getInstance("rawan", "rawan55");
         admin.closeTradingSession();
 
-        // if (isOpen) {
-        // this.closeTime = LocalDateTime.now(); // closing trading session
-        // isOpen = false;
-        // System.out.println("Trading session closed at " + closeTime);
-        // } else {
-        // System.out.println(" No trading sessions are currently opened ");
-        // }
     }
 
     @FXML
@@ -42,19 +34,11 @@ public class zAdminSessionsController extends MainController implements Initiali
     @SuppressWarnings("static-access")
     @FXML
     void intiateClicked(ActionEvent event) {
-        // admin.getInstance("skaf", "faf", gender.male, tradingManager);
         tradingManager = new TradingManager();
         admin = Admin.getInstance("", "");
         admin.initiateTradingSession();
-        // closeSessionLabel.setText(String.valueOf(LocalDateTime.now()));
         loadFXML("TradingSessionsClose.fxml", initiateButton, "Trading Sessions");
-        // closeSessionLabel.setText(String.valueOf(LocalDateTime.now()));
-        // if (!isOpen) {
-        // this.openTime = LocalDateTime.now(); // opening trading session
-        // isOpen = true;
-        // System.out.println(" Trading session is opened at " + openTime);
-        // } else {
-        // System.out.println(" Trading session is already opened ");
+
     }
 
     @Override
