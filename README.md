@@ -199,11 +199,11 @@ The `PremiumUser` class enhances the functionalities available to regular users,
 
 ## Contributors  
 
-- [Raghad Abdelhameed](https://github.com/RaghadAbdelhameed) - UI Design and Writing README
-- [Zeyad Ashraf Nassar](https://github.com/ZEY0D) - Backend, Testing, and Debugging
-- [Rawan Mohammed](https://github.com/rawan-mohamed-n) - Merging Backend to Frontend and UI Modifications
-- [Ahmed Loay](https://github.com/Ahmedloay2) - Integrating CSV Files with Backend and Tables
-- [Mostafa Ashraf](https://github.com/Nagafa007) - Tables and CSV Integration
+- [Raghad Abdelhameed](https://github.com/RaghadAbdelhameed) 
+- [Zeyad Ashraf Nassar](https://github.com/ZEY0D) 
+- [Rawan Mohammed](https://github.com/rawan-mohamed-n) 
+- [Ahmed Loay](https://github.com/Ahmedloay2) 
+- [Mostafa Ashraf](https://github.com/Nagafa007) 
 
 ---
 
